@@ -10,10 +10,10 @@ license = "MIT OR Apache-2.0"
 categories = ["api-bindings", "game-development", "games"]
 
 [features]
-reflection = []
 
 [dependencies]
 prost = "0.14"
+serde = { version = "1", features = ["derive"] }
 
 [build-dependencies]
 prost = "0.14"

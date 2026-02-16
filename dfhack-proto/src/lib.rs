@@ -124,7 +124,6 @@ impl<T: Display> Display for Reply<T> {
     }
 }
 
-#[cfg(feature = "reflection")]
 /// Reflection for runtime inspection of the stubs.
 pub mod reflection {
     /// Descriptor of a remote procedure call

@@ -50,33 +50,35 @@ fn main() {
     println!("cargo:rerun-if-changed=build.rs");
     println!("cargo:rerun-if-env-changed=DFHACK_REGEN");
 
-    let protoc = get_protoc();
+    if std::env::var("DFHACK_REGEN").is_ok() {
+        let protoc = get_protoc();
 
-    let proto_include_dir = dfhack_proto_srcs::include_dir();
-    let protos = dfhack_proto_srcs::protos();
+        let proto_include_dir = dfhack_proto_srcs::include_dir();
+        let protos = dfhack_proto_srcs::protos();
 
-    assert!(!protos.is_empty(), "No protobuf file for code generation.");
+        assert!(!protos.is_empty(), "No protobuf file for code generation.");
 
-    // Generate in the sources if DFHACK_REGEN is set
-    // in OUT_DIR otherwise.
-    // TODO It should always be OUT_DIR, then expose macros.
-    let out_path = match std::env::var("DFHACK_REGEN") {
-        Ok(_) => {
-            let dst = PathBuf::from("src/generated");
-            if dst.exists() {
-                std::fs::remove_dir_all(&dst).unwrap();
+        // Generate in the sources if DFHACK_REGEN is set
+        // in OUT_DIR otherwise.
+        // TODO It should always be OUT_DIR, then expose macros.
+        let out_path = match std::env::var("DFHACK_REGEN") {
+            Ok(_) => {
+                let dst = PathBuf::from("src/generated");
+                if dst.exists() {
+                    std::fs::remove_dir_all(&dst).unwrap();
+                }
+                std::fs::create_dir_all(&dst).unwrap();
+                dst
             }
-            std::fs::create_dir_all(&dst).unwrap();
-            dst
-        }
-        Err(_) => PathBuf::from(std::env::var("OUT_DIR").unwrap()),
-    };
+            Err(_) => PathBuf::from(std::env::var("OUT_DIR").unwrap()),
+        };
 
-    // Generate the protobuf message files
-    generate_messages_rs(&protoc, &protos, proto_include_dir, &out_path);
+        // Generate the protobuf message files
+        generate_messages_rs(&protoc, &protos, proto_include_dir, &out_path);
 
-    // Generate the plugin stubs
-    generate_stubs_rs(&protos, &out_path)
+        // Generate the plugin stubs
+        generate_stubs_rs(&protos, &out_path)
+    }
 }
 
 fn get_protoc() -> PathBuf {
@@ -101,13 +103,14 @@ fn messages_protoc_codegen(
 ) {
     prost_build::Config::new()
         .enable_type_names()
+        .type_attribute(".", "#[derive(serde::Serialize)]")
         .protoc_executable(protoc)
         .out_dir(out_path)
         .compile_protos(protos, &[include_dir])
         .unwrap();
 }
 
-fn generate_stubs_rs(protos: &Vec<PathBuf>, out_path: &Path) {
+fn generate_stubs_rs(protos: &[PathBuf], out_path: &Path) {
     let plugins = read_protos_rpcs(protos);
     let mut out_path = out_path.to_path_buf();
     out_path.push("stubs");
@@ -173,7 +176,6 @@ fn generate_stubs_mod_rs(plugins: &Vec<Plugin>, file: &mut TokenStream) {
             #plugins_impl
         }
 
-        #[cfg(feature = "reflection")]
         impl<TChannel: crate::Channel> crate::reflection::StubReflection for Stubs<TChannel> {
             fn list_methods() -> Vec<crate::reflection::RemoteProcedureDescriptor> {
                 let mut methods = Vec::new();
@@ -323,7 +325,6 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
             #plugin_impl
         }
 
-        #[cfg(feature = "reflection")]
         impl<TChannel: crate::Channel> crate::reflection::StubReflection for #struct_ident<'_, TChannel> {
             fn list_methods() -> Vec<crate::reflection::RemoteProcedureDescriptor> {
                 vec![
@@ -334,7 +335,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
     });
 }
 
-fn read_protos_rpcs(protos: &Vec<PathBuf>) -> Vec<Plugin> {
+fn read_protos_rpcs(protos: &[PathBuf]) -> Vec<Plugin> {
     let mut plugins = HashMap::<String, Plugin>::new();
 
     for proto in protos {

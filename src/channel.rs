@@ -247,7 +247,6 @@ mod tests {
         }
 
         #[test]
-        #[cfg(feature = "reflection")]
         fn bind_all() {
             use dfhack_proto::{reflection::StubReflection, stubs::Stubs};
 
