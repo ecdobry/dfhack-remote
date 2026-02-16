@@ -18,7 +18,7 @@
 #![allow(unused_results)]
 #![allow(unused_mut)]
 
-//! Generated file from `rename.proto`
+//! Generated file from `example.proto`
 
 /// Generated files are compatible only with the same version
 /// of protobuf runtime.
@@ -727,8 +727,8 @@ impl ::protobuf::reflect::ProtobufValue for RenameBuildingIn {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x0crename.proto\x12\x07dfproto\"\\\n\rRenameSquadIn\x12\x19\n\x08squa\
-    d_id\x18\x01\x20\x02(\x05R\x07squadId\x12\x1a\n\x08nickname\x18\x02\x20\
+    \n\rexample.proto\x12\x07dfproto\"\\\n\rRenameSquadIn\x12\x19\n\x08squad\
+    _id\x18\x01\x20\x02(\x05R\x07squadId\x12\x1a\n\x08nickname\x18\x02\x20\
     \x01(\tR\x08nickname\x12\x14\n\x05alias\x18\x03\x20\x01(\tR\x05alias\"c\
     \n\x0cRenameUnitIn\x12\x17\n\x07unit_id\x18\x01\x20\x02(\x05R\x06unitId\
     \x12\x1a\n\x08nickname\x18\x02\x20\x01(\tR\x08nickname\x12\x1e\n\nprofes\

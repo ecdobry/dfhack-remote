@@ -32,7 +32,7 @@ fn main() {
     let mut dfhack_archive = File::create(&dfhack_archive_path).unwrap();
     let dfhack_url = match std::env::var("DFHACK_ZIP_URL") {
         Ok(val) => val,
-        Err(_) => "https://codeload.github.com/DFHack/dfhack/zip/refs/tags/0.47.05-r4".to_string(),
+        Err(_) => "https://github.com/DFHack/dfhack/archive/refs/tags/53.10-r1.zip".to_string(),
     };
     let mut dfhack_download_request = reqwest::blocking::get(dfhack_url).unwrap();
     std::io::copy(&mut dfhack_download_request, &mut dfhack_archive).unwrap();

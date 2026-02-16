@@ -5320,7 +5320,7 @@ pub struct MaterialDefinition {
     // @@protoc_insertion_point(field:RemoteFortressReader.MaterialDefinition.id)
     pub id: ::std::option::Option<::std::string::String>,
     // @@protoc_insertion_point(field:RemoteFortressReader.MaterialDefinition.name)
-    pub name: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub name: ::std::option::Option<::std::string::String>,
     // @@protoc_insertion_point(field:RemoteFortressReader.MaterialDefinition.state_color)
     pub state_color: ::protobuf::MessageField<ColorDefinition>,
     // @@protoc_insertion_point(field:RemoteFortressReader.MaterialDefinition.instrument)
@@ -5383,12 +5383,12 @@ impl MaterialDefinition {
         self.id.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    // optional bytes name = 3;
+    // optional string name = 3;
 
-    pub fn name(&self) -> &[u8] {
+    pub fn name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => v,
-            None => &[],
+            None => "",
         }
     }
 
@@ -5401,22 +5401,22 @@ impl MaterialDefinition {
     }
 
     // Param is passed by value, moved
-    pub fn set_name(&mut self, v: ::std::vec::Vec<u8>) {
+    pub fn set_name(&mut self, v: ::std::string::String) {
         self.name = ::std::option::Option::Some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_name(&mut self) -> &mut ::std::vec::Vec<u8> {
+    pub fn mut_name(&mut self) -> &mut ::std::string::String {
         if self.name.is_none() {
-            self.name = ::std::option::Option::Some(::std::vec::Vec::new());
+            self.name = ::std::option::Option::Some(::std::string::String::new());
         }
         self.name.as_mut().unwrap()
     }
 
     // Take field
-    pub fn take_name(&mut self) -> ::std::vec::Vec<u8> {
-        self.name.take().unwrap_or_else(|| ::std::vec::Vec::new())
+    pub fn take_name(&mut self) -> ::std::string::String {
+        self.name.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     // optional int32 up_step = 6;
@@ -5565,7 +5565,7 @@ impl ::protobuf::Message for MaterialDefinition {
                     self.id = ::std::option::Option::Some(is.read_string()?);
                 },
                 26 => {
-                    self.name = ::std::option::Option::Some(is.read_bytes()?);
+                    self.name = ::std::option::Option::Some(is.read_string()?);
                 },
                 34 => {
                     ::protobuf::rt::read_singular_message_into_field(is, &mut self.state_color)?;
@@ -5602,7 +5602,7 @@ impl ::protobuf::Message for MaterialDefinition {
             my_size += ::protobuf::rt::string_size(2, &v);
         }
         if let Some(v) = self.name.as_ref() {
-            my_size += ::protobuf::rt::bytes_size(3, &v);
+            my_size += ::protobuf::rt::string_size(3, &v);
         }
         if let Some(v) = self.state_color.as_ref() {
             let len = v.compute_size();
@@ -5634,7 +5634,7 @@ impl ::protobuf::Message for MaterialDefinition {
             os.write_string(2, v)?;
         }
         if let Some(v) = self.name.as_ref() {
-            os.write_bytes(3, v)?;
+            os.write_string(3, v)?;
         }
         if let Some(v) = self.state_color.as_ref() {
             ::protobuf::rt::write_message_field_with_cached_size(4, v, os)?;
@@ -8974,6 +8974,8 @@ pub struct BlockRequest {
     pub min_z: ::std::option::Option<i32>,
     // @@protoc_insertion_point(field:RemoteFortressReader.BlockRequest.max_z)
     pub max_z: ::std::option::Option<i32>,
+    // @@protoc_insertion_point(field:RemoteFortressReader.BlockRequest.force_reload)
+    pub force_reload: ::std::option::Option<bool>,
     // special fields
     // @@protoc_insertion_point(special_field:RemoteFortressReader.BlockRequest.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -9123,8 +9125,27 @@ impl BlockRequest {
         self.max_z = ::std::option::Option::Some(v);
     }
 
+    // optional bool force_reload = 8;
+
+    pub fn force_reload(&self) -> bool {
+        self.force_reload.unwrap_or(false)
+    }
+
+    pub fn clear_force_reload(&mut self) {
+        self.force_reload = ::std::option::Option::None;
+    }
+
+    pub fn has_force_reload(&self) -> bool {
+        self.force_reload.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_force_reload(&mut self, v: bool) {
+        self.force_reload = ::std::option::Option::Some(v);
+    }
+
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(7);
+        let mut fields = ::std::vec::Vec::with_capacity(8);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
             "blocks_needed",
@@ -9160,6 +9181,11 @@ impl BlockRequest {
             "max_z",
             |m: &BlockRequest| { &m.max_z },
             |m: &mut BlockRequest| { &mut m.max_z },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+            "force_reload",
+            |m: &BlockRequest| { &m.force_reload },
+            |m: &mut BlockRequest| { &mut m.force_reload },
         ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<BlockRequest>(
             "BlockRequest",
@@ -9200,6 +9226,9 @@ impl ::protobuf::Message for BlockRequest {
                 56 => {
                     self.max_z = ::std::option::Option::Some(is.read_int32()?);
                 },
+                64 => {
+                    self.force_reload = ::std::option::Option::Some(is.read_bool()?);
+                },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
                 },
@@ -9233,6 +9262,9 @@ impl ::protobuf::Message for BlockRequest {
         if let Some(v) = self.max_z {
             my_size += ::protobuf::rt::int32_size(7, v);
         }
+        if let Some(v) = self.force_reload {
+            my_size += 1 + 1;
+        }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
         my_size
@@ -9260,6 +9292,9 @@ impl ::protobuf::Message for BlockRequest {
         if let Some(v) = self.max_z {
             os.write_int32(7, v)?;
         }
+        if let Some(v) = self.force_reload {
+            os.write_bool(8, v)?;
+        }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
     }
@@ -9284,6 +9319,7 @@ impl ::protobuf::Message for BlockRequest {
         self.max_y = ::std::option::Option::None;
         self.min_z = ::std::option::Option::None;
         self.max_z = ::std::option::Option::None;
+        self.force_reload = ::std::option::Option::None;
         self.special_fields.clear();
     }
 
@@ -9296,6 +9332,7 @@ impl ::protobuf::Message for BlockRequest {
             max_y: ::std::option::Option::None,
             min_z: ::std::option::Option::None,
             max_z: ::std::option::Option::None,
+            force_reload: ::std::option::Option::None,
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -11233,7 +11270,7 @@ pub struct WorldMap {
     // @@protoc_insertion_point(field:RemoteFortressReader.WorldMap.world_height)
     pub world_height: ::std::option::Option<i32>,
     // @@protoc_insertion_point(field:RemoteFortressReader.WorldMap.name)
-    pub name: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub name: ::std::option::Option<::std::string::String>,
     // @@protoc_insertion_point(field:RemoteFortressReader.WorldMap.name_english)
     pub name_english: ::std::option::Option<::std::string::String>,
     // @@protoc_insertion_point(field:RemoteFortressReader.WorldMap.elevation)
@@ -11332,12 +11369,12 @@ impl WorldMap {
         self.world_height = ::std::option::Option::Some(v);
     }
 
-    // optional bytes name = 3;
+    // optional string name = 3;
 
-    pub fn name(&self) -> &[u8] {
+    pub fn name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => v,
-            None => &[],
+            None => "",
         }
     }
 
@@ -11350,22 +11387,22 @@ impl WorldMap {
     }
 
     // Param is passed by value, moved
-    pub fn set_name(&mut self, v: ::std::vec::Vec<u8>) {
+    pub fn set_name(&mut self, v: ::std::string::String) {
         self.name = ::std::option::Option::Some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_name(&mut self) -> &mut ::std::vec::Vec<u8> {
+    pub fn mut_name(&mut self) -> &mut ::std::string::String {
         if self.name.is_none() {
-            self.name = ::std::option::Option::Some(::std::vec::Vec::new());
+            self.name = ::std::option::Option::Some(::std::string::String::new());
         }
         self.name.as_mut().unwrap()
     }
 
     // Take field
-    pub fn take_name(&mut self) -> ::std::vec::Vec<u8> {
-        self.name.take().unwrap_or_else(|| ::std::vec::Vec::new())
+    pub fn take_name(&mut self) -> ::std::string::String {
+        self.name.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     // optional string name_english = 4;
@@ -11733,7 +11770,7 @@ impl ::protobuf::Message for WorldMap {
                     self.world_height = ::std::option::Option::Some(is.read_int32()?);
                 },
                 26 => {
-                    self.name = ::std::option::Option::Some(is.read_bytes()?);
+                    self.name = ::std::option::Option::Some(is.read_string()?);
                 },
                 34 => {
                     self.name_english = ::std::option::Option::Some(is.read_string()?);
@@ -11850,7 +11887,7 @@ impl ::protobuf::Message for WorldMap {
             my_size += ::protobuf::rt::int32_size(2, v);
         }
         if let Some(v) = self.name.as_ref() {
-            my_size += ::protobuf::rt::bytes_size(3, &v);
+            my_size += ::protobuf::rt::string_size(3, &v);
         }
         if let Some(v) = self.name_english.as_ref() {
             my_size += ::protobuf::rt::string_size(4, &v);
@@ -11934,7 +11971,7 @@ impl ::protobuf::Message for WorldMap {
             os.write_int32(2, v)?;
         }
         if let Some(v) = self.name.as_ref() {
-            os.write_bytes(3, v)?;
+            os.write_string(3, v)?;
         }
         if let Some(v) = self.name_english.as_ref() {
             os.write_string(4, v)?;
@@ -23310,6 +23347,12 @@ pub struct FlowInfo {
     pub material: ::protobuf::MessageField<MatPair>,
     // @@protoc_insertion_point(field:RemoteFortressReader.FlowInfo.item)
     pub item: ::protobuf::MessageField<MatPair>,
+    // @@protoc_insertion_point(field:RemoteFortressReader.FlowInfo.dead)
+    pub dead: ::std::option::Option<bool>,
+    // @@protoc_insertion_point(field:RemoteFortressReader.FlowInfo.fast)
+    pub fast: ::std::option::Option<bool>,
+    // @@protoc_insertion_point(field:RemoteFortressReader.FlowInfo.creeping)
+    pub creeping: ::std::option::Option<bool>,
     // special fields
     // @@protoc_insertion_point(special_field:RemoteFortressReader.FlowInfo.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -23443,8 +23486,65 @@ impl FlowInfo {
         self.guide_id = ::std::option::Option::Some(v);
     }
 
+    // optional bool dead = 11;
+
+    pub fn dead(&self) -> bool {
+        self.dead.unwrap_or(false)
+    }
+
+    pub fn clear_dead(&mut self) {
+        self.dead = ::std::option::Option::None;
+    }
+
+    pub fn has_dead(&self) -> bool {
+        self.dead.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_dead(&mut self, v: bool) {
+        self.dead = ::std::option::Option::Some(v);
+    }
+
+    // optional bool fast = 12;
+
+    pub fn fast(&self) -> bool {
+        self.fast.unwrap_or(false)
+    }
+
+    pub fn clear_fast(&mut self) {
+        self.fast = ::std::option::Option::None;
+    }
+
+    pub fn has_fast(&self) -> bool {
+        self.fast.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_fast(&mut self, v: bool) {
+        self.fast = ::std::option::Option::Some(v);
+    }
+
+    // optional bool creeping = 13;
+
+    pub fn creeping(&self) -> bool {
+        self.creeping.unwrap_or(false)
+    }
+
+    pub fn clear_creeping(&mut self) {
+        self.creeping = ::std::option::Option::None;
+    }
+
+    pub fn has_creeping(&self) -> bool {
+        self.creeping.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_creeping(&mut self, v: bool) {
+        self.creeping = ::std::option::Option::Some(v);
+    }
+
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(10);
+        let mut fields = ::std::vec::Vec::with_capacity(13);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
             "index",
@@ -23495,6 +23595,21 @@ impl FlowInfo {
             "item",
             |m: &FlowInfo| { &m.item },
             |m: &mut FlowInfo| { &mut m.item },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+            "dead",
+            |m: &FlowInfo| { &m.dead },
+            |m: &mut FlowInfo| { &mut m.dead },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+            "fast",
+            |m: &FlowInfo| { &m.fast },
+            |m: &mut FlowInfo| { &mut m.fast },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+            "creeping",
+            |m: &FlowInfo| { &m.creeping },
+            |m: &mut FlowInfo| { &mut m.creeping },
         ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<FlowInfo>(
             "FlowInfo",
@@ -23564,6 +23679,15 @@ impl ::protobuf::Message for FlowInfo {
                 82 => {
                     ::protobuf::rt::read_singular_message_into_field(is, &mut self.item)?;
                 },
+                88 => {
+                    self.dead = ::std::option::Option::Some(is.read_bool()?);
+                },
+                96 => {
+                    self.fast = ::std::option::Option::Some(is.read_bool()?);
+                },
+                104 => {
+                    self.creeping = ::std::option::Option::Some(is.read_bool()?);
+                },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
                 },
@@ -23610,6 +23734,15 @@ impl ::protobuf::Message for FlowInfo {
             let len = v.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
         }
+        if let Some(v) = self.dead {
+            my_size += 1 + 1;
+        }
+        if let Some(v) = self.fast {
+            my_size += 1 + 1;
+        }
+        if let Some(v) = self.creeping {
+            my_size += 1 + 1;
+        }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
         my_size
@@ -23646,6 +23779,15 @@ impl ::protobuf::Message for FlowInfo {
         if let Some(v) = self.item.as_ref() {
             ::protobuf::rt::write_message_field_with_cached_size(10, v, os)?;
         }
+        if let Some(v) = self.dead {
+            os.write_bool(11, v)?;
+        }
+        if let Some(v) = self.fast {
+            os.write_bool(12, v)?;
+        }
+        if let Some(v) = self.creeping {
+            os.write_bool(13, v)?;
+        }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
     }
@@ -23673,6 +23815,9 @@ impl ::protobuf::Message for FlowInfo {
         self.guide_id = ::std::option::Option::None;
         self.material.clear();
         self.item.clear();
+        self.dead = ::std::option::Option::None;
+        self.fast = ::std::option::Option::None;
+        self.creeping = ::std::option::Option::None;
         self.special_fields.clear();
     }
 
@@ -23688,6 +23833,9 @@ impl ::protobuf::Message for FlowInfo {
             guide_id: ::std::option::Option::None,
             material: ::protobuf::MessageField::none(),
             item: ::protobuf::MessageField::none(),
+            dead: ::std::option::Option::None,
+            fast: ::std::option::Option::None,
+            creeping: ::std::option::Option::None,
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -24548,8 +24696,16 @@ pub enum BuildingDirection {
     SOUTH = 2,
     // @@protoc_insertion_point(enum_value:RemoteFortressReader.BuildingDirection.WEST)
     WEST = 3,
+    // @@protoc_insertion_point(enum_value:RemoteFortressReader.BuildingDirection.NORTHEAST)
+    NORTHEAST = 4,
+    // @@protoc_insertion_point(enum_value:RemoteFortressReader.BuildingDirection.SOUTHEAST)
+    SOUTHEAST = 5,
+    // @@protoc_insertion_point(enum_value:RemoteFortressReader.BuildingDirection.SOUTHWEST)
+    SOUTHWEST = 6,
+    // @@protoc_insertion_point(enum_value:RemoteFortressReader.BuildingDirection.NORTHWEST)
+    NORTHWEST = 7,
     // @@protoc_insertion_point(enum_value:RemoteFortressReader.BuildingDirection.NONE)
-    NONE = 4,
+    NONE = 8,
 }
 
 impl ::protobuf::Enum for BuildingDirection {
@@ -24565,7 +24721,11 @@ impl ::protobuf::Enum for BuildingDirection {
             1 => ::std::option::Option::Some(BuildingDirection::EAST),
             2 => ::std::option::Option::Some(BuildingDirection::SOUTH),
             3 => ::std::option::Option::Some(BuildingDirection::WEST),
-            4 => ::std::option::Option::Some(BuildingDirection::NONE),
+            4 => ::std::option::Option::Some(BuildingDirection::NORTHEAST),
+            5 => ::std::option::Option::Some(BuildingDirection::SOUTHEAST),
+            6 => ::std::option::Option::Some(BuildingDirection::SOUTHWEST),
+            7 => ::std::option::Option::Some(BuildingDirection::NORTHWEST),
+            8 => ::std::option::Option::Some(BuildingDirection::NONE),
             _ => ::std::option::Option::None
         }
     }
@@ -24576,6 +24736,10 @@ impl ::protobuf::Enum for BuildingDirection {
             "EAST" => ::std::option::Option::Some(BuildingDirection::EAST),
             "SOUTH" => ::std::option::Option::Some(BuildingDirection::SOUTH),
             "WEST" => ::std::option::Option::Some(BuildingDirection::WEST),
+            "NORTHEAST" => ::std::option::Option::Some(BuildingDirection::NORTHEAST),
+            "SOUTHEAST" => ::std::option::Option::Some(BuildingDirection::SOUTHEAST),
+            "SOUTHWEST" => ::std::option::Option::Some(BuildingDirection::SOUTHWEST),
+            "NORTHWEST" => ::std::option::Option::Some(BuildingDirection::NORTHWEST),
             "NONE" => ::std::option::Option::Some(BuildingDirection::NONE),
             _ => ::std::option::Option::None
         }
@@ -24586,6 +24750,10 @@ impl ::protobuf::Enum for BuildingDirection {
         BuildingDirection::EAST,
         BuildingDirection::SOUTH,
         BuildingDirection::WEST,
+        BuildingDirection::NORTHEAST,
+        BuildingDirection::SOUTHEAST,
+        BuildingDirection::SOUTHWEST,
+        BuildingDirection::NORTHWEST,
         BuildingDirection::NONE,
     ];
 }
@@ -26110,11 +26278,11 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     lue\x18\x03\x20\x02(\x05R\x04blue\"\xea\x02\n\x12MaterialDefinition\x128\
     \n\x08mat_pair\x18\x01\x20\x02(\x0b2\x1d.RemoteFortressReader.MatPairR\
     \x07matPair\x12\x0e\n\x02id\x18\x02\x20\x01(\tR\x02id\x12\x12\n\x04name\
-    \x18\x03\x20\x01(\x0cR\x04name\x12F\n\x0bstate_color\x18\x04\x20\x01(\
-    \x0b2%.RemoteFortressReader.ColorDefinitionR\nstateColor\x12@\n\ninstrum\
-    ent\x18\x05\x20\x01(\x0b2\x20.ItemdefInstrument.InstrumentDefR\ninstrume\
-    nt\x12\x17\n\x07up_step\x18\x06\x20\x01(\x05R\x06upStep\x12\x1b\n\tdown_\
-    step\x18\x07\x20\x01(\x05R\x08downStep\x126\n\x05layer\x18\x08\x20\x01(\
+    \x18\x03\x20\x01(\tR\x04name\x12F\n\x0bstate_color\x18\x04\x20\x01(\x0b2\
+    %.RemoteFortressReader.ColorDefinitionR\nstateColor\x12@\n\ninstrument\
+    \x18\x05\x20\x01(\x0b2\x20.ItemdefInstrument.InstrumentDefR\ninstrument\
+    \x12\x17\n\x07up_step\x18\x06\x20\x01(\x05R\x06upStep\x12\x1b\n\tdown_st\
+    ep\x18\x07\x20\x01(\x05R\x08downStep\x126\n\x05layer\x18\x08\x20\x01(\
     \x0e2\x20.RemoteFortressReader.ArmorLayerR\x05layer\"\x87\x01\n\x0cBuild\
     ingType\x12#\n\rbuilding_type\x18\x01\x20\x02(\x05R\x0cbuildingType\x12)\
     \n\x10building_subtype\x18\x02\x20\x02(\x05R\x0fbuildingSubtype\x12'\n\
@@ -26174,105 +26342,106 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     ortressReader.CoordR\x06facing\x12\x10\n\x03age\x18\x19\x20\x01(\x05R\
     \x03age\x127\n\x06wounds\x18\x1a\x20\x03(\x0b2\x1f.RemoteFortressReader.\
     UnitWoundR\x06wounds\"U\n\x08UnitList\x12I\n\rcreature_list\x18\x01\x20\
-    \x03(\x0b2$.RemoteFortressReader.UnitDefinitionR\x0ccreatureList\"\xb1\
+    \x03(\x0b2$.RemoteFortressReader.UnitDefinitionR\x0ccreatureList\"\xd4\
     \x01\n\x0cBlockRequest\x12#\n\rblocks_needed\x18\x01\x20\x01(\x05R\x0cbl\
     ocksNeeded\x12\x13\n\x05min_x\x18\x02\x20\x01(\x05R\x04minX\x12\x13\n\
     \x05max_x\x18\x03\x20\x01(\x05R\x04maxX\x12\x13\n\x05min_y\x18\x04\x20\
     \x01(\x05R\x04minY\x12\x13\n\x05max_y\x18\x05\x20\x01(\x05R\x04maxY\x12\
     \x13\n\x05min_z\x18\x06\x20\x01(\x05R\x04minZ\x12\x13\n\x05max_z\x18\x07\
-    \x20\x01(\x05R\x04maxZ\"\xf2\x01\n\tBlockList\x12=\n\nmap_blocks\x18\x01\
-    \x20\x03(\x0b2\x1e.RemoteFortressReader.MapBlockR\tmapBlocks\x12\x13\n\
-    \x05map_x\x18\x02\x20\x01(\x05R\x04mapX\x12\x13\n\x05map_y\x18\x03\x20\
-    \x01(\x05R\x04mapY\x12?\n\nengravings\x18\x04\x20\x03(\x0b2\x1f.RemoteFo\
-    rtressReader.EngravingR\nengravings\x12;\n\x0bocean_waves\x18\x05\x20\
-    \x03(\x0b2\x1a.RemoteFortressReader.WaveR\noceanWaves\"_\n\x08PlantDef\
-    \x12\x13\n\x05pos_x\x18\x01\x20\x02(\x05R\x04posX\x12\x13\n\x05pos_y\x18\
-    \x02\x20\x02(\x05R\x04posY\x12\x13\n\x05pos_z\x18\x03\x20\x02(\x05R\x04p\
-    osZ\x12\x14\n\x05index\x18\x04\x20\x02(\x05R\x05index\"J\n\tPlantList\
-    \x12=\n\nplant_list\x18\x01\x20\x03(\x0b2\x1e.RemoteFortressReader.Plant\
-    DefR\tplantList\"\xe2\x02\n\x08ViewInfo\x12\x1c\n\nview_pos_x\x18\x01\
-    \x20\x01(\x05R\x08viewPosX\x12\x1c\n\nview_pos_y\x18\x02\x20\x01(\x05R\
-    \x08viewPosY\x12\x1c\n\nview_pos_z\x18\x03\x20\x01(\x05R\x08viewPosZ\x12\
-    \x1e\n\x0bview_size_x\x18\x04\x20\x01(\x05R\tviewSizeX\x12\x1e\n\x0bview\
-    _size_y\x18\x05\x20\x01(\x05R\tviewSizeY\x12\x20\n\x0ccursor_pos_x\x18\
-    \x06\x20\x01(\x05R\ncursorPosX\x12\x20\n\x0ccursor_pos_y\x18\x07\x20\x01\
-    (\x05R\ncursorPosY\x12\x20\n\x0ccursor_pos_z\x18\x08\x20\x01(\x05R\ncurs\
-    orPosZ\x12*\n\x0efollow_unit_id\x18\t\x20\x01(\x05:\x02-1R\x0cfollowUnit\
-    IdB\0\x12*\n\x0efollow_item_id\x18\n\x20\x01(\x05:\x02-1R\x0cfollowItemI\
-    dB\0\"\xb9\x02\n\x07MapInfo\x12\x20\n\x0cblock_size_x\x18\x01\x20\x01(\
-    \x05R\nblockSizeX\x12\x20\n\x0cblock_size_y\x18\x02\x20\x01(\x05R\nblock\
-    SizeY\x12\x20\n\x0cblock_size_z\x18\x03\x20\x01(\x05R\nblockSizeZ\x12\
-    \x1e\n\x0bblock_pos_x\x18\x04\x20\x01(\x05R\tblockPosX\x12\x1e\n\x0bbloc\
-    k_pos_y\x18\x05\x20\x01(\x05R\tblockPosY\x12\x1e\n\x0bblock_pos_z\x18\
-    \x06\x20\x01(\x05R\tblockPosZ\x12\x1d\n\nworld_name\x18\x07\x20\x01(\tR\
-    \tworldName\x12,\n\x12world_name_english\x18\x08\x20\x01(\tR\x10worldNam\
-    eEnglish\x12\x1b\n\tsave_name\x18\t\x20\x01(\tR\x08saveName\"\x81\x02\n\
-    \x05Cloud\x125\n\x05front\x18\x01\x20\x01(\x0e2\x1f.RemoteFortressReader\
-    .FrontTypeR\x05front\x12;\n\x07cumulus\x18\x02\x20\x01(\x0e2!.RemoteFort\
-    ressReader.CumulusTypeR\x07cumulus\x12\x16\n\x06cirrus\x18\x03\x20\x01(\
-    \x08R\x06cirrus\x12;\n\x07stratus\x18\x04\x20\x01(\x0e2!.RemoteFortressR\
-    eader.StratusTypeR\x07stratus\x12/\n\x03fog\x18\x05\x20\x01(\x0e2\x1d.Re\
-    moteFortressReader.FogTypeR\x03fog\"\xf1\x06\n\x08WorldMap\x12\x1f\n\x0b\
-    world_width\x18\x01\x20\x02(\x05R\nworldWidth\x12!\n\x0cworld_height\x18\
-    \x02\x20\x02(\x05R\x0bworldHeight\x12\x12\n\x04name\x18\x03\x20\x01(\x0c\
-    R\x04name\x12!\n\x0cname_english\x18\x04\x20\x01(\tR\x0bnameEnglish\x12\
-    \x1c\n\televation\x18\x05\x20\x03(\x05R\televation\x12\x1a\n\x08rainfall\
-    \x18\x06\x20\x03(\x05R\x08rainfall\x12\x1e\n\nvegetation\x18\x07\x20\x03\
-    (\x05R\nvegetation\x12\x20\n\x0btemperature\x18\x08\x20\x03(\x05R\x0btem\
-    perature\x12\x1a\n\x08evilness\x18\t\x20\x03(\x05R\x08evilness\x12\x1a\n\
-    \x08drainage\x18\n\x20\x03(\x05R\x08drainage\x12\x1c\n\tvolcanism\x18\
-    \x0b\x20\x03(\x05R\tvolcanism\x12\x1a\n\x08savagery\x18\x0c\x20\x03(\x05\
-    R\x08savagery\x123\n\x06clouds\x18\r\x20\x03(\x0b2\x1b.RemoteFortressRea\
-    der.CloudR\x06clouds\x12\x1a\n\x08salinity\x18\x0e\x20\x03(\x05R\x08sali\
-    nity\x12\x13\n\x05map_x\x18\x0f\x20\x01(\x05R\x04mapX\x12\x13\n\x05map_y\
-    \x18\x10\x20\x01(\x05R\x04mapY\x12\x19\n\x08center_x\x18\x11\x20\x01(\
-    \x05R\x07centerX\x12\x19\n\x08center_y\x18\x12\x20\x01(\x05R\x07centerY\
-    \x12\x19\n\x08center_z\x18\x13\x20\x01(\x05R\x07centerZ\x12\x19\n\x08cur\
-    _year\x18\x14\x20\x01(\x05R\x07curYear\x12\"\n\rcur_year_tick\x18\x15\
-    \x20\x01(\x05R\x0bcurYearTick\x12A\n\x0bworld_poles\x18\x16\x20\x01(\x0e\
-    2\x20.RemoteFortressReader.WorldPolesR\nworldPoles\x12@\n\x0briver_tiles\
-    \x18\x17\x20\x03(\x0b2\x1f.RemoteFortressReader.RiverTileR\nriverTiles\
-    \x12'\n\x0fwater_elevation\x18\x18\x20\x03(\x05R\x0ewaterElevation\x12C\
-    \n\x0cregion_tiles\x18\x19\x20\x03(\x0b2\x20.RemoteFortressReader.Region\
-    TileR\x0bregionTiles\"\xa7\x01\n\x1bSiteRealizationBuildingWall\x12\x17\
-    \n\x07start_x\x18\x01\x20\x01(\x05R\x06startX\x12\x17\n\x07start_y\x18\
-    \x02\x20\x01(\x05R\x06startY\x12\x17\n\x07start_z\x18\x03\x20\x01(\x05R\
-    \x06startZ\x12\x13\n\x05end_x\x18\x04\x20\x01(\x05R\x04endX\x12\x13\n\
-    \x05end_y\x18\x05\x20\x01(\x05R\x04endY\x12\x13\n\x05end_z\x18\x06\x20\
-    \x01(\x05R\x04endZ\"c\n\x1cSiteRealizationBuildingTower\x12\x15\n\x06roo\
-    f_z\x18\x01\x20\x01(\x05R\x05roofZ\x12\x14\n\x05round\x18\x02\x20\x01(\
-    \x08R\x05round\x12\x16\n\x06goblin\x18\x03\x20\x01(\x08R\x06goblin\"\x8d\
-    \x01\n\x0bTrenchSpoke\x12\x1f\n\x0bmound_start\x18\x01\x20\x01(\x05R\nmo\
-    undStart\x12!\n\x0ctrench_start\x18\x02\x20\x01(\x05R\x0btrenchStart\x12\
-    \x1d\n\ntrench_end\x18\x03\x20\x01(\x05R\ttrenchEnd\x12\x1b\n\tmound_end\
-    \x18\x04\x20\x01(\x05R\x08moundEnd\"\\\n\x1fSiteRealizationBuildingTrenc\
-    hes\x129\n\x06spokes\x18\x01\x20\x03(\x0b2!.RemoteFortressReader.TrenchS\
-    pokeR\x06spokes\"\xc7\x03\n\x17SiteRealizationBuilding\x12\x0e\n\x02id\
-    \x18\x01\x20\x01(\x05R\x02id\x12\x13\n\x05min_x\x18\x03\x20\x01(\x05R\
-    \x04minX\x12\x13\n\x05min_y\x18\x04\x20\x01(\x05R\x04minY\x12\x13\n\x05m\
-    ax_x\x18\x05\x20\x01(\x05R\x04maxX\x12\x13\n\x05max_y\x18\x06\x20\x01(\
-    \x05R\x04maxY\x129\n\x08material\x18\x07\x20\x01(\x0b2\x1d.RemoteFortres\
-    sReader.MatPairR\x08material\x12N\n\twall_info\x18\x08\x20\x01(\x0b21.Re\
-    moteFortressReader.SiteRealizationBuildingWallR\x08wallInfo\x12Q\n\ntowe\
-    r_info\x18\t\x20\x01(\x0b22.RemoteFortressReader.SiteRealizationBuilding\
-    TowerR\ttowerInfo\x12V\n\x0btrench_info\x18\n\x20\x01(\x0b25.RemoteFortr\
-    essReader.SiteRealizationBuildingTrenchesR\ntrenchInfo\x12\x12\n\x04type\
-    \x18\x0b\x20\x01(\x05R\x04type\"\x82\x06\n\nRegionTile\x12\x1c\n\televat\
-    ion\x18\x01\x20\x01(\x05R\televation\x12\x1a\n\x08rainfall\x18\x02\x20\
-    \x01(\x05R\x08rainfall\x12\x1e\n\nvegetation\x18\x03\x20\x01(\x05R\nvege\
-    tation\x12\x20\n\x0btemperature\x18\x04\x20\x01(\x05R\x0btemperature\x12\
-    \x1a\n\x08evilness\x18\x05\x20\x01(\x05R\x08evilness\x12\x1a\n\x08draina\
-    ge\x18\x06\x20\x01(\x05R\x08drainage\x12\x1c\n\tvolcanism\x18\x07\x20\
-    \x01(\x05R\tvolcanism\x12\x1a\n\x08savagery\x18\x08\x20\x01(\x05R\x08sav\
-    agery\x12\x1a\n\x08salinity\x18\t\x20\x01(\x05R\x08salinity\x12@\n\x0bri\
-    ver_tiles\x18\n\x20\x01(\x0b2\x1f.RemoteFortressReader.RiverTileR\nriver\
-    Tiles\x12'\n\x0fwater_elevation\x18\x0b\x20\x01(\x05R\x0ewaterElevation\
-    \x12H\n\x10surface_material\x18\x0c\x20\x01(\x0b2\x1d.RemoteFortressRead\
-    er.MatPairR\x0fsurfaceMaterial\x12F\n\x0fplant_materials\x18\r\x20\x03(\
-    \x0b2\x1d.RemoteFortressReader.MatPairR\x0eplantMaterials\x12K\n\tbuildi\
-    ngs\x18\x0e\x20\x03(\x0b2-.RemoteFortressReader.SiteRealizationBuildingR\
-    \tbuildings\x12F\n\x0fstone_materials\x18\x0f\x20\x03(\x0b2\x1d.RemoteFo\
-    rtressReader.MatPairR\x0estoneMaterials\x12D\n\x0etree_materials\x18\x10\
+    \x20\x01(\x05R\x04maxZ\x12!\n\x0cforce_reload\x18\x08\x20\x01(\x08R\x0bf\
+    orceReload\"\xf2\x01\n\tBlockList\x12=\n\nmap_blocks\x18\x01\x20\x03(\
+    \x0b2\x1e.RemoteFortressReader.MapBlockR\tmapBlocks\x12\x13\n\x05map_x\
+    \x18\x02\x20\x01(\x05R\x04mapX\x12\x13\n\x05map_y\x18\x03\x20\x01(\x05R\
+    \x04mapY\x12?\n\nengravings\x18\x04\x20\x03(\x0b2\x1f.RemoteFortressRead\
+    er.EngravingR\nengravings\x12;\n\x0bocean_waves\x18\x05\x20\x03(\x0b2\
+    \x1a.RemoteFortressReader.WaveR\noceanWaves\"_\n\x08PlantDef\x12\x13\n\
+    \x05pos_x\x18\x01\x20\x02(\x05R\x04posX\x12\x13\n\x05pos_y\x18\x02\x20\
+    \x02(\x05R\x04posY\x12\x13\n\x05pos_z\x18\x03\x20\x02(\x05R\x04posZ\x12\
+    \x14\n\x05index\x18\x04\x20\x02(\x05R\x05index\"J\n\tPlantList\x12=\n\np\
+    lant_list\x18\x01\x20\x03(\x0b2\x1e.RemoteFortressReader.PlantDefR\tplan\
+    tList\"\xe2\x02\n\x08ViewInfo\x12\x1c\n\nview_pos_x\x18\x01\x20\x01(\x05\
+    R\x08viewPosX\x12\x1c\n\nview_pos_y\x18\x02\x20\x01(\x05R\x08viewPosY\
+    \x12\x1c\n\nview_pos_z\x18\x03\x20\x01(\x05R\x08viewPosZ\x12\x1e\n\x0bvi\
+    ew_size_x\x18\x04\x20\x01(\x05R\tviewSizeX\x12\x1e\n\x0bview_size_y\x18\
+    \x05\x20\x01(\x05R\tviewSizeY\x12\x20\n\x0ccursor_pos_x\x18\x06\x20\x01(\
+    \x05R\ncursorPosX\x12\x20\n\x0ccursor_pos_y\x18\x07\x20\x01(\x05R\ncurso\
+    rPosY\x12\x20\n\x0ccursor_pos_z\x18\x08\x20\x01(\x05R\ncursorPosZ\x12*\n\
+    \x0efollow_unit_id\x18\t\x20\x01(\x05:\x02-1R\x0cfollowUnitIdB\0\x12*\n\
+    \x0efollow_item_id\x18\n\x20\x01(\x05:\x02-1R\x0cfollowItemIdB\0\"\xb9\
+    \x02\n\x07MapInfo\x12\x20\n\x0cblock_size_x\x18\x01\x20\x01(\x05R\nblock\
+    SizeX\x12\x20\n\x0cblock_size_y\x18\x02\x20\x01(\x05R\nblockSizeY\x12\
+    \x20\n\x0cblock_size_z\x18\x03\x20\x01(\x05R\nblockSizeZ\x12\x1e\n\x0bbl\
+    ock_pos_x\x18\x04\x20\x01(\x05R\tblockPosX\x12\x1e\n\x0bblock_pos_y\x18\
+    \x05\x20\x01(\x05R\tblockPosY\x12\x1e\n\x0bblock_pos_z\x18\x06\x20\x01(\
+    \x05R\tblockPosZ\x12\x1d\n\nworld_name\x18\x07\x20\x01(\tR\tworldName\
+    \x12,\n\x12world_name_english\x18\x08\x20\x01(\tR\x10worldNameEnglish\
+    \x12\x1b\n\tsave_name\x18\t\x20\x01(\tR\x08saveName\"\x81\x02\n\x05Cloud\
+    \x125\n\x05front\x18\x01\x20\x01(\x0e2\x1f.RemoteFortressReader.FrontTyp\
+    eR\x05front\x12;\n\x07cumulus\x18\x02\x20\x01(\x0e2!.RemoteFortressReade\
+    r.CumulusTypeR\x07cumulus\x12\x16\n\x06cirrus\x18\x03\x20\x01(\x08R\x06c\
+    irrus\x12;\n\x07stratus\x18\x04\x20\x01(\x0e2!.RemoteFortressReader.Stra\
+    tusTypeR\x07stratus\x12/\n\x03fog\x18\x05\x20\x01(\x0e2\x1d.RemoteFortre\
+    ssReader.FogTypeR\x03fog\"\xf1\x06\n\x08WorldMap\x12\x1f\n\x0bworld_widt\
+    h\x18\x01\x20\x02(\x05R\nworldWidth\x12!\n\x0cworld_height\x18\x02\x20\
+    \x02(\x05R\x0bworldHeight\x12\x12\n\x04name\x18\x03\x20\x01(\tR\x04name\
+    \x12!\n\x0cname_english\x18\x04\x20\x01(\tR\x0bnameEnglish\x12\x1c\n\tel\
+    evation\x18\x05\x20\x03(\x05R\televation\x12\x1a\n\x08rainfall\x18\x06\
+    \x20\x03(\x05R\x08rainfall\x12\x1e\n\nvegetation\x18\x07\x20\x03(\x05R\n\
+    vegetation\x12\x20\n\x0btemperature\x18\x08\x20\x03(\x05R\x0btemperature\
+    \x12\x1a\n\x08evilness\x18\t\x20\x03(\x05R\x08evilness\x12\x1a\n\x08drai\
+    nage\x18\n\x20\x03(\x05R\x08drainage\x12\x1c\n\tvolcanism\x18\x0b\x20\
+    \x03(\x05R\tvolcanism\x12\x1a\n\x08savagery\x18\x0c\x20\x03(\x05R\x08sav\
+    agery\x123\n\x06clouds\x18\r\x20\x03(\x0b2\x1b.RemoteFortressReader.Clou\
+    dR\x06clouds\x12\x1a\n\x08salinity\x18\x0e\x20\x03(\x05R\x08salinity\x12\
+    \x13\n\x05map_x\x18\x0f\x20\x01(\x05R\x04mapX\x12\x13\n\x05map_y\x18\x10\
+    \x20\x01(\x05R\x04mapY\x12\x19\n\x08center_x\x18\x11\x20\x01(\x05R\x07ce\
+    nterX\x12\x19\n\x08center_y\x18\x12\x20\x01(\x05R\x07centerY\x12\x19\n\
+    \x08center_z\x18\x13\x20\x01(\x05R\x07centerZ\x12\x19\n\x08cur_year\x18\
+    \x14\x20\x01(\x05R\x07curYear\x12\"\n\rcur_year_tick\x18\x15\x20\x01(\
+    \x05R\x0bcurYearTick\x12A\n\x0bworld_poles\x18\x16\x20\x01(\x0e2\x20.Rem\
+    oteFortressReader.WorldPolesR\nworldPoles\x12@\n\x0briver_tiles\x18\x17\
+    \x20\x03(\x0b2\x1f.RemoteFortressReader.RiverTileR\nriverTiles\x12'\n\
+    \x0fwater_elevation\x18\x18\x20\x03(\x05R\x0ewaterElevation\x12C\n\x0cre\
+    gion_tiles\x18\x19\x20\x03(\x0b2\x20.RemoteFortressReader.RegionTileR\
+    \x0bregionTiles\"\xa7\x01\n\x1bSiteRealizationBuildingWall\x12\x17\n\x07\
+    start_x\x18\x01\x20\x01(\x05R\x06startX\x12\x17\n\x07start_y\x18\x02\x20\
+    \x01(\x05R\x06startY\x12\x17\n\x07start_z\x18\x03\x20\x01(\x05R\x06start\
+    Z\x12\x13\n\x05end_x\x18\x04\x20\x01(\x05R\x04endX\x12\x13\n\x05end_y\
+    \x18\x05\x20\x01(\x05R\x04endY\x12\x13\n\x05end_z\x18\x06\x20\x01(\x05R\
+    \x04endZ\"c\n\x1cSiteRealizationBuildingTower\x12\x15\n\x06roof_z\x18\
+    \x01\x20\x01(\x05R\x05roofZ\x12\x14\n\x05round\x18\x02\x20\x01(\x08R\x05\
+    round\x12\x16\n\x06goblin\x18\x03\x20\x01(\x08R\x06goblin\"\x8d\x01\n\
+    \x0bTrenchSpoke\x12\x1f\n\x0bmound_start\x18\x01\x20\x01(\x05R\nmoundSta\
+    rt\x12!\n\x0ctrench_start\x18\x02\x20\x01(\x05R\x0btrenchStart\x12\x1d\n\
+    \ntrench_end\x18\x03\x20\x01(\x05R\ttrenchEnd\x12\x1b\n\tmound_end\x18\
+    \x04\x20\x01(\x05R\x08moundEnd\"\\\n\x1fSiteRealizationBuildingTrenches\
+    \x129\n\x06spokes\x18\x01\x20\x03(\x0b2!.RemoteFortressReader.TrenchSpok\
+    eR\x06spokes\"\xc7\x03\n\x17SiteRealizationBuilding\x12\x0e\n\x02id\x18\
+    \x01\x20\x01(\x05R\x02id\x12\x13\n\x05min_x\x18\x03\x20\x01(\x05R\x04min\
+    X\x12\x13\n\x05min_y\x18\x04\x20\x01(\x05R\x04minY\x12\x13\n\x05max_x\
+    \x18\x05\x20\x01(\x05R\x04maxX\x12\x13\n\x05max_y\x18\x06\x20\x01(\x05R\
+    \x04maxY\x129\n\x08material\x18\x07\x20\x01(\x0b2\x1d.RemoteFortressRead\
+    er.MatPairR\x08material\x12N\n\twall_info\x18\x08\x20\x01(\x0b21.RemoteF\
+    ortressReader.SiteRealizationBuildingWallR\x08wallInfo\x12Q\n\ntower_inf\
+    o\x18\t\x20\x01(\x0b22.RemoteFortressReader.SiteRealizationBuildingTower\
+    R\ttowerInfo\x12V\n\x0btrench_info\x18\n\x20\x01(\x0b25.RemoteFortressRe\
+    ader.SiteRealizationBuildingTrenchesR\ntrenchInfo\x12\x12\n\x04type\x18\
+    \x0b\x20\x01(\x05R\x04type\"\x82\x06\n\nRegionTile\x12\x1c\n\televation\
+    \x18\x01\x20\x01(\x05R\televation\x12\x1a\n\x08rainfall\x18\x02\x20\x01(\
+    \x05R\x08rainfall\x12\x1e\n\nvegetation\x18\x03\x20\x01(\x05R\nvegetatio\
+    n\x12\x20\n\x0btemperature\x18\x04\x20\x01(\x05R\x0btemperature\x12\x1a\
+    \n\x08evilness\x18\x05\x20\x01(\x05R\x08evilness\x12\x1a\n\x08drainage\
+    \x18\x06\x20\x01(\x05R\x08drainage\x12\x1c\n\tvolcanism\x18\x07\x20\x01(\
+    \x05R\tvolcanism\x12\x1a\n\x08savagery\x18\x08\x20\x01(\x05R\x08savagery\
+    \x12\x1a\n\x08salinity\x18\t\x20\x01(\x05R\x08salinity\x12@\n\x0briver_t\
+    iles\x18\n\x20\x01(\x0b2\x1f.RemoteFortressReader.RiverTileR\nriverTiles\
+    \x12'\n\x0fwater_elevation\x18\x0b\x20\x01(\x05R\x0ewaterElevation\x12H\
+    \n\x10surface_material\x18\x0c\x20\x01(\x0b2\x1d.RemoteFortressReader.Ma\
+    tPairR\x0fsurfaceMaterial\x12F\n\x0fplant_materials\x18\r\x20\x03(\x0b2\
+    \x1d.RemoteFortressReader.MatPairR\x0eplantMaterials\x12K\n\tbuildings\
+    \x18\x0e\x20\x03(\x0b2-.RemoteFortressReader.SiteRealizationBuildingR\tb\
+    uildings\x12F\n\x0fstone_materials\x18\x0f\x20\x03(\x0b2\x1d.RemoteFortr\
+    essReader.MatPairR\x0estoneMaterials\x12D\n\x0etree_materials\x18\x10\
     \x20\x03(\x0b2\x1d.RemoteFortressReader.MatPairR\rtreeMaterials\x12\x12\
     \n\x04snow\x18\x11\x20\x01(\x05R\x04snow\"\xa4\x01\n\tRegionMap\x12\x13\
     \n\x05map_x\x18\x01\x20\x01(\x05R\x04mapX\x12\x13\n\x05map_y\x18\x02\x20\
@@ -26429,61 +26598,65 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x06hidden\x12\x1c\n\tnorthwest\x18\x0b\x20\x01(\x08R\tnorthwest\x12\x1c\
     \n\tnortheast\x18\x0c\x20\x01(\x08R\tnortheast\x12\x1c\n\tsouthwest\x18\
     \r\x20\x01(\x08R\tsouthwest\x12\x1c\n\tsoutheast\x18\x0e\x20\x01(\x08R\t\
-    southeast\"\x8b\x03\n\x08FlowInfo\x12\x14\n\x05index\x18\x01\x20\x01(\
+    southeast\"\xd3\x03\n\x08FlowInfo\x12\x14\n\x05index\x18\x01\x20\x01(\
     \x05R\x05index\x122\n\x04type\x18\x02\x20\x01(\x0e2\x1e.RemoteFortressRe\
     ader.FlowTypeR\x04type\x12\x18\n\x07density\x18\x03\x20\x01(\x05R\x07den\
     sity\x12-\n\x03pos\x18\x04\x20\x01(\x0b2\x1b.RemoteFortressReader.CoordR\
     \x03pos\x12/\n\x04dest\x18\x05\x20\x01(\x0b2\x1b.RemoteFortressReader.Co\
     ordR\x04dest\x12\x1c\n\texpanding\x18\x06\x20\x01(\x08R\texpanding\x12\
-    \x14\n\x05reuse\x18\x07\x20\x01(\x08R\x05reuse\x12\x19\n\x08guide_id\x18\
-    \x08\x20\x01(\x05R\x07guideId\x129\n\x08material\x18\t\x20\x01(\x0b2\x1d\
-    .RemoteFortressReader.MatPairR\x08material\x121\n\x04item\x18\n\x20\x01(\
-    \x0b2\x1d.RemoteFortressReader.MatPairR\x04item\"f\n\x04Wave\x12/\n\x04d\
-    est\x18\x01\x20\x01(\x0b2\x1b.RemoteFortressReader.CoordR\x04dest\x12-\n\
-    \x03pos\x18\x02\x20\x01(\x0b2\x1b.RemoteFortressReader.CoordR\x03pos*\
-    \xba\x02\n\rTiletypeShape\x12\x15\n\x08NO_SHAPE\x10\xff\xff\xff\xff\xff\
-    \xff\xff\xff\xff\x01\x12\t\n\x05EMPTY\x10\0\x12\t\n\x05FLOOR\x10\x01\x12\
-    \x0b\n\x07BOULDER\x10\x02\x12\x0b\n\x07PEBBLES\x10\x03\x12\x08\n\x04WALL\
-    \x10\x04\x12\x11\n\rFORTIFICATION\x10\x05\x12\x0c\n\x08STAIR_UP\x10\x06\
-    \x12\x0e\n\nSTAIR_DOWN\x10\x07\x12\x10\n\x0cSTAIR_UPDOWN\x10\x08\x12\x08\
-    \n\x04RAMP\x10\t\x12\x0c\n\x08RAMP_TOP\x10\n\x12\r\n\tBROOK_BED\x10\x0b\
-    \x12\r\n\tBROOK_TOP\x10\x0c\x12\x0e\n\nTREE_SHAPE\x10\r\x12\x0b\n\x07SAP\
-    LING\x10\x0e\x12\t\n\x05SHRUB\x10\x0f\x12\x0f\n\x0bENDLESS_PIT\x10\x10\
-    \x12\n\n\x06BRANCH\x10\x11\x12\x10\n\x0cTRUNK_BRANCH\x10\x12\x12\x08\n\
-    \x04TWIG\x10\x13*\xc4\x01\n\x0fTiletypeSpecial\x12\x17\n\nNO_SPECIAL\x10\
-    \xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\n\n\x06NORMAL\x10\0\x12\x10\
-    \n\x0cRIVER_SOURCE\x10\x01\x12\r\n\tWATERFALL\x10\x02\x12\n\n\x06SMOOTH\
-    \x10\x03\x12\x0c\n\x08FURROWED\x10\x04\x12\x07\n\x03WET\x10\x05\x12\x08\
-    \n\x04DEAD\x10\x06\x12\n\n\x06WORN_1\x10\x07\x12\n\n\x06WORN_2\x10\x08\
-    \x12\n\n\x06WORN_3\x10\t\x12\t\n\x05TRACK\x10\n\x12\x0f\n\x0bSMOOTH_DEAD\
-    \x10\x0b*\x8a\x03\n\x10TiletypeMaterial\x12\x18\n\x0bNO_MATERIAL\x10\xff\
-    \xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x07\n\x03AIR\x10\0\x12\x08\n\
-    \x04SOIL\x10\x01\x12\t\n\x05STONE\x10\x02\x12\x0b\n\x07FEATURE\x10\x03\
-    \x12\x0e\n\nLAVA_STONE\x10\x04\x12\x0b\n\x07MINERAL\x10\x05\x12\x11\n\rF\
-    ROZEN_LIQUID\x10\x06\x12\x10\n\x0cCONSTRUCTION\x10\x07\x12\x0f\n\x0bGRAS\
-    S_LIGHT\x10\x08\x12\x0e\n\nGRASS_DARK\x10\t\x12\r\n\tGRASS_DRY\x10\n\x12\
-    \x0e\n\nGRASS_DEAD\x10\x0b\x12\t\n\x05PLANT\x10\x0c\x12\x07\n\x03HFS\x10\
-    \r\x12\x0c\n\x08CAMPFIRE\x10\x0e\x12\x08\n\x04FIRE\x10\x0f\x12\t\n\x05AS\
-    HES\x10\x10\x12\t\n\x05MAGMA\x10\x11\x12\r\n\tDRIFTWOOD\x10\x12\x12\x08\
-    \n\x04POOL\x10\x13\x12\t\n\x05BROOK\x10\x14\x12\t\n\x05RIVER\x10\x15\x12\
-    \x08\n\x04ROOT\x10\x16\x12\x11\n\rTREE_MATERIAL\x10\x17\x12\x0c\n\x08MUS\
-    HROOM\x10\x18\x12\x13\n\x0fUNDERWORLD_GATE\x10\x19*V\n\x0fTiletypeVarian\
-    t\x12\x17\n\nNO_VARIANT\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\
-    \t\n\x05VAR_1\x10\0\x12\t\n\x05VAR_2\x10\x01\x12\t\n\x05VAR_3\x10\x02\
-    \x12\t\n\x05VAR_4\x10\x03*J\n\nWorldPoles\x12\x0c\n\x08NO_POLES\x10\0\
-    \x12\x0e\n\nNORTH_POLE\x10\x01\x12\x0e\n\nSOUTH_POLE\x10\x02\x12\x0e\n\n\
-    BOTH_POLES\x10\x03*G\n\x11BuildingDirection\x12\t\n\x05NORTH\x10\0\x12\
-    \x08\n\x04EAST\x10\x01\x12\t\n\x05SOUTH\x10\x02\x12\x08\n\x04WEST\x10\
-    \x03\x12\x08\n\x04NONE\x10\x04*\x8d\x01\n\x12TileDigDesignation\x12\n\n\
-    \x06NO_DIG\x10\0\x12\x0f\n\x0bDEFAULT_DIG\x10\x01\x12\x15\n\x11UP_DOWN_S\
-    TAIR_DIG\x10\x02\x12\x0f\n\x0bCHANNEL_DIG\x10\x03\x12\x0c\n\x08RAMP_DIG\
-    \x10\x04\x12\x12\n\x0eDOWN_STAIR_DIG\x10\x05\x12\x10\n\x0cUP_STAIR_DIG\
-    \x10\x06*u\n\tHairStyle\x12\x14\n\x07UNKEMPT\x10\xff\xff\xff\xff\xff\xff\
-    \xff\xff\xff\x01\x12\x11\n\rNEATLY_COMBED\x10\0\x12\x0b\n\x07BRAIDED\x10\
-    \x01\x12\x10\n\x0cDOUBLE_BRAID\x10\x02\x12\x0e\n\nPONY_TAILS\x10\x03\x12\
-    \x10\n\x0cCLEAN_SHAVEN\x10\x04*\x9c\x01\n\rInventoryMode\x12\n\n\x06Haul\
-    ed\x10\0\x12\n\n\x06Weapon\x10\x01\x12\x08\n\x04Worn\x10\x02\x12\x0c\n\
-    \x08Piercing\x10\x03\x12\t\n\x05Flask\x10\x04\x12\x11\n\rWrappedAround\
+    \x18\n\x05reuse\x18\x07\x20\x01(\x08R\x05reuseB\x02\x18\x01\x12\x19\n\
+    \x08guide_id\x18\x08\x20\x01(\x05R\x07guideId\x129\n\x08material\x18\t\
+    \x20\x01(\x0b2\x1d.RemoteFortressReader.MatPairR\x08material\x121\n\x04i\
+    tem\x18\n\x20\x01(\x0b2\x1d.RemoteFortressReader.MatPairR\x04item\x12\
+    \x12\n\x04dead\x18\x0b\x20\x01(\x08R\x04dead\x12\x12\n\x04fast\x18\x0c\
+    \x20\x01(\x08R\x04fast\x12\x1a\n\x08creeping\x18\r\x20\x01(\x08R\x08cree\
+    ping\"f\n\x04Wave\x12/\n\x04dest\x18\x01\x20\x01(\x0b2\x1b.RemoteFortres\
+    sReader.CoordR\x04dest\x12-\n\x03pos\x18\x02\x20\x01(\x0b2\x1b.RemoteFor\
+    tressReader.CoordR\x03pos*\xba\x02\n\rTiletypeShape\x12\x15\n\x08NO_SHAP\
+    E\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\t\n\x05EMPTY\x10\0\x12\
+    \t\n\x05FLOOR\x10\x01\x12\x0b\n\x07BOULDER\x10\x02\x12\x0b\n\x07PEBBLES\
+    \x10\x03\x12\x08\n\x04WALL\x10\x04\x12\x11\n\rFORTIFICATION\x10\x05\x12\
+    \x0c\n\x08STAIR_UP\x10\x06\x12\x0e\n\nSTAIR_DOWN\x10\x07\x12\x10\n\x0cST\
+    AIR_UPDOWN\x10\x08\x12\x08\n\x04RAMP\x10\t\x12\x0c\n\x08RAMP_TOP\x10\n\
+    \x12\r\n\tBROOK_BED\x10\x0b\x12\r\n\tBROOK_TOP\x10\x0c\x12\x0e\n\nTREE_S\
+    HAPE\x10\r\x12\x0b\n\x07SAPLING\x10\x0e\x12\t\n\x05SHRUB\x10\x0f\x12\x0f\
+    \n\x0bENDLESS_PIT\x10\x10\x12\n\n\x06BRANCH\x10\x11\x12\x10\n\x0cTRUNK_B\
+    RANCH\x10\x12\x12\x08\n\x04TWIG\x10\x13*\xc4\x01\n\x0fTiletypeSpecial\
+    \x12\x17\n\nNO_SPECIAL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\n\
+    \n\x06NORMAL\x10\0\x12\x10\n\x0cRIVER_SOURCE\x10\x01\x12\r\n\tWATERFALL\
+    \x10\x02\x12\n\n\x06SMOOTH\x10\x03\x12\x0c\n\x08FURROWED\x10\x04\x12\x07\
+    \n\x03WET\x10\x05\x12\x08\n\x04DEAD\x10\x06\x12\n\n\x06WORN_1\x10\x07\
+    \x12\n\n\x06WORN_2\x10\x08\x12\n\n\x06WORN_3\x10\t\x12\t\n\x05TRACK\x10\
+    \n\x12\x0f\n\x0bSMOOTH_DEAD\x10\x0b*\x8a\x03\n\x10TiletypeMaterial\x12\
+    \x18\n\x0bNO_MATERIAL\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\
+    \x07\n\x03AIR\x10\0\x12\x08\n\x04SOIL\x10\x01\x12\t\n\x05STONE\x10\x02\
+    \x12\x0b\n\x07FEATURE\x10\x03\x12\x0e\n\nLAVA_STONE\x10\x04\x12\x0b\n\
+    \x07MINERAL\x10\x05\x12\x11\n\rFROZEN_LIQUID\x10\x06\x12\x10\n\x0cCONSTR\
+    UCTION\x10\x07\x12\x0f\n\x0bGRASS_LIGHT\x10\x08\x12\x0e\n\nGRASS_DARK\
+    \x10\t\x12\r\n\tGRASS_DRY\x10\n\x12\x0e\n\nGRASS_DEAD\x10\x0b\x12\t\n\
+    \x05PLANT\x10\x0c\x12\x07\n\x03HFS\x10\r\x12\x0c\n\x08CAMPFIRE\x10\x0e\
+    \x12\x08\n\x04FIRE\x10\x0f\x12\t\n\x05ASHES\x10\x10\x12\t\n\x05MAGMA\x10\
+    \x11\x12\r\n\tDRIFTWOOD\x10\x12\x12\x08\n\x04POOL\x10\x13\x12\t\n\x05BRO\
+    OK\x10\x14\x12\t\n\x05RIVER\x10\x15\x12\x08\n\x04ROOT\x10\x16\x12\x11\n\
+    \rTREE_MATERIAL\x10\x17\x12\x0c\n\x08MUSHROOM\x10\x18\x12\x13\n\x0fUNDER\
+    WORLD_GATE\x10\x19*V\n\x0fTiletypeVariant\x12\x17\n\nNO_VARIANT\x10\xff\
+    \xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\t\n\x05VAR_1\x10\0\x12\t\n\x05V\
+    AR_2\x10\x01\x12\t\n\x05VAR_3\x10\x02\x12\t\n\x05VAR_4\x10\x03*J\n\nWorl\
+    dPoles\x12\x0c\n\x08NO_POLES\x10\0\x12\x0e\n\nNORTH_POLE\x10\x01\x12\x0e\
+    \n\nSOUTH_POLE\x10\x02\x12\x0e\n\nBOTH_POLES\x10\x03*\x83\x01\n\x11Build\
+    ingDirection\x12\t\n\x05NORTH\x10\0\x12\x08\n\x04EAST\x10\x01\x12\t\n\
+    \x05SOUTH\x10\x02\x12\x08\n\x04WEST\x10\x03\x12\r\n\tNORTHEAST\x10\x04\
+    \x12\r\n\tSOUTHEAST\x10\x05\x12\r\n\tSOUTHWEST\x10\x06\x12\r\n\tNORTHWES\
+    T\x10\x07\x12\x08\n\x04NONE\x10\x08*\x8d\x01\n\x12TileDigDesignation\x12\
+    \n\n\x06NO_DIG\x10\0\x12\x0f\n\x0bDEFAULT_DIG\x10\x01\x12\x15\n\x11UP_DO\
+    WN_STAIR_DIG\x10\x02\x12\x0f\n\x0bCHANNEL_DIG\x10\x03\x12\x0c\n\x08RAMP_\
+    DIG\x10\x04\x12\x12\n\x0eDOWN_STAIR_DIG\x10\x05\x12\x10\n\x0cUP_STAIR_DI\
+    G\x10\x06*u\n\tHairStyle\x12\x14\n\x07UNKEMPT\x10\xff\xff\xff\xff\xff\
+    \xff\xff\xff\xff\x01\x12\x11\n\rNEATLY_COMBED\x10\0\x12\x0b\n\x07BRAIDED\
+    \x10\x01\x12\x10\n\x0cDOUBLE_BRAID\x10\x02\x12\x0e\n\nPONY_TAILS\x10\x03\
+    \x12\x10\n\x0cCLEAN_SHAVEN\x10\x04*\x9c\x01\n\rInventoryMode\x12\n\n\x06\
+    Hauled\x10\0\x12\n\n\x06Weapon\x10\x01\x12\x08\n\x04Worn\x10\x02\x12\x0c\
+    \n\x08Piercing\x10\x03\x12\t\n\x05Flask\x10\x04\x12\x11\n\rWrappedAround\
     \x10\x05\x12\x0b\n\x07StuckIn\x10\x06\x12\x0b\n\x07InMouth\x10\x07\x12\
     \x07\n\x03Pet\x10\x08\x12\x0c\n\x08SewnInto\x10\t\x12\x0c\n\x08Strapped\
     \x10\n*O\n\nArmorLayer\x12\x0f\n\x0bLAYER_UNDER\x10\0\x12\x0e\n\nLAYER_O\
