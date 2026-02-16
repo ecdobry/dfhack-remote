@@ -1,22 +1,23 @@
+use std::env;
 use std::path::Path;
 use std::{collections::HashMap, io::BufRead, path::PathBuf};
 
 use heck::{ToPascalCase, ToSnakeCase};
 use proc_macro2::TokenStream;
-use protobuf::reflect::MessageDescriptor;
-use protobuf_codegen::{Customize, CustomizeCallback};
 use quote::format_ident;
 use quote::quote;
 use quote::ToTokens;
 use regex::Regex;
 use syn::Ident;
 
+#[derive(Debug)]
 struct Rpc {
     pub name: String,
     pub input: String,
     pub output: String,
 }
 
+#[derive(Debug)]
 struct Plugin {
     pub plugin_name: String,
 
@@ -45,98 +46,67 @@ impl Plugin {
     }
 }
 
-struct AddHash;
-
-impl CustomizeCallback for AddHash {
-    fn message(&self, message: &MessageDescriptor) -> Customize {
-        let mut customize = Customize::default();
-        if message.name() == "MatPair" || message.name() == "Coord" {
-            customize = customize.before("#[derive(Hash, Eq)]");
-        }
-        customize
-    }
-}
-
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
     println!("cargo:rerun-if-env-changed=DFHACK_REGEN");
 
-    let proto_include_dir = dfhack_proto_srcs::include_dir();
-    let protos = dfhack_proto_srcs::protos();
+    if std::env::var("DFHACK_REGEN").is_ok() {
+        let protoc = get_protoc();
 
-    assert!(!protos.is_empty(), "No protobuf file for code generation.");
+        let proto_include_dir = dfhack_proto_srcs::include_dir();
+        let protos = dfhack_proto_srcs::protos();
 
-    // Generate in the sources if DFHACK_REGEN is set
-    // in OUT_DIR otherwise.
-    // TODO It should always be OUT_DIR, then expose macros.
-    let out_path = match std::env::var("DFHACK_REGEN") {
-        Ok(_) => {
-            let dst = PathBuf::from("src/generated");
-            if dst.exists() {
-                std::fs::remove_dir_all(&dst).unwrap();
-            }
-            std::fs::create_dir_all(&dst).unwrap();
-            dst
+        assert!(!protos.is_empty(), "No protobuf file for code generation.");
+
+        // Generate in the sources if DFHACK_REGEN is set
+        let out_path = PathBuf::from(format!("{}/src/generated", env!("CARGO_MANIFEST_DIR")));
+        if out_path.exists() {
+            std::fs::remove_dir_all(&out_path).unwrap();
         }
-        Err(_) => PathBuf::from(std::env::var("OUT_DIR").unwrap()),
-    };
+        std::fs::create_dir_all(&out_path).unwrap();
+        // Generate the protobuf message files
+        generate_messages_rs(&protoc, &protos, proto_include_dir, &out_path);
 
-    // Generate the protobuf message files
-    generate_messages_rs(&protos, proto_include_dir, &out_path);
-
-    // Generate the plugin stubs
-    generate_stubs_rs(&protos, &out_path)
+        // Generate the plugin stubs
+        generate_stubs_rs(&protos, &out_path)
+    }
 }
 
-fn generate_messages_rs(protos: &Vec<PathBuf>, include_dir: &str, out_path: &Path) {
+fn get_protoc() -> PathBuf {
+    let protoc_version = "33.5";
+    let out_dir = env::var("OUT_DIR").unwrap();
+    protoc_fetcher::protoc(protoc_version, Path::new(&out_dir)).unwrap()
+}
+
+fn generate_messages_rs(protoc: &PathBuf, protos: &[PathBuf], include_dir: &str, out_path: &Path) {
     let mut out_path = out_path.to_path_buf();
     out_path.push("messages");
     std::fs::create_dir_all(&out_path).unwrap();
-    messages_protoc_codegen(protos, include_dir, &out_path);
-    messages_generate_mod_rs(protos, &out_path);
+    messages_protoc_codegen(protoc, protos, include_dir, &out_path);
 }
 
 // Call the protoc code generation
-fn messages_protoc_codegen(protos: &Vec<PathBuf>, include_dir: &str, out_path: &Path) {
-    protobuf_codegen::Codegen::new()
-        .customize(Customize::default().lite_runtime(false))
-        .customize_callback(AddHash)
-        .pure()
-        .include(include_dir)
-        .inputs(protos)
+fn messages_protoc_codegen(
+    protoc: &PathBuf,
+    protos: &[PathBuf],
+    include_dir: &str,
+    out_path: &Path,
+) {
+    let mut mod_path = out_path.to_path_buf();
+    mod_path.push("includes.rs");
+    println!("{}", mod_path.display());
+    prost_build::Config::new()
+        .enable_type_names()
+        .type_attribute(".", "#[derive(serde::Serialize)]")
+        .protoc_executable(protoc)
         .out_dir(out_path)
-        .run_from_script();
+        .include_file(&mod_path)
+        .compile_protos(protos, &[include_dir])
+        .unwrap();
+    //panic!("{}", mod_path.display());
 }
 
-fn messages_generate_mod_rs(protos: &Vec<PathBuf>, out_path: &Path) {
-    let mut file = quote!();
-
-    for proto in protos {
-        let mod_name = proto
-            .with_extension("")
-            .file_name()
-            .unwrap()
-            .to_str()
-            .unwrap()
-            .to_string();
-
-        let mod_name: Ident = format_ident!("{}", mod_name);
-
-        file.extend(quote! {
-            mod #mod_name;
-            pub use self::#mod_name::*;
-        });
-    }
-    // Write mod.rs
-    let mut mod_rs_path = out_path.to_path_buf();
-    mod_rs_path.push("mod.rs");
-    let tree = syn::parse2(file).unwrap();
-    let formatted = prettyplease::unparse(&tree);
-
-    std::fs::write(mod_rs_path, formatted).unwrap();
-}
-
-fn generate_stubs_rs(protos: &Vec<PathBuf>, out_path: &Path) {
+fn generate_stubs_rs(protos: &[PathBuf], out_path: &Path) {
     let plugins = read_protos_rpcs(protos);
     let mut out_path = out_path.to_path_buf();
     out_path.push("stubs");
@@ -162,8 +132,7 @@ fn generate_stubs_mod_rs(plugins: &Vec<Plugin>, file: &mut TokenStream) {
 
     file.extend(quote! {
         use crate::messages::*;
-        #[cfg(feature = "reflection")]
-        use protobuf::MessageFull;
+        use prost::Name;
     });
 
     let mut reflection_vec_building = quote!();
@@ -181,7 +150,7 @@ fn generate_stubs_mod_rs(plugins: &Vec<Plugin>, file: &mut TokenStream) {
         let member_ident = plugin.member_ident.clone();
         plugins_impl.extend(quote! {
             #[doc = #doc]
-            pub fn #member_ident(&mut self) -> crate::stubs::#struct_ident<TChannel> {
+            pub fn #member_ident(&'a mut self) -> crate::stubs::#struct_ident<'a, TChannel> {
                 crate::stubs::#struct_ident::new(&mut self.channel)
             }
         });
@@ -199,11 +168,10 @@ fn generate_stubs_mod_rs(plugins: &Vec<Plugin>, file: &mut TokenStream) {
             }
         }
 
-        impl<TChannel: crate::Channel> Stubs<TChannel> {
+        impl<'a, TChannel: crate::Channel> Stubs<TChannel> {
             #plugins_impl
         }
 
-        #[cfg(feature = "reflection")]
         impl<TChannel: crate::Channel> crate::reflection::StubReflection for Stubs<TChannel> {
             fn list_methods() -> Vec<crate::reflection::RemoteProcedureDescriptor> {
                 let mut methods = Vec::new();
@@ -262,7 +230,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 &mut self,
             };
             prep = quote! {
-                let request = EmptyMessage::new();
+                let request = EmptyMessage::default();
             }
         }
 
@@ -281,8 +249,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 value: i32,
             };
             prep = quote! {
-                let mut request = IntMessage::new();
-                request.set_value(value);
+                let request = IntMessage { value };
             }
         }
 
@@ -291,7 +258,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 i32
             };
             post = quote! {
-                let _response = crate::Reply { reply:  _response.value(), fragments: _response.fragments };
+                let _response = crate::Reply { reply:  _response.value, fragments: _response.fragments };
             }
         }
 
@@ -301,8 +268,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 value: bool,
             };
             prep = quote! {
-                let mut request = SingleBool::new();
-                request.set_Value(value);
+                let request = SingleBool { value: Some(value) };
             }
         }
 
@@ -311,7 +277,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 bool
             };
             post = quote! {
-                let _response = crate::Reply { reply:  _response.Value(), fragments: _response.fragments };
+                let _response = crate::Reply { reply:  _response.value(), fragments: _response.fragments };
             }
         }
 
@@ -320,7 +286,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 String
             };
             post = quote! {
-                let _response = crate::Reply { reply:  _response.value().to_string(), fragments: _response.fragments };
+                let _response = crate::Reply { reply:  _response.value.clone(), fragments: _response.fragments };
             }
         }
 
@@ -331,8 +297,8 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
             ) -> Result<crate::Reply<#return_token>, TChannel::TError> {
                 #prep
                 let _response: crate::Reply<#output_ident> = self.channel.request(
-                    #plugin_name.to_string(),
-                    #function_name.to_string(),
+                    #plugin_name,
+                    #function_name,
                     request,
                 )?;
                 #post
@@ -342,14 +308,10 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
 
         reflection_vec.extend(quote! {
             crate::reflection::RemoteProcedureDescriptor {
-                name: #function_name.to_string(),
-                plugin_name: #plugin_name.to_string(),
-                input_type: #input_ident::descriptor()
-                    .full_name()
-                    .to_string(),
-                output_type: #output_ident::descriptor()
-                    .full_name()
-                    .to_string(),
+                name: #function_name,
+                plugin_name: #plugin_name,
+                input_type: #input_ident::full_name(),
+                output_type: #output_ident::full_name(),
             },
         });
     }
@@ -359,7 +321,6 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
             #plugin_impl
         }
 
-        #[cfg(feature = "reflection")]
         impl<TChannel: crate::Channel> crate::reflection::StubReflection for #struct_ident<'_, TChannel> {
             fn list_methods() -> Vec<crate::reflection::RemoteProcedureDescriptor> {
                 vec![
@@ -370,7 +331,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
     });
 }
 
-fn read_protos_rpcs(protos: &Vec<PathBuf>) -> Vec<Plugin> {
+fn read_protos_rpcs(protos: &[PathBuf]) -> Vec<Plugin> {
     let mut plugins = HashMap::<String, Plugin>::new();
 
     for proto in protos {

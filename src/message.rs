@@ -6,7 +6,7 @@
 use byteorder::{LittleEndian, ReadBytesExt, WriteBytesExt};
 use derive_more::Display;
 use num_enum::TryFromPrimitive;
-use protobuf::Message;
+use prost::Message;
 use std::convert::TryFrom;
 
 pub trait Send {
@@ -63,12 +63,12 @@ pub struct Header {
 // https://docs.dfhack.org/en/stable/docs/Remote.html#request
 #[derive(Display)]
 #[display("protobuf message id {}", id)]
-pub struct Request<TMessage: protobuf::MessageFull> {
+pub struct Request<TMessage: crate::Message> {
     pub id: i16,
     pub message: TMessage,
 }
 
-pub enum Reply<TMessage: protobuf::MessageFull> {
+pub enum Reply<TMessage: crate::Message> {
     // https://docs.dfhack.org/en/stable/docs/Remote.html#text
     Text(crate::CoreTextNotification),
 
@@ -152,16 +152,15 @@ impl Receive for Header {
     }
 }
 
-impl<TMessage: protobuf::MessageFull> Request<TMessage> {
+impl<TMessage: crate::Message> Request<TMessage> {
     pub fn new(id: i16, message: TMessage) -> Self {
         Self { id, message }
     }
 }
 
-impl<TMessage: protobuf::MessageFull> Send for Request<TMessage> {
+impl<TMessage: crate::Message> Send for Request<TMessage> {
     fn send<T: std::io::Write>(&self, stream: &mut T) -> crate::Result<()> {
-        let mut payload: Vec<u8> = Vec::new();
-        self.message.write_to_vec(&mut payload)?;
+        let payload: Vec<u8> = self.message.encode_to_vec();
         let header = Header::new(self.id, payload.len() as i32);
 
         log::trace!("Sending protobuf message {}", TMessage::NAME);
@@ -172,7 +171,7 @@ impl<TMessage: protobuf::MessageFull> Send for Request<TMessage> {
     }
 }
 
-impl<TMessage: protobuf::MessageFull> Receive for Reply<TMessage> {
+impl<TMessage: crate::Message> Receive for Reply<TMessage> {
     fn receive<T: std::io::Read>(stream: &mut T) -> crate::Result<Self>
     where
         Self: Sized,
@@ -188,8 +187,8 @@ impl<TMessage: protobuf::MessageFull> Receive for Reply<TMessage> {
                 let mut buf = vec![0u8; header.size as usize];
                 stream.read_exact(&mut buf)?;
                 log::trace!("Read stream");
-                let reply = TMessage::parse_from_bytes(&buf)?;
-                log::trace!("Received {}", TMessage::descriptor().full_name());
+                let reply = TMessage::decode(buf.as_slice())?;
+                log::trace!("Received {}", TMessage::NAME);
                 Ok(Reply::Result(reply))
             }
             RpcReplyCode::Fail => {
@@ -210,7 +209,7 @@ impl<TMessage: protobuf::MessageFull> Receive for Reply<TMessage> {
                 log::trace!("Receiving RPC_REPLY_TEXT of size {}", header.size);
                 let mut buf = vec![0u8; header.size as usize];
                 stream.read_exact(&mut buf)?;
-                let reply = crate::CoreTextNotification::parse_from_bytes(&buf)?;
+                let reply = crate::CoreTextNotification::decode(buf.as_slice())?;
                 Ok(Reply::Text(reply))
             }
             RpcReplyCode::Quit => Err(crate::Error::ProtocolError(

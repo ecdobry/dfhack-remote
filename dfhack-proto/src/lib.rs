@@ -3,9 +3,23 @@
 
 use std::{fmt::Display, ops::Deref};
 
+#[allow(clippy::let_unit_value)]
+#[allow(missing_docs)]
+pub(crate) mod generated {
+    pub(crate) mod stubs;
+}
+
 /// Raw protobuf messages
+#[allow(missing_docs)]
 pub mod messages {
-    pub use crate::generated::messages::*;
+    include!("generated/messages/includes.rs");
+    pub use adventure_control::*;
+    pub use dfproto::*;
+    pub use dfstockpiles::*;
+    pub use dwarf_control::*;
+    pub use itemdef_instrument::*;
+    pub use proto::enums::ui_sidebar_mode::*;
+    pub use remote_fortress_reader::*;
 }
 
 /// Stubs exposing the feature of the DFHack remote API.
@@ -15,6 +29,10 @@ pub mod messages {
 pub mod stubs {
     pub use crate::generated::stubs::*;
 }
+
+/// Message exchanged by dfhack-remote
+pub trait Message: prost::Message + prost::Name + Default {}
+impl<T: prost::Message + prost::Name + Default> Message for T {}
 
 /// The `Channel` is the low-level exchange implementation.
 ///
@@ -43,10 +61,10 @@ pub trait Channel {
     ///
     /// A protobuf result type.
     ///
-    fn request<TRequest: protobuf::MessageFull, TReply: protobuf::MessageFull>(
+    fn request<TRequest: Message, TReply: Message>(
         &mut self,
-        plugin: String,
-        name: String,
+        plugin: &'static str,
+        name: &'static str,
         request: TRequest,
     ) -> Result<Reply<TReply>, Self::TError>;
 }
@@ -74,7 +92,6 @@ impl<T: Display> Display for Reply<T> {
     }
 }
 
-#[cfg(feature = "reflection")]
 /// Reflection for runtime inspection of the stubs.
 pub mod reflection {
     /// Descriptor of a remote procedure call
@@ -82,12 +99,12 @@ pub mod reflection {
     /// These are all the needed information to make a call
     pub struct RemoteProcedureDescriptor {
         /// Name of the RPC
-        pub name: String,
+        pub name: &'static str,
 
         /// Plugin implementing the RPC
         ///
         /// An empty string means the core API
-        pub plugin_name: String,
+        pub plugin_name: &'static str,
 
         /// Input type
         ///
@@ -107,11 +124,4 @@ pub mod reflection {
         /// List the supported remote calls
         fn list_methods() -> Vec<RemoteProcedureDescriptor>;
     }
-}
-
-/// Generated code from this crate
-#[allow(clippy::let_unit_value)]
-mod generated {
-    pub mod messages;
-    pub mod stubs;
 }

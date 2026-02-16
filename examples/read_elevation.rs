@@ -4,8 +4,8 @@ fn main() {
     let mut client = dfhack_remote::connect().unwrap();
 
     let world_map = client.remote_fortress_reader().get_world_map_new().unwrap();
-    let width = world_map.world_width() as usize;
-    let height = world_map.world_height() as usize;
+    let width = world_map.world_width as usize;
+    let height = world_map.world_height as usize;
 
     let mut img = Image::new(width as u32, height as u32);
     let tiles = &world_map.region_tiles;

@@ -18,23 +18,22 @@ categories = ["api-bindings", "game-development", "games"]
 exclude = ["images/"]
 
 [dependencies]
-protobuf = "=3.7.2"
-byteorder = "1.5.0"
-num_enum = "0.7.3"
-log = "0.4.26"
-derive_more = { version = "2.0", features = ["display"] }
+prost = "0.14"
+byteorder = "1"
+num_enum = "0.7"
+log = "0.4"
+derive_more = { version = "2", features = ["display"] }
 dfhack-proto = { version = "0.11.0", path = "dfhack-proto" }
 thiserror = "2"
 
 
 [dev-dependencies]
 bmp = "0.5.0"
-ctor = "0.4.1"
+ctor = "0.6"
 lazy_static = "1.5.0"
-rand = "0.9.0"
-env_logger = "0.11.7"
+rand = "0.10"
+env_logger = "0.11"
 
 
 [features]
-test-with-df = ["reflection"]
-reflection = ["dfhack-proto/reflection"]
+test-with-df = []
