@@ -59,20 +59,11 @@ fn main() {
         assert!(!protos.is_empty(), "No protobuf file for code generation.");
 
         // Generate in the sources if DFHACK_REGEN is set
-        // in OUT_DIR otherwise.
-        // TODO It should always be OUT_DIR, then expose macros.
-        let out_path = match std::env::var("DFHACK_REGEN") {
-            Ok(_) => {
-                let dst = PathBuf::from("src/generated");
-                if dst.exists() {
-                    std::fs::remove_dir_all(&dst).unwrap();
-                }
-                std::fs::create_dir_all(&dst).unwrap();
-                dst
-            }
-            Err(_) => PathBuf::from(std::env::var("OUT_DIR").unwrap()),
-        };
-
+        let out_path = PathBuf::from(format!("{}/src/generated", env!("CARGO_MANIFEST_DIR")));
+        if out_path.exists() {
+            std::fs::remove_dir_all(&out_path).unwrap();
+        }
+        std::fs::create_dir_all(&out_path).unwrap();
         // Generate the protobuf message files
         generate_messages_rs(&protoc, &protos, proto_include_dir, &out_path);
 
@@ -101,13 +92,18 @@ fn messages_protoc_codegen(
     include_dir: &str,
     out_path: &Path,
 ) {
+    let mut mod_path = out_path.to_path_buf();
+    mod_path.push("includes.rs");
+    println!("{}", mod_path.display());
     prost_build::Config::new()
         .enable_type_names()
         .type_attribute(".", "#[derive(serde::Serialize)]")
         .protoc_executable(protoc)
         .out_dir(out_path)
+        .include_file(&mod_path)
         .compile_protos(protos, &[include_dir])
         .unwrap();
+    //panic!("{}", mod_path.display());
 }
 
 fn generate_stubs_rs(protos: &[PathBuf], out_path: &Path) {

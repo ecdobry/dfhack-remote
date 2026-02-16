@@ -7,51 +7,19 @@ use std::{fmt::Display, ops::Deref};
 #[allow(missing_docs)]
 pub(crate) mod generated {
     pub(crate) mod stubs;
-
-    pub(crate) mod messages {
-        pub(crate) mod adventure_control;
-        pub(crate) mod dfproto;
-        pub(crate) mod dfstockpiles;
-        pub(crate) mod dwarf_control;
-        pub(crate) mod itemdef_instrument;
-        pub(crate) mod remote_fortress_reader;
-        pub(crate) mod proto {
-            pub(crate) mod enums {
-                #[path = "../../proto.enums.ui_sidebar_mode.rs"]
-                pub(crate) mod ui_sidebar_mode;
-            }
-        }
-    }
 }
 
 /// Raw protobuf messages
+#[allow(missing_docs)]
 pub mod messages {
-    pub use crate::generated::messages::adventure_control::*;
-    pub use crate::generated::messages::dfproto::*;
-    pub use crate::generated::messages::dfstockpiles::*;
-    pub use crate::generated::messages::dwarf_control::*;
-    pub use crate::generated::messages::itemdef_instrument::*;
-    pub use crate::generated::messages::proto::enums::ui_sidebar_mode::*;
-    pub use crate::generated::messages::remote_fortress_reader::*;
-    // pub use self::AdventureControl::*;
-    // mod Basic;
-    // pub use self::Basic::*;
-    // mod BasicApi;
-    // pub use self::BasicApi::*;
-    // mod CoreProtocol;
-    // pub use self::CoreProtocol::*;
-    // mod DwarfControl;
-    // pub use self::DwarfControl::*;
-    // mod ItemdefInstrument;
-    // pub use self::ItemdefInstrument::*;
-    // mod RemoteFortressReader;
-    // pub use self::RemoteFortressReader::*;
-    // mod example;
-    // pub use self::example::*;
-    // mod stockpiles;
-    // pub use self::stockpiles::*;
-    // mod ui_sidebar_mode;
-    // pub use self::ui_sidebar_mode::*;
+    include!("generated/messages/includes.rs");
+    pub use adventure_control::*;
+    pub use dfproto::*;
+    pub use dfstockpiles::*;
+    pub use dwarf_control::*;
+    pub use itemdef_instrument::*;
+    pub use proto::enums::ui_sidebar_mode::*;
+    pub use remote_fortress_reader::*;
 }
 
 /// Stubs exposing the feature of the DFHack remote API.
