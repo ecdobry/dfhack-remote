@@ -22,20 +22,15 @@ impl<TChannel: crate::Channel> Stubs<TChannel> {
     ) -> crate::stubs::RemoteFortressReader<TChannel> {
         crate::stubs::RemoteFortressReader::new(&mut self.channel)
     }
-    ///RPCs of the isoworldremote plugin
-    pub fn isoworldremote(&mut self) -> crate::stubs::Isoworldremote<TChannel> {
-        crate::stubs::Isoworldremote::new(&mut self.channel)
-    }
-    ///RPCs of the rename plugin
-    pub fn rename(&mut self) -> crate::stubs::Rename<TChannel> {
-        crate::stubs::Rename::new(&mut self.channel)
+    ///RPCs of the mypluginname plugin
+    pub fn mypluginname(&mut self) -> crate::stubs::Mypluginname<TChannel> {
+        crate::stubs::Mypluginname::new(&mut self.channel)
     }
 }
 #[cfg(feature = "reflection")]
 impl<TChannel: crate::Channel> crate::reflection::StubReflection for Stubs<TChannel> {
     fn list_methods() -> Vec<crate::reflection::RemoteProcedureDescriptor> {
         let mut methods = Vec::new();
-        methods.extend(Core::<TChannel>::list_methods());
         methods.extend(Core::<TChannel>::list_methods());
         methods.extend(Core::<TChannel>::list_methods());
         methods.extend(Core::<TChannel>::list_methods());
@@ -1001,121 +996,52 @@ for RemoteFortressReader<'_, TChannel> {
         ]
     }
 }
-///RPC for the "isoworldremote" plugin.
-pub struct Isoworldremote<'a, TChannel: crate::Channel> {
+///RPC for the "mypluginname" plugin.
+pub struct Mypluginname<'a, TChannel: crate::Channel> {
     ///Reference to the client to exchange messages.
     pub channel: &'a mut TChannel,
 }
-impl<'a, TChannel: crate::Channel> Isoworldremote<'a, TChannel> {
+impl<'a, TChannel: crate::Channel> Mypluginname<'a, TChannel> {
     ///Initialize the plugin from a channel to DFHack.
     pub fn new(channel: &'a mut TChannel) -> Self {
         Self { channel }
     }
-    ///Method `GetEmbarkInfo` from the plugin `isoworldremote`
-    pub fn get_embark_info(
-        &mut self,
-        request: MapRequest,
-    ) -> Result<crate::Reply<MapReply>, TChannel::TError> {
-        let _response: crate::Reply<MapReply> = self
-            .channel
-            .request(
-                "isoworldremote".to_string(),
-                "GetEmbarkInfo".to_string(),
-                request,
-            )?;
-        Ok(_response)
-    }
-    ///Method `GetEmbarkTile` from the plugin `isoworldremote`
-    pub fn get_embark_tile(
-        &mut self,
-        request: TileRequest,
-    ) -> Result<crate::Reply<EmbarkTile>, TChannel::TError> {
-        let _response: crate::Reply<EmbarkTile> = self
-            .channel
-            .request(
-                "isoworldremote".to_string(),
-                "GetEmbarkTile".to_string(),
-                request,
-            )?;
-        Ok(_response)
-    }
-    ///Method `GetRawNames` from the plugin `isoworldremote`
-    pub fn get_raw_names(
-        &mut self,
-        request: MapRequest,
-    ) -> Result<crate::Reply<RawNames>, TChannel::TError> {
-        let _response: crate::Reply<RawNames> = self
-            .channel
-            .request("isoworldremote".to_string(), "GetRawNames".to_string(), request)?;
-        Ok(_response)
-    }
-}
-#[cfg(feature = "reflection")]
-impl<TChannel: crate::Channel> crate::reflection::StubReflection
-for Isoworldremote<'_, TChannel> {
-    fn list_methods() -> Vec<crate::reflection::RemoteProcedureDescriptor> {
-        vec![
-            crate ::reflection::RemoteProcedureDescriptor { name : "GetEmbarkInfo"
-            .to_string(), plugin_name : "isoworldremote".to_string(), input_type :
-            MapRequest::descriptor().full_name().to_string(), output_type :
-            MapReply::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetEmbarkTile".to_string(),
-            plugin_name : "isoworldremote".to_string(), input_type :
-            TileRequest::descriptor().full_name().to_string(), output_type :
-            EmbarkTile::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetRawNames".to_string(),
-            plugin_name : "isoworldremote".to_string(), input_type :
-            MapRequest::descriptor().full_name().to_string(), output_type :
-            RawNames::descriptor().full_name().to_string(), },
-        ]
-    }
-}
-///RPC for the "rename" plugin.
-pub struct Rename<'a, TChannel: crate::Channel> {
-    ///Reference to the client to exchange messages.
-    pub channel: &'a mut TChannel,
-}
-impl<'a, TChannel: crate::Channel> Rename<'a, TChannel> {
-    ///Initialize the plugin from a channel to DFHack.
-    pub fn new(channel: &'a mut TChannel) -> Self {
-        Self { channel }
-    }
-    ///Method `RenameBuilding` from the plugin `rename`
+    ///Method `RenameBuilding` from the plugin `mypluginname`
     pub fn rename_building(
         &mut self,
         request: RenameBuildingIn,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
         let _response: crate::Reply<EmptyMessage> = self
             .channel
-            .request("rename".to_string(), "RenameBuilding".to_string(), request)?;
+            .request("mypluginname".to_string(), "RenameBuilding".to_string(), request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
         };
         Ok(_response)
     }
-    ///Method `RenameSquad` from the plugin `rename`
+    ///Method `RenameSquad` from the plugin `mypluginname`
     pub fn rename_squad(
         &mut self,
         request: RenameSquadIn,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
         let _response: crate::Reply<EmptyMessage> = self
             .channel
-            .request("rename".to_string(), "RenameSquad".to_string(), request)?;
+            .request("mypluginname".to_string(), "RenameSquad".to_string(), request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
         };
         Ok(_response)
     }
-    ///Method `RenameUnit` from the plugin `rename`
+    ///Method `RenameUnit` from the plugin `mypluginname`
     pub fn rename_unit(
         &mut self,
         request: RenameUnitIn,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
         let _response: crate::Reply<EmptyMessage> = self
             .channel
-            .request("rename".to_string(), "RenameUnit".to_string(), request)?;
+            .request("mypluginname".to_string(), "RenameUnit".to_string(), request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -1125,20 +1051,21 @@ impl<'a, TChannel: crate::Channel> Rename<'a, TChannel> {
 }
 #[cfg(feature = "reflection")]
 impl<TChannel: crate::Channel> crate::reflection::StubReflection
-for Rename<'_, TChannel> {
+for Mypluginname<'_, TChannel> {
     fn list_methods() -> Vec<crate::reflection::RemoteProcedureDescriptor> {
         vec![
             crate ::reflection::RemoteProcedureDescriptor { name : "RenameBuilding"
-            .to_string(), plugin_name : "rename".to_string(), input_type :
+            .to_string(), plugin_name : "mypluginname".to_string(), input_type :
             RenameBuildingIn::descriptor().full_name().to_string(), output_type :
             EmptyMessage::descriptor().full_name().to_string(), }, crate
             ::reflection::RemoteProcedureDescriptor { name : "RenameSquad".to_string(),
-            plugin_name : "rename".to_string(), input_type : RenameSquadIn::descriptor()
-            .full_name().to_string(), output_type : EmptyMessage::descriptor()
-            .full_name().to_string(), }, crate ::reflection::RemoteProcedureDescriptor {
-            name : "RenameUnit".to_string(), plugin_name : "rename".to_string(),
-            input_type : RenameUnitIn::descriptor().full_name().to_string(), output_type
-            : EmptyMessage::descriptor().full_name().to_string(), },
+            plugin_name : "mypluginname".to_string(), input_type :
+            RenameSquadIn::descriptor().full_name().to_string(), output_type :
+            EmptyMessage::descriptor().full_name().to_string(), }, crate
+            ::reflection::RemoteProcedureDescriptor { name : "RenameUnit".to_string(),
+            plugin_name : "mypluginname".to_string(), input_type :
+            RenameUnitIn::descriptor().full_name().to_string(), output_type :
+            EmptyMessage::descriptor().full_name().to_string(), },
         ]
     }
 }

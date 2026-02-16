@@ -28,46 +28,6 @@ const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_3_7_2;
 #[derive(PartialEq,Clone,Default,Debug)]
 pub struct StockpileSettings {
     // message fields
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.animals)
-    pub animals: ::protobuf::MessageField<stockpile_settings::AnimalsSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.food)
-    pub food: ::protobuf::MessageField<stockpile_settings::FoodSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.furniture)
-    pub furniture: ::protobuf::MessageField<stockpile_settings::FurnitureSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.unknown1)
-    pub unknown1: ::std::option::Option<i32>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.refuse)
-    pub refuse: ::protobuf::MessageField<stockpile_settings::RefuseSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.stone)
-    pub stone: ::protobuf::MessageField<stockpile_settings::StoneSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ore)
-    pub ore: ::protobuf::MessageField<stockpile_settings::OreSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ammo)
-    pub ammo: ::protobuf::MessageField<stockpile_settings::AmmoSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.coin)
-    pub coin: ::protobuf::MessageField<stockpile_settings::CoinSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.barsblocks)
-    pub barsblocks: ::protobuf::MessageField<stockpile_settings::BarsBlocksSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.gems)
-    pub gems: ::protobuf::MessageField<stockpile_settings::GemsSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.finished_goods)
-    pub finished_goods: ::protobuf::MessageField<stockpile_settings::FinishedGoodsSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.leather)
-    pub leather: ::protobuf::MessageField<stockpile_settings::LeatherSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.cloth)
-    pub cloth: ::protobuf::MessageField<stockpile_settings::ClothSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.wood)
-    pub wood: ::protobuf::MessageField<stockpile_settings::WoodSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.weapons)
-    pub weapons: ::protobuf::MessageField<stockpile_settings::WeaponsSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.armor)
-    pub armor: ::protobuf::MessageField<stockpile_settings::ArmorSet>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.allow_organic)
-    pub allow_organic: ::std::option::Option<bool>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.allow_inorganic)
-    pub allow_inorganic: ::std::option::Option<bool>,
-    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.corpses)
-    pub corpses: ::std::option::Option<bool>,
     // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.max_barrels)
     pub max_barrels: ::std::option::Option<i32>,
     // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.max_bins)
@@ -76,6 +36,50 @@ pub struct StockpileSettings {
     pub max_wheelbarrows: ::std::option::Option<i32>,
     // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.use_links_only)
     pub use_links_only: ::std::option::Option<bool>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.allow_organic)
+    pub allow_organic: ::std::option::Option<bool>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.allow_inorganic)
+    pub allow_inorganic: ::std::option::Option<bool>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ammo)
+    pub ammo: ::protobuf::MessageField<stockpile_settings::AmmoSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.animals)
+    pub animals: ::protobuf::MessageField<stockpile_settings::AnimalsSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.armor)
+    pub armor: ::protobuf::MessageField<stockpile_settings::ArmorSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.barsblocks)
+    pub barsblocks: ::protobuf::MessageField<stockpile_settings::BarsBlocksSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.cloth)
+    pub cloth: ::protobuf::MessageField<stockpile_settings::ClothSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.coin)
+    pub coin: ::protobuf::MessageField<stockpile_settings::CoinSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.finished_goods)
+    pub finished_goods: ::protobuf::MessageField<stockpile_settings::FinishedGoodsSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.food)
+    pub food: ::protobuf::MessageField<stockpile_settings::FoodSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.furniture)
+    pub furniture: ::protobuf::MessageField<stockpile_settings::FurnitureSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.gems)
+    pub gems: ::protobuf::MessageField<stockpile_settings::GemsSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.leather)
+    pub leather: ::protobuf::MessageField<stockpile_settings::LeatherSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.corpses_v50)
+    pub corpses_v50: ::protobuf::MessageField<stockpile_settings::CorpsesSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.refuse)
+    pub refuse: ::protobuf::MessageField<stockpile_settings::RefuseSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.sheet)
+    pub sheet: ::protobuf::MessageField<stockpile_settings::SheetSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.stone)
+    pub stone: ::protobuf::MessageField<stockpile_settings::StoneSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.weapons)
+    pub weapons: ::protobuf::MessageField<stockpile_settings::WeaponsSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.wood)
+    pub wood: ::protobuf::MessageField<stockpile_settings::WoodSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.corpses)
+    pub corpses: ::std::option::Option<bool>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ore)
+    pub ore: ::protobuf::MessageField<stockpile_settings::OreSet>,
+    // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.unknown1)
+    pub unknown1: ::std::option::Option<i32>,
     // special fields
     // @@protoc_insertion_point(special_field:dfstockpiles.StockpileSettings.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -90,82 +94,6 @@ impl<'a> ::std::default::Default for &'a StockpileSettings {
 impl StockpileSettings {
     pub fn new() -> StockpileSettings {
         ::std::default::Default::default()
-    }
-
-    // optional int32 unknown1 = 4;
-
-    pub fn unknown1(&self) -> i32 {
-        self.unknown1.unwrap_or(0)
-    }
-
-    pub fn clear_unknown1(&mut self) {
-        self.unknown1 = ::std::option::Option::None;
-    }
-
-    pub fn has_unknown1(&self) -> bool {
-        self.unknown1.is_some()
-    }
-
-    // Param is passed by value, moved
-    pub fn set_unknown1(&mut self, v: i32) {
-        self.unknown1 = ::std::option::Option::Some(v);
-    }
-
-    // optional bool allow_organic = 18;
-
-    pub fn allow_organic(&self) -> bool {
-        self.allow_organic.unwrap_or(false)
-    }
-
-    pub fn clear_allow_organic(&mut self) {
-        self.allow_organic = ::std::option::Option::None;
-    }
-
-    pub fn has_allow_organic(&self) -> bool {
-        self.allow_organic.is_some()
-    }
-
-    // Param is passed by value, moved
-    pub fn set_allow_organic(&mut self, v: bool) {
-        self.allow_organic = ::std::option::Option::Some(v);
-    }
-
-    // optional bool allow_inorganic = 19;
-
-    pub fn allow_inorganic(&self) -> bool {
-        self.allow_inorganic.unwrap_or(false)
-    }
-
-    pub fn clear_allow_inorganic(&mut self) {
-        self.allow_inorganic = ::std::option::Option::None;
-    }
-
-    pub fn has_allow_inorganic(&self) -> bool {
-        self.allow_inorganic.is_some()
-    }
-
-    // Param is passed by value, moved
-    pub fn set_allow_inorganic(&mut self, v: bool) {
-        self.allow_inorganic = ::std::option::Option::Some(v);
-    }
-
-    // optional bool corpses = 24;
-
-    pub fn corpses(&self) -> bool {
-        self.corpses.unwrap_or(false)
-    }
-
-    pub fn clear_corpses(&mut self) {
-        self.corpses = ::std::option::Option::None;
-    }
-
-    pub fn has_corpses(&self) -> bool {
-        self.corpses.is_some()
-    }
-
-    // Param is passed by value, moved
-    pub fn set_corpses(&mut self, v: bool) {
-        self.corpses = ::std::option::Option::Some(v);
     }
 
     // optional int32 max_barrels = 20;
@@ -244,109 +172,85 @@ impl StockpileSettings {
         self.use_links_only = ::std::option::Option::Some(v);
     }
 
+    // optional bool allow_organic = 18;
+
+    pub fn allow_organic(&self) -> bool {
+        self.allow_organic.unwrap_or(false)
+    }
+
+    pub fn clear_allow_organic(&mut self) {
+        self.allow_organic = ::std::option::Option::None;
+    }
+
+    pub fn has_allow_organic(&self) -> bool {
+        self.allow_organic.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_allow_organic(&mut self, v: bool) {
+        self.allow_organic = ::std::option::Option::Some(v);
+    }
+
+    // optional bool allow_inorganic = 19;
+
+    pub fn allow_inorganic(&self) -> bool {
+        self.allow_inorganic.unwrap_or(false)
+    }
+
+    pub fn clear_allow_inorganic(&mut self) {
+        self.allow_inorganic = ::std::option::Option::None;
+    }
+
+    pub fn has_allow_inorganic(&self) -> bool {
+        self.allow_inorganic.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_allow_inorganic(&mut self, v: bool) {
+        self.allow_inorganic = ::std::option::Option::Some(v);
+    }
+
+    // optional bool corpses = 24;
+
+    pub fn corpses(&self) -> bool {
+        self.corpses.unwrap_or(false)
+    }
+
+    pub fn clear_corpses(&mut self) {
+        self.corpses = ::std::option::Option::None;
+    }
+
+    pub fn has_corpses(&self) -> bool {
+        self.corpses.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_corpses(&mut self, v: bool) {
+        self.corpses = ::std::option::Option::Some(v);
+    }
+
+    // optional int32 unknown1 = 4;
+
+    pub fn unknown1(&self) -> i32 {
+        self.unknown1.unwrap_or(0)
+    }
+
+    pub fn clear_unknown1(&mut self) {
+        self.unknown1 = ::std::option::Option::None;
+    }
+
+    pub fn has_unknown1(&self) -> bool {
+        self.unknown1.is_some()
+    }
+
+    // Param is passed by value, moved
+    pub fn set_unknown1(&mut self, v: i32) {
+        self.unknown1 = ::std::option::Option::Some(v);
+    }
+
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(24);
+        let mut fields = ::std::vec::Vec::with_capacity(26);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::AnimalsSet>(
-            "animals",
-            |m: &StockpileSettings| { &m.animals },
-            |m: &mut StockpileSettings| { &mut m.animals },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::FoodSet>(
-            "food",
-            |m: &StockpileSettings| { &m.food },
-            |m: &mut StockpileSettings| { &mut m.food },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::FurnitureSet>(
-            "furniture",
-            |m: &StockpileSettings| { &m.furniture },
-            |m: &mut StockpileSettings| { &mut m.furniture },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
-            "unknown1",
-            |m: &StockpileSettings| { &m.unknown1 },
-            |m: &mut StockpileSettings| { &mut m.unknown1 },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::RefuseSet>(
-            "refuse",
-            |m: &StockpileSettings| { &m.refuse },
-            |m: &mut StockpileSettings| { &mut m.refuse },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::StoneSet>(
-            "stone",
-            |m: &StockpileSettings| { &m.stone },
-            |m: &mut StockpileSettings| { &mut m.stone },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::OreSet>(
-            "ore",
-            |m: &StockpileSettings| { &m.ore },
-            |m: &mut StockpileSettings| { &mut m.ore },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::AmmoSet>(
-            "ammo",
-            |m: &StockpileSettings| { &m.ammo },
-            |m: &mut StockpileSettings| { &mut m.ammo },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::CoinSet>(
-            "coin",
-            |m: &StockpileSettings| { &m.coin },
-            |m: &mut StockpileSettings| { &mut m.coin },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::BarsBlocksSet>(
-            "barsblocks",
-            |m: &StockpileSettings| { &m.barsblocks },
-            |m: &mut StockpileSettings| { &mut m.barsblocks },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::GemsSet>(
-            "gems",
-            |m: &StockpileSettings| { &m.gems },
-            |m: &mut StockpileSettings| { &mut m.gems },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::FinishedGoodsSet>(
-            "finished_goods",
-            |m: &StockpileSettings| { &m.finished_goods },
-            |m: &mut StockpileSettings| { &mut m.finished_goods },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::LeatherSet>(
-            "leather",
-            |m: &StockpileSettings| { &m.leather },
-            |m: &mut StockpileSettings| { &mut m.leather },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::ClothSet>(
-            "cloth",
-            |m: &StockpileSettings| { &m.cloth },
-            |m: &mut StockpileSettings| { &mut m.cloth },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::WoodSet>(
-            "wood",
-            |m: &StockpileSettings| { &m.wood },
-            |m: &mut StockpileSettings| { &mut m.wood },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::WeaponsSet>(
-            "weapons",
-            |m: &StockpileSettings| { &m.weapons },
-            |m: &mut StockpileSettings| { &mut m.weapons },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::ArmorSet>(
-            "armor",
-            |m: &StockpileSettings| { &m.armor },
-            |m: &mut StockpileSettings| { &mut m.armor },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
-            "allow_organic",
-            |m: &StockpileSettings| { &m.allow_organic },
-            |m: &mut StockpileSettings| { &mut m.allow_organic },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
-            "allow_inorganic",
-            |m: &StockpileSettings| { &m.allow_inorganic },
-            |m: &mut StockpileSettings| { &mut m.allow_inorganic },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
-            "corpses",
-            |m: &StockpileSettings| { &m.corpses },
-            |m: &mut StockpileSettings| { &mut m.corpses },
-        ));
         fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
             "max_barrels",
             |m: &StockpileSettings| { &m.max_barrels },
@@ -367,6 +271,116 @@ impl StockpileSettings {
             |m: &StockpileSettings| { &m.use_links_only },
             |m: &mut StockpileSettings| { &mut m.use_links_only },
         ));
+        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+            "allow_organic",
+            |m: &StockpileSettings| { &m.allow_organic },
+            |m: &mut StockpileSettings| { &mut m.allow_organic },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+            "allow_inorganic",
+            |m: &StockpileSettings| { &m.allow_inorganic },
+            |m: &mut StockpileSettings| { &mut m.allow_inorganic },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::AmmoSet>(
+            "ammo",
+            |m: &StockpileSettings| { &m.ammo },
+            |m: &mut StockpileSettings| { &mut m.ammo },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::AnimalsSet>(
+            "animals",
+            |m: &StockpileSettings| { &m.animals },
+            |m: &mut StockpileSettings| { &mut m.animals },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::ArmorSet>(
+            "armor",
+            |m: &StockpileSettings| { &m.armor },
+            |m: &mut StockpileSettings| { &mut m.armor },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::BarsBlocksSet>(
+            "barsblocks",
+            |m: &StockpileSettings| { &m.barsblocks },
+            |m: &mut StockpileSettings| { &mut m.barsblocks },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::ClothSet>(
+            "cloth",
+            |m: &StockpileSettings| { &m.cloth },
+            |m: &mut StockpileSettings| { &mut m.cloth },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::CoinSet>(
+            "coin",
+            |m: &StockpileSettings| { &m.coin },
+            |m: &mut StockpileSettings| { &mut m.coin },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::FinishedGoodsSet>(
+            "finished_goods",
+            |m: &StockpileSettings| { &m.finished_goods },
+            |m: &mut StockpileSettings| { &mut m.finished_goods },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::FoodSet>(
+            "food",
+            |m: &StockpileSettings| { &m.food },
+            |m: &mut StockpileSettings| { &mut m.food },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::FurnitureSet>(
+            "furniture",
+            |m: &StockpileSettings| { &m.furniture },
+            |m: &mut StockpileSettings| { &mut m.furniture },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::GemsSet>(
+            "gems",
+            |m: &StockpileSettings| { &m.gems },
+            |m: &mut StockpileSettings| { &mut m.gems },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::LeatherSet>(
+            "leather",
+            |m: &StockpileSettings| { &m.leather },
+            |m: &mut StockpileSettings| { &mut m.leather },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::CorpsesSet>(
+            "corpses_v50",
+            |m: &StockpileSettings| { &m.corpses_v50 },
+            |m: &mut StockpileSettings| { &mut m.corpses_v50 },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::RefuseSet>(
+            "refuse",
+            |m: &StockpileSettings| { &m.refuse },
+            |m: &mut StockpileSettings| { &mut m.refuse },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::SheetSet>(
+            "sheet",
+            |m: &StockpileSettings| { &m.sheet },
+            |m: &mut StockpileSettings| { &mut m.sheet },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::StoneSet>(
+            "stone",
+            |m: &StockpileSettings| { &m.stone },
+            |m: &mut StockpileSettings| { &mut m.stone },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::WeaponsSet>(
+            "weapons",
+            |m: &StockpileSettings| { &m.weapons },
+            |m: &mut StockpileSettings| { &mut m.weapons },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::WoodSet>(
+            "wood",
+            |m: &StockpileSettings| { &m.wood },
+            |m: &mut StockpileSettings| { &mut m.wood },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+            "corpses",
+            |m: &StockpileSettings| { &m.corpses },
+            |m: &mut StockpileSettings| { &mut m.corpses },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, stockpile_settings::OreSet>(
+            "ore",
+            |m: &StockpileSettings| { &m.ore },
+            |m: &mut StockpileSettings| { &mut m.ore },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+            "unknown1",
+            |m: &StockpileSettings| { &m.unknown1 },
+            |m: &mut StockpileSettings| { &mut m.unknown1 },
+        ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<StockpileSettings>(
             "StockpileSettings",
             fields,
@@ -385,66 +399,6 @@ impl ::protobuf::Message for StockpileSettings {
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
         while let Some(tag) = is.read_raw_tag_or_eof()? {
             match tag {
-                10 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.animals)?;
-                },
-                18 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.food)?;
-                },
-                26 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.furniture)?;
-                },
-                32 => {
-                    self.unknown1 = ::std::option::Option::Some(is.read_int32()?);
-                },
-                42 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.refuse)?;
-                },
-                50 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.stone)?;
-                },
-                58 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.ore)?;
-                },
-                66 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.ammo)?;
-                },
-                74 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.coin)?;
-                },
-                82 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.barsblocks)?;
-                },
-                90 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.gems)?;
-                },
-                98 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.finished_goods)?;
-                },
-                106 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.leather)?;
-                },
-                114 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.cloth)?;
-                },
-                122 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.wood)?;
-                },
-                130 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.weapons)?;
-                },
-                138 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.armor)?;
-                },
-                144 => {
-                    self.allow_organic = ::std::option::Option::Some(is.read_bool()?);
-                },
-                152 => {
-                    self.allow_inorganic = ::std::option::Option::Some(is.read_bool()?);
-                },
-                192 => {
-                    self.corpses = ::std::option::Option::Some(is.read_bool()?);
-                },
                 160 => {
                     self.max_barrels = ::std::option::Option::Some(is.read_int32()?);
                 },
@@ -456,6 +410,72 @@ impl ::protobuf::Message for StockpileSettings {
                 },
                 184 => {
                     self.use_links_only = ::std::option::Option::Some(is.read_bool()?);
+                },
+                144 => {
+                    self.allow_organic = ::std::option::Option::Some(is.read_bool()?);
+                },
+                152 => {
+                    self.allow_inorganic = ::std::option::Option::Some(is.read_bool()?);
+                },
+                66 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.ammo)?;
+                },
+                10 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.animals)?;
+                },
+                138 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.armor)?;
+                },
+                82 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.barsblocks)?;
+                },
+                114 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.cloth)?;
+                },
+                74 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.coin)?;
+                },
+                98 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.finished_goods)?;
+                },
+                18 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.food)?;
+                },
+                26 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.furniture)?;
+                },
+                90 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.gems)?;
+                },
+                106 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.leather)?;
+                },
+                202 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.corpses_v50)?;
+                },
+                42 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.refuse)?;
+                },
+                210 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.sheet)?;
+                },
+                50 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.stone)?;
+                },
+                130 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.weapons)?;
+                },
+                122 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.wood)?;
+                },
+                192 => {
+                    self.corpses = ::std::option::Option::Some(is.read_bool()?);
+                },
+                58 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.ore)?;
+                },
+                32 => {
+                    self.unknown1 = ::std::option::Option::Some(is.read_int32()?);
                 },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
@@ -469,82 +489,6 @@ impl ::protobuf::Message for StockpileSettings {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u64 {
         let mut my_size = 0;
-        if let Some(v) = self.animals.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.food.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.furniture.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.unknown1 {
-            my_size += ::protobuf::rt::int32_size(4, v);
-        }
-        if let Some(v) = self.refuse.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.stone.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.ore.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.ammo.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.coin.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.barsblocks.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.gems.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.finished_goods.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.leather.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.cloth.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.wood.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.weapons.as_ref() {
-            let len = v.compute_size();
-            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.armor.as_ref() {
-            let len = v.compute_size();
-            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.allow_organic {
-            my_size += 2 + 1;
-        }
-        if let Some(v) = self.allow_inorganic {
-            my_size += 2 + 1;
-        }
-        if let Some(v) = self.corpses {
-            my_size += 2 + 1;
-        }
         if let Some(v) = self.max_barrels {
             my_size += ::protobuf::rt::int32_size(20, v);
         }
@@ -557,72 +501,96 @@ impl ::protobuf::Message for StockpileSettings {
         if let Some(v) = self.use_links_only {
             my_size += 2 + 1;
         }
+        if let Some(v) = self.allow_organic {
+            my_size += 2 + 1;
+        }
+        if let Some(v) = self.allow_inorganic {
+            my_size += 2 + 1;
+        }
+        if let Some(v) = self.ammo.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.animals.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.armor.as_ref() {
+            let len = v.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.barsblocks.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.cloth.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.coin.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.finished_goods.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.food.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.furniture.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.gems.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.leather.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.corpses_v50.as_ref() {
+            let len = v.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.refuse.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.sheet.as_ref() {
+            let len = v.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.stone.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.weapons.as_ref() {
+            let len = v.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.wood.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.corpses {
+            my_size += 2 + 1;
+        }
+        if let Some(v) = self.ore.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        if let Some(v) = self.unknown1 {
+            my_size += ::protobuf::rt::int32_size(4, v);
+        }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
         my_size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
-        if let Some(v) = self.animals.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(1, v, os)?;
-        }
-        if let Some(v) = self.food.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(2, v, os)?;
-        }
-        if let Some(v) = self.furniture.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(3, v, os)?;
-        }
-        if let Some(v) = self.unknown1 {
-            os.write_int32(4, v)?;
-        }
-        if let Some(v) = self.refuse.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(5, v, os)?;
-        }
-        if let Some(v) = self.stone.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(6, v, os)?;
-        }
-        if let Some(v) = self.ore.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(7, v, os)?;
-        }
-        if let Some(v) = self.ammo.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(8, v, os)?;
-        }
-        if let Some(v) = self.coin.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(9, v, os)?;
-        }
-        if let Some(v) = self.barsblocks.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(10, v, os)?;
-        }
-        if let Some(v) = self.gems.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(11, v, os)?;
-        }
-        if let Some(v) = self.finished_goods.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(12, v, os)?;
-        }
-        if let Some(v) = self.leather.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(13, v, os)?;
-        }
-        if let Some(v) = self.cloth.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(14, v, os)?;
-        }
-        if let Some(v) = self.wood.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(15, v, os)?;
-        }
-        if let Some(v) = self.weapons.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(16, v, os)?;
-        }
-        if let Some(v) = self.armor.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(17, v, os)?;
-        }
-        if let Some(v) = self.allow_organic {
-            os.write_bool(18, v)?;
-        }
-        if let Some(v) = self.allow_inorganic {
-            os.write_bool(19, v)?;
-        }
-        if let Some(v) = self.corpses {
-            os.write_bool(24, v)?;
-        }
         if let Some(v) = self.max_barrels {
             os.write_int32(20, v)?;
         }
@@ -634,6 +602,72 @@ impl ::protobuf::Message for StockpileSettings {
         }
         if let Some(v) = self.use_links_only {
             os.write_bool(23, v)?;
+        }
+        if let Some(v) = self.allow_organic {
+            os.write_bool(18, v)?;
+        }
+        if let Some(v) = self.allow_inorganic {
+            os.write_bool(19, v)?;
+        }
+        if let Some(v) = self.ammo.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(8, v, os)?;
+        }
+        if let Some(v) = self.animals.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(1, v, os)?;
+        }
+        if let Some(v) = self.armor.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(17, v, os)?;
+        }
+        if let Some(v) = self.barsblocks.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(10, v, os)?;
+        }
+        if let Some(v) = self.cloth.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(14, v, os)?;
+        }
+        if let Some(v) = self.coin.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(9, v, os)?;
+        }
+        if let Some(v) = self.finished_goods.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(12, v, os)?;
+        }
+        if let Some(v) = self.food.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(2, v, os)?;
+        }
+        if let Some(v) = self.furniture.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(3, v, os)?;
+        }
+        if let Some(v) = self.gems.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(11, v, os)?;
+        }
+        if let Some(v) = self.leather.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(13, v, os)?;
+        }
+        if let Some(v) = self.corpses_v50.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(25, v, os)?;
+        }
+        if let Some(v) = self.refuse.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(5, v, os)?;
+        }
+        if let Some(v) = self.sheet.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(26, v, os)?;
+        }
+        if let Some(v) = self.stone.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(6, v, os)?;
+        }
+        if let Some(v) = self.weapons.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(16, v, os)?;
+        }
+        if let Some(v) = self.wood.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(15, v, os)?;
+        }
+        if let Some(v) = self.corpses {
+            os.write_bool(24, v)?;
+        }
+        if let Some(v) = self.ore.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(7, v, os)?;
+        }
+        if let Some(v) = self.unknown1 {
+            os.write_int32(4, v)?;
         }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -652,59 +686,63 @@ impl ::protobuf::Message for StockpileSettings {
     }
 
     fn clear(&mut self) {
-        self.animals.clear();
-        self.food.clear();
-        self.furniture.clear();
-        self.unknown1 = ::std::option::Option::None;
-        self.refuse.clear();
-        self.stone.clear();
-        self.ore.clear();
-        self.ammo.clear();
-        self.coin.clear();
-        self.barsblocks.clear();
-        self.gems.clear();
-        self.finished_goods.clear();
-        self.leather.clear();
-        self.cloth.clear();
-        self.wood.clear();
-        self.weapons.clear();
-        self.armor.clear();
-        self.allow_organic = ::std::option::Option::None;
-        self.allow_inorganic = ::std::option::Option::None;
-        self.corpses = ::std::option::Option::None;
         self.max_barrels = ::std::option::Option::None;
         self.max_bins = ::std::option::Option::None;
         self.max_wheelbarrows = ::std::option::Option::None;
         self.use_links_only = ::std::option::Option::None;
+        self.allow_organic = ::std::option::Option::None;
+        self.allow_inorganic = ::std::option::Option::None;
+        self.ammo.clear();
+        self.animals.clear();
+        self.armor.clear();
+        self.barsblocks.clear();
+        self.cloth.clear();
+        self.coin.clear();
+        self.finished_goods.clear();
+        self.food.clear();
+        self.furniture.clear();
+        self.gems.clear();
+        self.leather.clear();
+        self.corpses_v50.clear();
+        self.refuse.clear();
+        self.sheet.clear();
+        self.stone.clear();
+        self.weapons.clear();
+        self.wood.clear();
+        self.corpses = ::std::option::Option::None;
+        self.ore.clear();
+        self.unknown1 = ::std::option::Option::None;
         self.special_fields.clear();
     }
 
     fn default_instance() -> &'static StockpileSettings {
         static instance: StockpileSettings = StockpileSettings {
-            animals: ::protobuf::MessageField::none(),
-            food: ::protobuf::MessageField::none(),
-            furniture: ::protobuf::MessageField::none(),
-            unknown1: ::std::option::Option::None,
-            refuse: ::protobuf::MessageField::none(),
-            stone: ::protobuf::MessageField::none(),
-            ore: ::protobuf::MessageField::none(),
-            ammo: ::protobuf::MessageField::none(),
-            coin: ::protobuf::MessageField::none(),
-            barsblocks: ::protobuf::MessageField::none(),
-            gems: ::protobuf::MessageField::none(),
-            finished_goods: ::protobuf::MessageField::none(),
-            leather: ::protobuf::MessageField::none(),
-            cloth: ::protobuf::MessageField::none(),
-            wood: ::protobuf::MessageField::none(),
-            weapons: ::protobuf::MessageField::none(),
-            armor: ::protobuf::MessageField::none(),
-            allow_organic: ::std::option::Option::None,
-            allow_inorganic: ::std::option::Option::None,
-            corpses: ::std::option::Option::None,
             max_barrels: ::std::option::Option::None,
             max_bins: ::std::option::Option::None,
             max_wheelbarrows: ::std::option::Option::None,
             use_links_only: ::std::option::Option::None,
+            allow_organic: ::std::option::Option::None,
+            allow_inorganic: ::std::option::Option::None,
+            ammo: ::protobuf::MessageField::none(),
+            animals: ::protobuf::MessageField::none(),
+            armor: ::protobuf::MessageField::none(),
+            barsblocks: ::protobuf::MessageField::none(),
+            cloth: ::protobuf::MessageField::none(),
+            coin: ::protobuf::MessageField::none(),
+            finished_goods: ::protobuf::MessageField::none(),
+            food: ::protobuf::MessageField::none(),
+            furniture: ::protobuf::MessageField::none(),
+            gems: ::protobuf::MessageField::none(),
+            leather: ::protobuf::MessageField::none(),
+            corpses_v50: ::protobuf::MessageField::none(),
+            refuse: ::protobuf::MessageField::none(),
+            sheet: ::protobuf::MessageField::none(),
+            stone: ::protobuf::MessageField::none(),
+            weapons: ::protobuf::MessageField::none(),
+            wood: ::protobuf::MessageField::none(),
+            corpses: ::std::option::Option::None,
+            ore: ::protobuf::MessageField::none(),
+            unknown1: ::std::option::Option::None,
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -734,6 +772,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct AnimalsSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.AnimalsSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.AnimalsSet.empty_cages)
         pub empty_cages: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.AnimalsSet.empty_traps)
@@ -754,6 +794,25 @@ pub mod stockpile_settings {
     impl AnimalsSet {
         pub fn new() -> AnimalsSet {
             ::std::default::Default::default()
+        }
+
+        // optional bool all = 4;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
         }
 
         // optional bool empty_cages = 1;
@@ -795,8 +854,13 @@ pub mod stockpile_settings {
         }
 
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(3);
+            let mut fields = ::std::vec::Vec::with_capacity(4);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &AnimalsSet| { &m.all },
+                |m: &mut AnimalsSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
                 "empty_cages",
                 |m: &AnimalsSet| { &m.empty_cages },
@@ -830,6 +894,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    32 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     8 => {
                         self.empty_cages = ::std::option::Option::Some(is.read_bool()?);
                     },
@@ -851,6 +918,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             if let Some(v) = self.empty_cages {
                 my_size += 1 + 1;
             }
@@ -866,6 +936,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(4, v)?;
+            }
             if let Some(v) = self.empty_cages {
                 os.write_bool(1, v)?;
             }
@@ -892,6 +965,7 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.empty_cages = ::std::option::Option::None;
             self.empty_traps = ::std::option::Option::None;
             self.enabled.clear();
@@ -900,6 +974,7 @@ pub mod stockpile_settings {
 
         fn default_instance() -> &'static AnimalsSet {
             static instance: AnimalsSet = AnimalsSet {
+                all: ::std::option::Option::None,
                 empty_cages: ::std::option::Option::None,
                 empty_traps: ::std::option::Option::None,
                 enabled: ::std::vec::Vec::new(),
@@ -930,6 +1005,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct FoodSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FoodSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FoodSet.meat)
         pub meat: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FoodSet.fish)
@@ -986,6 +1063,25 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 21;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
         // optional bool prepared_meals = 19;
 
         pub fn prepared_meals(&self) -> bool {
@@ -1006,8 +1102,13 @@ pub mod stockpile_settings {
         }
 
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(20);
+            let mut fields = ::std::vec::Vec::with_capacity(21);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &FoodSet| { &m.all },
+                |m: &mut FoodSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "meat",
                 |m: &FoodSet| { &m.meat },
@@ -1126,6 +1227,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    168 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.meat.push(is.read_string()?);
                     },
@@ -1198,6 +1302,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 2 + 1;
+            }
             for value in &self.meat {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -1264,6 +1371,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(21, v)?;
+            }
             for v in &self.meat {
                 os.write_string(1, &v)?;
             };
@@ -1341,6 +1451,7 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.meat.clear();
             self.fish.clear();
             self.unprepared_fish.clear();
@@ -1366,6 +1477,7 @@ pub mod stockpile_settings {
 
         fn default_instance() -> &'static FoodSet {
             static instance: FoodSet = FoodSet {
+                all: ::std::option::Option::None,
                 meat: ::std::vec::Vec::new(),
                 fish: ::std::vec::Vec::new(),
                 unprepared_fish: ::std::vec::Vec::new(),
@@ -1413,6 +1525,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct FurnitureSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FurnitureSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FurnitureSet.type)
         pub type_: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FurnitureSet.other_mats)
@@ -1439,9 +1553,33 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 7;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(5);
+            let mut fields = ::std::vec::Vec::with_capacity(6);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &FurnitureSet| { &m.all },
+                |m: &mut FurnitureSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "type",
                 |m: &FurnitureSet| { &m.type_ },
@@ -1485,6 +1623,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    56 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.type_.push(is.read_string()?);
                     },
@@ -1512,6 +1653,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.type_ {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -1533,6 +1677,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(7, v)?;
+            }
             for v in &self.type_ {
                 os.write_string(1, &v)?;
             };
@@ -1565,6 +1712,7 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.type_.clear();
             self.other_mats.clear();
             self.mats.clear();
@@ -1575,6 +1723,7 @@ pub mod stockpile_settings {
 
         fn default_instance() -> &'static FurnitureSet {
             static instance: FurnitureSet = FurnitureSet {
+                all: ::std::option::Option::None,
                 type_: ::std::vec::Vec::new(),
                 other_mats: ::std::vec::Vec::new(),
                 mats: ::std::vec::Vec::new(),
@@ -1607,6 +1756,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct RefuseSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.RefuseSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.RefuseSet.type)
         pub type_: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.RefuseSet.corpses)
@@ -1643,6 +1794,25 @@ pub mod stockpile_settings {
     impl RefuseSet {
         pub fn new() -> RefuseSet {
             ::std::default::Default::default()
+        }
+
+        // optional bool all = 12;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
         }
 
         // optional bool fresh_raw_hide = 10;
@@ -1684,8 +1854,13 @@ pub mod stockpile_settings {
         }
 
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(11);
+            let mut fields = ::std::vec::Vec::with_capacity(12);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &RefuseSet| { &m.all },
+                |m: &mut RefuseSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "type",
                 |m: &RefuseSet| { &m.type_ },
@@ -1759,6 +1934,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    96 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.type_.push(is.read_string()?);
                     },
@@ -1804,6 +1982,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.type_ {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -1843,6 +2024,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(12, v)?;
+            }
             for v in &self.type_ {
                 os.write_string(1, &v)?;
             };
@@ -1893,6 +2077,7 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.type_.clear();
             self.corpses.clear();
             self.body_parts.clear();
@@ -1909,6 +2094,7 @@ pub mod stockpile_settings {
 
         fn default_instance() -> &'static RefuseSet {
             static instance: RefuseSet = RefuseSet {
+                all: ::std::option::Option::None,
                 type_: ::std::vec::Vec::new(),
                 corpses: ::std::vec::Vec::new(),
                 body_parts: ::std::vec::Vec::new(),
@@ -1947,6 +2133,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct StoneSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.StoneSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.StoneSet.mats)
         pub mats: ::std::vec::Vec<::std::string::String>,
         // special fields
@@ -1965,9 +2153,33 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 2;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(1);
+            let mut fields = ::std::vec::Vec::with_capacity(2);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &StoneSet| { &m.all },
+                |m: &mut StoneSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "mats",
                 |m: &StoneSet| { &m.mats },
@@ -1991,6 +2203,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    16 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.mats.push(is.read_string()?);
                     },
@@ -2006,6 +2221,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.mats {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -2015,6 +2233,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(2, v)?;
+            }
             for v in &self.mats {
                 os.write_string(1, &v)?;
             };
@@ -2035,12 +2256,14 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.mats.clear();
             self.special_fields.clear();
         }
 
         fn default_instance() -> &'static StoneSet {
             static instance: StoneSet = StoneSet {
+                all: ::std::option::Option::None,
                 mats: ::std::vec::Vec::new(),
                 special_fields: ::protobuf::SpecialFields::new(),
             };
@@ -2191,6 +2414,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct AmmoSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.AmmoSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.AmmoSet.type)
         pub type_: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.AmmoSet.other_mats)
@@ -2217,9 +2442,33 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 6;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(5);
+            let mut fields = ::std::vec::Vec::with_capacity(6);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &AmmoSet| { &m.all },
+                |m: &mut AmmoSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "type",
                 |m: &AmmoSet| { &m.type_ },
@@ -2263,6 +2512,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    48 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.type_.push(is.read_string()?);
                     },
@@ -2290,6 +2542,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.type_ {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -2311,6 +2566,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(6, v)?;
+            }
             for v in &self.type_ {
                 os.write_string(1, &v)?;
             };
@@ -2343,6 +2601,7 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.type_.clear();
             self.other_mats.clear();
             self.mats.clear();
@@ -2353,6 +2612,7 @@ pub mod stockpile_settings {
 
         fn default_instance() -> &'static AmmoSet {
             static instance: AmmoSet = AmmoSet {
+                all: ::std::option::Option::None,
                 type_: ::std::vec::Vec::new(),
                 other_mats: ::std::vec::Vec::new(),
                 mats: ::std::vec::Vec::new(),
@@ -2385,6 +2645,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct CoinSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.CoinSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.CoinSet.mats)
         pub mats: ::std::vec::Vec<::std::string::String>,
         // special fields
@@ -2403,9 +2665,33 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 2;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(1);
+            let mut fields = ::std::vec::Vec::with_capacity(2);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &CoinSet| { &m.all },
+                |m: &mut CoinSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "mats",
                 |m: &CoinSet| { &m.mats },
@@ -2429,6 +2715,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    16 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.mats.push(is.read_string()?);
                     },
@@ -2444,6 +2733,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.mats {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -2453,6 +2745,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(2, v)?;
+            }
             for v in &self.mats {
                 os.write_string(1, &v)?;
             };
@@ -2473,12 +2768,14 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.mats.clear();
             self.special_fields.clear();
         }
 
         fn default_instance() -> &'static CoinSet {
             static instance: CoinSet = CoinSet {
+                all: ::std::option::Option::None,
                 mats: ::std::vec::Vec::new(),
                 special_fields: ::protobuf::SpecialFields::new(),
             };
@@ -2507,6 +2804,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct BarsBlocksSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.BarsBlocksSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.BarsBlocksSet.bars_other_mats)
         pub bars_other_mats: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.BarsBlocksSet.blocks_other_mats)
@@ -2531,9 +2830,33 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 5;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(4);
+            let mut fields = ::std::vec::Vec::with_capacity(5);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &BarsBlocksSet| { &m.all },
+                |m: &mut BarsBlocksSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "bars_other_mats",
                 |m: &BarsBlocksSet| { &m.bars_other_mats },
@@ -2572,6 +2895,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    40 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.bars_other_mats.push(is.read_string()?);
                     },
@@ -2596,6 +2922,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.bars_other_mats {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -2614,6 +2943,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(5, v)?;
+            }
             for v in &self.bars_other_mats {
                 os.write_string(1, &v)?;
             };
@@ -2643,6 +2975,7 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.bars_other_mats.clear();
             self.blocks_other_mats.clear();
             self.bars_mats.clear();
@@ -2652,6 +2985,7 @@ pub mod stockpile_settings {
 
         fn default_instance() -> &'static BarsBlocksSet {
             static instance: BarsBlocksSet = BarsBlocksSet {
+                all: ::std::option::Option::None,
                 bars_other_mats: ::std::vec::Vec::new(),
                 blocks_other_mats: ::std::vec::Vec::new(),
                 bars_mats: ::std::vec::Vec::new(),
@@ -2683,6 +3017,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct GemsSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.GemsSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.GemsSet.rough_other_mats)
         pub rough_other_mats: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.GemsSet.cut_other_mats)
@@ -2707,9 +3043,33 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 5;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(4);
+            let mut fields = ::std::vec::Vec::with_capacity(5);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &GemsSet| { &m.all },
+                |m: &mut GemsSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "rough_other_mats",
                 |m: &GemsSet| { &m.rough_other_mats },
@@ -2748,6 +3108,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    40 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.rough_other_mats.push(is.read_string()?);
                     },
@@ -2772,6 +3135,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.rough_other_mats {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -2790,6 +3156,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(5, v)?;
+            }
             for v in &self.rough_other_mats {
                 os.write_string(1, &v)?;
             };
@@ -2819,6 +3188,7 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.rough_other_mats.clear();
             self.cut_other_mats.clear();
             self.rough_mats.clear();
@@ -2828,6 +3198,7 @@ pub mod stockpile_settings {
 
         fn default_instance() -> &'static GemsSet {
             static instance: GemsSet = GemsSet {
+                all: ::std::option::Option::None,
                 rough_other_mats: ::std::vec::Vec::new(),
                 cut_other_mats: ::std::vec::Vec::new(),
                 rough_mats: ::std::vec::Vec::new(),
@@ -2859,6 +3230,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct FinishedGoodsSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FinishedGoodsSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FinishedGoodsSet.type)
         pub type_: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FinishedGoodsSet.other_mats)
@@ -2869,6 +3242,12 @@ pub mod stockpile_settings {
         pub quality_core: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FinishedGoodsSet.quality_total)
         pub quality_total: ::std::vec::Vec<::std::string::String>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FinishedGoodsSet.dyed)
+        pub dyed: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FinishedGoodsSet.undyed)
+        pub undyed: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.FinishedGoodsSet.color)
+        pub color: ::std::vec::Vec<::std::string::String>,
         // special fields
         // @@protoc_insertion_point(special_field:dfstockpiles.StockpileSettings.FinishedGoodsSet.special_fields)
         pub special_fields: ::protobuf::SpecialFields,
@@ -2885,9 +3264,71 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 6;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
+        // optional bool dyed = 7;
+
+        pub fn dyed(&self) -> bool {
+            self.dyed.unwrap_or(false)
+        }
+
+        pub fn clear_dyed(&mut self) {
+            self.dyed = ::std::option::Option::None;
+        }
+
+        pub fn has_dyed(&self) -> bool {
+            self.dyed.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_dyed(&mut self, v: bool) {
+            self.dyed = ::std::option::Option::Some(v);
+        }
+
+        // optional bool undyed = 8;
+
+        pub fn undyed(&self) -> bool {
+            self.undyed.unwrap_or(false)
+        }
+
+        pub fn clear_undyed(&mut self) {
+            self.undyed = ::std::option::Option::None;
+        }
+
+        pub fn has_undyed(&self) -> bool {
+            self.undyed.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_undyed(&mut self, v: bool) {
+            self.undyed = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(5);
+            let mut fields = ::std::vec::Vec::with_capacity(9);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &FinishedGoodsSet| { &m.all },
+                |m: &mut FinishedGoodsSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "type",
                 |m: &FinishedGoodsSet| { &m.type_ },
@@ -2913,6 +3354,21 @@ pub mod stockpile_settings {
                 |m: &FinishedGoodsSet| { &m.quality_total },
                 |m: &mut FinishedGoodsSet| { &mut m.quality_total },
             ));
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "dyed",
+                |m: &FinishedGoodsSet| { &m.dyed },
+                |m: &mut FinishedGoodsSet| { &mut m.dyed },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "undyed",
+                |m: &FinishedGoodsSet| { &m.undyed },
+                |m: &mut FinishedGoodsSet| { &mut m.undyed },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+                "color",
+                |m: &FinishedGoodsSet| { &m.color },
+                |m: &mut FinishedGoodsSet| { &mut m.color },
+            ));
             ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<FinishedGoodsSet>(
                 "StockpileSettings.FinishedGoodsSet",
                 fields,
@@ -2931,6 +3387,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    48 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.type_.push(is.read_string()?);
                     },
@@ -2946,6 +3405,15 @@ pub mod stockpile_settings {
                     42 => {
                         self.quality_total.push(is.read_string()?);
                     },
+                    56 => {
+                        self.dyed = ::std::option::Option::Some(is.read_bool()?);
+                    },
+                    64 => {
+                        self.undyed = ::std::option::Option::Some(is.read_bool()?);
+                    },
+                    74 => {
+                        self.color.push(is.read_string()?);
+                    },
                     tag => {
                         ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
                     },
@@ -2958,6 +3426,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.type_ {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -2973,12 +3444,24 @@ pub mod stockpile_settings {
             for value in &self.quality_total {
                 my_size += ::protobuf::rt::string_size(5, &value);
             };
+            if let Some(v) = self.dyed {
+                my_size += 1 + 1;
+            }
+            if let Some(v) = self.undyed {
+                my_size += 1 + 1;
+            }
+            for value in &self.color {
+                my_size += ::protobuf::rt::string_size(9, &value);
+            };
             my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
             self.special_fields.cached_size().set(my_size as u32);
             my_size
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(6, v)?;
+            }
             for v in &self.type_ {
                 os.write_string(1, &v)?;
             };
@@ -2993,6 +3476,15 @@ pub mod stockpile_settings {
             };
             for v in &self.quality_total {
                 os.write_string(5, &v)?;
+            };
+            if let Some(v) = self.dyed {
+                os.write_bool(7, v)?;
+            }
+            if let Some(v) = self.undyed {
+                os.write_bool(8, v)?;
+            }
+            for v in &self.color {
+                os.write_string(9, &v)?;
             };
             os.write_unknown_fields(self.special_fields.unknown_fields())?;
             ::std::result::Result::Ok(())
@@ -3011,21 +3503,29 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.type_.clear();
             self.other_mats.clear();
             self.mats.clear();
             self.quality_core.clear();
             self.quality_total.clear();
+            self.dyed = ::std::option::Option::None;
+            self.undyed = ::std::option::Option::None;
+            self.color.clear();
             self.special_fields.clear();
         }
 
         fn default_instance() -> &'static FinishedGoodsSet {
             static instance: FinishedGoodsSet = FinishedGoodsSet {
+                all: ::std::option::Option::None,
                 type_: ::std::vec::Vec::new(),
                 other_mats: ::std::vec::Vec::new(),
                 mats: ::std::vec::Vec::new(),
                 quality_core: ::std::vec::Vec::new(),
                 quality_total: ::std::vec::Vec::new(),
+                dyed: ::std::option::Option::None,
+                undyed: ::std::option::Option::None,
+                color: ::std::vec::Vec::new(),
                 special_fields: ::protobuf::SpecialFields::new(),
             };
             &instance
@@ -3053,8 +3553,16 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct LeatherSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.LeatherSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.LeatherSet.mats)
         pub mats: ::std::vec::Vec<::std::string::String>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.LeatherSet.dyed)
+        pub dyed: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.LeatherSet.undyed)
+        pub undyed: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.LeatherSet.color)
+        pub color: ::std::vec::Vec<::std::string::String>,
         // special fields
         // @@protoc_insertion_point(special_field:dfstockpiles.StockpileSettings.LeatherSet.special_fields)
         pub special_fields: ::protobuf::SpecialFields,
@@ -3071,13 +3579,90 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 2;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
+        // optional bool dyed = 3;
+
+        pub fn dyed(&self) -> bool {
+            self.dyed.unwrap_or(false)
+        }
+
+        pub fn clear_dyed(&mut self) {
+            self.dyed = ::std::option::Option::None;
+        }
+
+        pub fn has_dyed(&self) -> bool {
+            self.dyed.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_dyed(&mut self, v: bool) {
+            self.dyed = ::std::option::Option::Some(v);
+        }
+
+        // optional bool undyed = 4;
+
+        pub fn undyed(&self) -> bool {
+            self.undyed.unwrap_or(false)
+        }
+
+        pub fn clear_undyed(&mut self) {
+            self.undyed = ::std::option::Option::None;
+        }
+
+        pub fn has_undyed(&self) -> bool {
+            self.undyed.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_undyed(&mut self, v: bool) {
+            self.undyed = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(1);
+            let mut fields = ::std::vec::Vec::with_capacity(5);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &LeatherSet| { &m.all },
+                |m: &mut LeatherSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "mats",
                 |m: &LeatherSet| { &m.mats },
                 |m: &mut LeatherSet| { &mut m.mats },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "dyed",
+                |m: &LeatherSet| { &m.dyed },
+                |m: &mut LeatherSet| { &mut m.dyed },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "undyed",
+                |m: &LeatherSet| { &m.undyed },
+                |m: &mut LeatherSet| { &mut m.undyed },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+                "color",
+                |m: &LeatherSet| { &m.color },
+                |m: &mut LeatherSet| { &mut m.color },
             ));
             ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<LeatherSet>(
                 "StockpileSettings.LeatherSet",
@@ -3097,8 +3682,20 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    16 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.mats.push(is.read_string()?);
+                    },
+                    24 => {
+                        self.dyed = ::std::option::Option::Some(is.read_bool()?);
+                    },
+                    32 => {
+                        self.undyed = ::std::option::Option::Some(is.read_bool()?);
+                    },
+                    42 => {
+                        self.color.push(is.read_string()?);
                     },
                     tag => {
                         ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
@@ -3112,8 +3709,20 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.mats {
                 my_size += ::protobuf::rt::string_size(1, &value);
+            };
+            if let Some(v) = self.dyed {
+                my_size += 1 + 1;
+            }
+            if let Some(v) = self.undyed {
+                my_size += 1 + 1;
+            }
+            for value in &self.color {
+                my_size += ::protobuf::rt::string_size(5, &value);
             };
             my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
             self.special_fields.cached_size().set(my_size as u32);
@@ -3121,8 +3730,20 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(2, v)?;
+            }
             for v in &self.mats {
                 os.write_string(1, &v)?;
+            };
+            if let Some(v) = self.dyed {
+                os.write_bool(3, v)?;
+            }
+            if let Some(v) = self.undyed {
+                os.write_bool(4, v)?;
+            }
+            for v in &self.color {
+                os.write_string(5, &v)?;
             };
             os.write_unknown_fields(self.special_fields.unknown_fields())?;
             ::std::result::Result::Ok(())
@@ -3141,13 +3762,21 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.mats.clear();
+            self.dyed = ::std::option::Option::None;
+            self.undyed = ::std::option::Option::None;
+            self.color.clear();
             self.special_fields.clear();
         }
 
         fn default_instance() -> &'static LeatherSet {
             static instance: LeatherSet = LeatherSet {
+                all: ::std::option::Option::None,
                 mats: ::std::vec::Vec::new(),
+                dyed: ::std::option::Option::None,
+                undyed: ::std::option::Option::None,
+                color: ::std::vec::Vec::new(),
                 special_fields: ::protobuf::SpecialFields::new(),
             };
             &instance
@@ -3175,6 +3804,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct ClothSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ClothSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ClothSet.thread_silk)
         pub thread_silk: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ClothSet.thread_plant)
@@ -3191,6 +3822,12 @@ pub mod stockpile_settings {
         pub cloth_yarn: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ClothSet.cloth_metal)
         pub cloth_metal: ::std::vec::Vec<::std::string::String>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ClothSet.dyed)
+        pub dyed: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ClothSet.undyed)
+        pub undyed: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ClothSet.color)
+        pub color: ::std::vec::Vec<::std::string::String>,
         // special fields
         // @@protoc_insertion_point(special_field:dfstockpiles.StockpileSettings.ClothSet.special_fields)
         pub special_fields: ::protobuf::SpecialFields,
@@ -3207,9 +3844,71 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 9;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
+        // optional bool dyed = 10;
+
+        pub fn dyed(&self) -> bool {
+            self.dyed.unwrap_or(false)
+        }
+
+        pub fn clear_dyed(&mut self) {
+            self.dyed = ::std::option::Option::None;
+        }
+
+        pub fn has_dyed(&self) -> bool {
+            self.dyed.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_dyed(&mut self, v: bool) {
+            self.dyed = ::std::option::Option::Some(v);
+        }
+
+        // optional bool undyed = 11;
+
+        pub fn undyed(&self) -> bool {
+            self.undyed.unwrap_or(false)
+        }
+
+        pub fn clear_undyed(&mut self) {
+            self.undyed = ::std::option::Option::None;
+        }
+
+        pub fn has_undyed(&self) -> bool {
+            self.undyed.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_undyed(&mut self, v: bool) {
+            self.undyed = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(8);
+            let mut fields = ::std::vec::Vec::with_capacity(12);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &ClothSet| { &m.all },
+                |m: &mut ClothSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "thread_silk",
                 |m: &ClothSet| { &m.thread_silk },
@@ -3250,6 +3949,21 @@ pub mod stockpile_settings {
                 |m: &ClothSet| { &m.cloth_metal },
                 |m: &mut ClothSet| { &mut m.cloth_metal },
             ));
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "dyed",
+                |m: &ClothSet| { &m.dyed },
+                |m: &mut ClothSet| { &mut m.dyed },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "undyed",
+                |m: &ClothSet| { &m.undyed },
+                |m: &mut ClothSet| { &mut m.undyed },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+                "color",
+                |m: &ClothSet| { &m.color },
+                |m: &mut ClothSet| { &mut m.color },
+            ));
             ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<ClothSet>(
                 "StockpileSettings.ClothSet",
                 fields,
@@ -3268,6 +3982,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    72 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.thread_silk.push(is.read_string()?);
                     },
@@ -3292,6 +4009,15 @@ pub mod stockpile_settings {
                     66 => {
                         self.cloth_metal.push(is.read_string()?);
                     },
+                    80 => {
+                        self.dyed = ::std::option::Option::Some(is.read_bool()?);
+                    },
+                    88 => {
+                        self.undyed = ::std::option::Option::Some(is.read_bool()?);
+                    },
+                    98 => {
+                        self.color.push(is.read_string()?);
+                    },
                     tag => {
                         ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
                     },
@@ -3304,6 +4030,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.thread_silk {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -3328,12 +4057,24 @@ pub mod stockpile_settings {
             for value in &self.cloth_metal {
                 my_size += ::protobuf::rt::string_size(8, &value);
             };
+            if let Some(v) = self.dyed {
+                my_size += 1 + 1;
+            }
+            if let Some(v) = self.undyed {
+                my_size += 1 + 1;
+            }
+            for value in &self.color {
+                my_size += ::protobuf::rt::string_size(12, &value);
+            };
             my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
             self.special_fields.cached_size().set(my_size as u32);
             my_size
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(9, v)?;
+            }
             for v in &self.thread_silk {
                 os.write_string(1, &v)?;
             };
@@ -3358,6 +4099,15 @@ pub mod stockpile_settings {
             for v in &self.cloth_metal {
                 os.write_string(8, &v)?;
             };
+            if let Some(v) = self.dyed {
+                os.write_bool(10, v)?;
+            }
+            if let Some(v) = self.undyed {
+                os.write_bool(11, v)?;
+            }
+            for v in &self.color {
+                os.write_string(12, &v)?;
+            };
             os.write_unknown_fields(self.special_fields.unknown_fields())?;
             ::std::result::Result::Ok(())
         }
@@ -3375,6 +4125,7 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.thread_silk.clear();
             self.thread_plant.clear();
             self.thread_yarn.clear();
@@ -3383,11 +4134,15 @@ pub mod stockpile_settings {
             self.cloth_plant.clear();
             self.cloth_yarn.clear();
             self.cloth_metal.clear();
+            self.dyed = ::std::option::Option::None;
+            self.undyed = ::std::option::Option::None;
+            self.color.clear();
             self.special_fields.clear();
         }
 
         fn default_instance() -> &'static ClothSet {
             static instance: ClothSet = ClothSet {
+                all: ::std::option::Option::None,
                 thread_silk: ::std::vec::Vec::new(),
                 thread_plant: ::std::vec::Vec::new(),
                 thread_yarn: ::std::vec::Vec::new(),
@@ -3396,6 +4151,9 @@ pub mod stockpile_settings {
                 cloth_plant: ::std::vec::Vec::new(),
                 cloth_yarn: ::std::vec::Vec::new(),
                 cloth_metal: ::std::vec::Vec::new(),
+                dyed: ::std::option::Option::None,
+                undyed: ::std::option::Option::None,
+                color: ::std::vec::Vec::new(),
                 special_fields: ::protobuf::SpecialFields::new(),
             };
             &instance
@@ -3423,6 +4181,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct WoodSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.WoodSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.WoodSet.mats)
         pub mats: ::std::vec::Vec<::std::string::String>,
         // special fields
@@ -3441,9 +4201,33 @@ pub mod stockpile_settings {
             ::std::default::Default::default()
         }
 
+        // optional bool all = 2;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(1);
+            let mut fields = ::std::vec::Vec::with_capacity(2);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &WoodSet| { &m.all },
+                |m: &mut WoodSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "mats",
                 |m: &WoodSet| { &m.mats },
@@ -3467,6 +4251,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    16 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.mats.push(is.read_string()?);
                     },
@@ -3482,6 +4269,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.mats {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -3491,6 +4281,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(2, v)?;
+            }
             for v in &self.mats {
                 os.write_string(1, &v)?;
             };
@@ -3511,12 +4304,14 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.mats.clear();
             self.special_fields.clear();
         }
 
         fn default_instance() -> &'static WoodSet {
             static instance: WoodSet = WoodSet {
+                all: ::std::option::Option::None,
                 mats: ::std::vec::Vec::new(),
                 special_fields: ::protobuf::SpecialFields::new(),
             };
@@ -3545,6 +4340,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct WeaponsSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.WeaponsSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.WeaponsSet.weapon_type)
         pub weapon_type: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.WeaponsSet.trapcomp_type)
@@ -3575,6 +4372,25 @@ pub mod stockpile_settings {
     impl WeaponsSet {
         pub fn new() -> WeaponsSet {
             ::std::default::Default::default()
+        }
+
+        // optional bool all = 9;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
         }
 
         // optional bool usable = 7;
@@ -3616,8 +4432,13 @@ pub mod stockpile_settings {
         }
 
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(8);
+            let mut fields = ::std::vec::Vec::with_capacity(9);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &WeaponsSet| { &m.all },
+                |m: &mut WeaponsSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "weapon_type",
                 |m: &WeaponsSet| { &m.weapon_type },
@@ -3676,6 +4497,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    72 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.weapon_type.push(is.read_string()?);
                     },
@@ -3712,6 +4536,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.weapon_type {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -3742,6 +4569,9 @@ pub mod stockpile_settings {
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(9, v)?;
+            }
             for v in &self.weapon_type {
                 os.write_string(1, &v)?;
             };
@@ -3783,6 +4613,7 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.weapon_type.clear();
             self.trapcomp_type.clear();
             self.other_mats.clear();
@@ -3796,6 +4627,7 @@ pub mod stockpile_settings {
 
         fn default_instance() -> &'static WeaponsSet {
             static instance: WeaponsSet = WeaponsSet {
+                all: ::std::option::Option::None,
                 weapon_type: ::std::vec::Vec::new(),
                 trapcomp_type: ::std::vec::Vec::new(),
                 other_mats: ::std::vec::Vec::new(),
@@ -3831,6 +4663,8 @@ pub mod stockpile_settings {
     #[derive(PartialEq,Clone,Default,Debug)]
     pub struct ArmorSet {
         // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ArmorSet.all)
+        pub all: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ArmorSet.body)
         pub body: ::std::vec::Vec<::std::string::String>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ArmorSet.head)
@@ -3855,6 +4689,12 @@ pub mod stockpile_settings {
         pub usable: ::std::option::Option<bool>,
         // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ArmorSet.unusable)
         pub unusable: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ArmorSet.dyed)
+        pub dyed: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ArmorSet.undyed)
+        pub undyed: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.ArmorSet.color)
+        pub color: ::std::vec::Vec<::std::string::String>,
         // special fields
         // @@protoc_insertion_point(special_field:dfstockpiles.StockpileSettings.ArmorSet.special_fields)
         pub special_fields: ::protobuf::SpecialFields,
@@ -3869,6 +4709,25 @@ pub mod stockpile_settings {
     impl ArmorSet {
         pub fn new() -> ArmorSet {
             ::std::default::Default::default()
+        }
+
+        // optional bool all = 13;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
         }
 
         // optional bool usable = 11;
@@ -3909,9 +4768,52 @@ pub mod stockpile_settings {
             self.unusable = ::std::option::Option::Some(v);
         }
 
+        // optional bool dyed = 14;
+
+        pub fn dyed(&self) -> bool {
+            self.dyed.unwrap_or(false)
+        }
+
+        pub fn clear_dyed(&mut self) {
+            self.dyed = ::std::option::Option::None;
+        }
+
+        pub fn has_dyed(&self) -> bool {
+            self.dyed.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_dyed(&mut self, v: bool) {
+            self.dyed = ::std::option::Option::Some(v);
+        }
+
+        // optional bool undyed = 15;
+
+        pub fn undyed(&self) -> bool {
+            self.undyed.unwrap_or(false)
+        }
+
+        pub fn clear_undyed(&mut self) {
+            self.undyed = ::std::option::Option::None;
+        }
+
+        pub fn has_undyed(&self) -> bool {
+            self.undyed.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_undyed(&mut self, v: bool) {
+            self.undyed = ::std::option::Option::Some(v);
+        }
+
         pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-            let mut fields = ::std::vec::Vec::with_capacity(12);
+            let mut fields = ::std::vec::Vec::with_capacity(16);
             let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &ArmorSet| { &m.all },
+                |m: &mut ArmorSet| { &mut m.all },
+            ));
             fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
                 "body",
                 |m: &ArmorSet| { &m.body },
@@ -3972,6 +4874,21 @@ pub mod stockpile_settings {
                 |m: &ArmorSet| { &m.unusable },
                 |m: &mut ArmorSet| { &mut m.unusable },
             ));
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "dyed",
+                |m: &ArmorSet| { &m.dyed },
+                |m: &mut ArmorSet| { &mut m.dyed },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "undyed",
+                |m: &ArmorSet| { &m.undyed },
+                |m: &mut ArmorSet| { &mut m.undyed },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+                "color",
+                |m: &ArmorSet| { &m.color },
+                |m: &mut ArmorSet| { &mut m.color },
+            ));
             ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<ArmorSet>(
                 "StockpileSettings.ArmorSet",
                 fields,
@@ -3990,6 +4907,9 @@ pub mod stockpile_settings {
         fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
             while let Some(tag) = is.read_raw_tag_or_eof()? {
                 match tag {
+                    104 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
                     10 => {
                         self.body.push(is.read_string()?);
                     },
@@ -4026,6 +4946,15 @@ pub mod stockpile_settings {
                     96 => {
                         self.unusable = ::std::option::Option::Some(is.read_bool()?);
                     },
+                    112 => {
+                        self.dyed = ::std::option::Option::Some(is.read_bool()?);
+                    },
+                    120 => {
+                        self.undyed = ::std::option::Option::Some(is.read_bool()?);
+                    },
+                    130 => {
+                        self.color.push(is.read_string()?);
+                    },
                     tag => {
                         ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
                     },
@@ -4038,6 +4967,9 @@ pub mod stockpile_settings {
         #[allow(unused_variables)]
         fn compute_size(&self) -> u64 {
             let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
             for value in &self.body {
                 my_size += ::protobuf::rt::string_size(1, &value);
             };
@@ -4074,12 +5006,24 @@ pub mod stockpile_settings {
             if let Some(v) = self.unusable {
                 my_size += 1 + 1;
             }
+            if let Some(v) = self.dyed {
+                my_size += 1 + 1;
+            }
+            if let Some(v) = self.undyed {
+                my_size += 1 + 1;
+            }
+            for value in &self.color {
+                my_size += ::protobuf::rt::string_size(16, &value);
+            };
             my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
             self.special_fields.cached_size().set(my_size as u32);
             my_size
         }
 
         fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(13, v)?;
+            }
             for v in &self.body {
                 os.write_string(1, &v)?;
             };
@@ -4116,6 +5060,15 @@ pub mod stockpile_settings {
             if let Some(v) = self.unusable {
                 os.write_bool(12, v)?;
             }
+            if let Some(v) = self.dyed {
+                os.write_bool(14, v)?;
+            }
+            if let Some(v) = self.undyed {
+                os.write_bool(15, v)?;
+            }
+            for v in &self.color {
+                os.write_string(16, &v)?;
+            };
             os.write_unknown_fields(self.special_fields.unknown_fields())?;
             ::std::result::Result::Ok(())
         }
@@ -4133,6 +5086,7 @@ pub mod stockpile_settings {
         }
 
         fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
             self.body.clear();
             self.head.clear();
             self.feet.clear();
@@ -4145,11 +5099,15 @@ pub mod stockpile_settings {
             self.quality_total.clear();
             self.usable = ::std::option::Option::None;
             self.unusable = ::std::option::Option::None;
+            self.dyed = ::std::option::Option::None;
+            self.undyed = ::std::option::Option::None;
+            self.color.clear();
             self.special_fields.clear();
         }
 
         fn default_instance() -> &'static ArmorSet {
             static instance: ArmorSet = ArmorSet {
+                all: ::std::option::Option::None,
                 body: ::std::vec::Vec::new(),
                 head: ::std::vec::Vec::new(),
                 feet: ::std::vec::Vec::new(),
@@ -4162,6 +5120,9 @@ pub mod stockpile_settings {
                 quality_total: ::std::vec::Vec::new(),
                 usable: ::std::option::Option::None,
                 unusable: ::std::option::Option::None,
+                dyed: ::std::option::Option::None,
+                undyed: ::std::option::Option::None,
+                color: ::std::vec::Vec::new(),
                 special_fields: ::protobuf::SpecialFields::new(),
             };
             &instance
@@ -4184,110 +5145,471 @@ pub mod stockpile_settings {
     impl ::protobuf::reflect::ProtobufValue for ArmorSet {
         type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
     }
+
+    // @@protoc_insertion_point(message:dfstockpiles.StockpileSettings.CorpsesSet)
+    #[derive(PartialEq,Clone,Default,Debug)]
+    pub struct CorpsesSet {
+        // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.CorpsesSet.all)
+        pub all: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.CorpsesSet.corpses)
+        pub corpses: ::std::vec::Vec<::std::string::String>,
+        // special fields
+        // @@protoc_insertion_point(special_field:dfstockpiles.StockpileSettings.CorpsesSet.special_fields)
+        pub special_fields: ::protobuf::SpecialFields,
+    }
+
+    impl<'a> ::std::default::Default for &'a CorpsesSet {
+        fn default() -> &'a CorpsesSet {
+            <CorpsesSet as ::protobuf::Message>::default_instance()
+        }
+    }
+
+    impl CorpsesSet {
+        pub fn new() -> CorpsesSet {
+            ::std::default::Default::default()
+        }
+
+        // optional bool all = 1;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
+        pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
+            let mut fields = ::std::vec::Vec::with_capacity(2);
+            let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &CorpsesSet| { &m.all },
+                |m: &mut CorpsesSet| { &mut m.all },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+                "corpses",
+                |m: &CorpsesSet| { &m.corpses },
+                |m: &mut CorpsesSet| { &mut m.corpses },
+            ));
+            ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<CorpsesSet>(
+                "StockpileSettings.CorpsesSet",
+                fields,
+                oneofs,
+            )
+        }
+    }
+
+    impl ::protobuf::Message for CorpsesSet {
+        const NAME: &'static str = "CorpsesSet";
+
+        fn is_initialized(&self) -> bool {
+            true
+        }
+
+        fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
+            while let Some(tag) = is.read_raw_tag_or_eof()? {
+                match tag {
+                    8 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
+                    18 => {
+                        self.corpses.push(is.read_string()?);
+                    },
+                    tag => {
+                        ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
+                    },
+                };
+            }
+            ::std::result::Result::Ok(())
+        }
+
+        // Compute sizes of nested messages
+        #[allow(unused_variables)]
+        fn compute_size(&self) -> u64 {
+            let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
+            for value in &self.corpses {
+                my_size += ::protobuf::rt::string_size(2, &value);
+            };
+            my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
+            self.special_fields.cached_size().set(my_size as u32);
+            my_size
+        }
+
+        fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(1, v)?;
+            }
+            for v in &self.corpses {
+                os.write_string(2, &v)?;
+            };
+            os.write_unknown_fields(self.special_fields.unknown_fields())?;
+            ::std::result::Result::Ok(())
+        }
+
+        fn special_fields(&self) -> &::protobuf::SpecialFields {
+            &self.special_fields
+        }
+
+        fn mut_special_fields(&mut self) -> &mut ::protobuf::SpecialFields {
+            &mut self.special_fields
+        }
+
+        fn new() -> CorpsesSet {
+            CorpsesSet::new()
+        }
+
+        fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
+            self.corpses.clear();
+            self.special_fields.clear();
+        }
+
+        fn default_instance() -> &'static CorpsesSet {
+            static instance: CorpsesSet = CorpsesSet {
+                all: ::std::option::Option::None,
+                corpses: ::std::vec::Vec::new(),
+                special_fields: ::protobuf::SpecialFields::new(),
+            };
+            &instance
+        }
+    }
+
+    impl ::protobuf::MessageFull for CorpsesSet {
+        fn descriptor() -> ::protobuf::reflect::MessageDescriptor {
+            static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::Lazy::new();
+            descriptor.get(|| super::file_descriptor().message_by_package_relative_name("StockpileSettings.CorpsesSet").unwrap()).clone()
+        }
+    }
+
+    impl ::std::fmt::Display for CorpsesSet {
+        fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+            ::protobuf::text_format::fmt(self, f)
+        }
+    }
+
+    impl ::protobuf::reflect::ProtobufValue for CorpsesSet {
+        type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
+    }
+
+    // @@protoc_insertion_point(message:dfstockpiles.StockpileSettings.SheetSet)
+    #[derive(PartialEq,Clone,Default,Debug)]
+    pub struct SheetSet {
+        // message fields
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.SheetSet.all)
+        pub all: ::std::option::Option<bool>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.SheetSet.paper)
+        pub paper: ::std::vec::Vec<::std::string::String>,
+        // @@protoc_insertion_point(field:dfstockpiles.StockpileSettings.SheetSet.parchment)
+        pub parchment: ::std::vec::Vec<::std::string::String>,
+        // special fields
+        // @@protoc_insertion_point(special_field:dfstockpiles.StockpileSettings.SheetSet.special_fields)
+        pub special_fields: ::protobuf::SpecialFields,
+    }
+
+    impl<'a> ::std::default::Default for &'a SheetSet {
+        fn default() -> &'a SheetSet {
+            <SheetSet as ::protobuf::Message>::default_instance()
+        }
+    }
+
+    impl SheetSet {
+        pub fn new() -> SheetSet {
+            ::std::default::Default::default()
+        }
+
+        // optional bool all = 1;
+
+        pub fn all(&self) -> bool {
+            self.all.unwrap_or(false)
+        }
+
+        pub fn clear_all(&mut self) {
+            self.all = ::std::option::Option::None;
+        }
+
+        pub fn has_all(&self) -> bool {
+            self.all.is_some()
+        }
+
+        // Param is passed by value, moved
+        pub fn set_all(&mut self, v: bool) {
+            self.all = ::std::option::Option::Some(v);
+        }
+
+        pub(in super) fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
+            let mut fields = ::std::vec::Vec::with_capacity(3);
+            let mut oneofs = ::std::vec::Vec::with_capacity(0);
+            fields.push(::protobuf::reflect::rt::v2::make_option_accessor::<_, _>(
+                "all",
+                |m: &SheetSet| { &m.all },
+                |m: &mut SheetSet| { &mut m.all },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+                "paper",
+                |m: &SheetSet| { &m.paper },
+                |m: &mut SheetSet| { &mut m.paper },
+            ));
+            fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+                "parchment",
+                |m: &SheetSet| { &m.parchment },
+                |m: &mut SheetSet| { &mut m.parchment },
+            ));
+            ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<SheetSet>(
+                "StockpileSettings.SheetSet",
+                fields,
+                oneofs,
+            )
+        }
+    }
+
+    impl ::protobuf::Message for SheetSet {
+        const NAME: &'static str = "SheetSet";
+
+        fn is_initialized(&self) -> bool {
+            true
+        }
+
+        fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
+            while let Some(tag) = is.read_raw_tag_or_eof()? {
+                match tag {
+                    8 => {
+                        self.all = ::std::option::Option::Some(is.read_bool()?);
+                    },
+                    18 => {
+                        self.paper.push(is.read_string()?);
+                    },
+                    26 => {
+                        self.parchment.push(is.read_string()?);
+                    },
+                    tag => {
+                        ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
+                    },
+                };
+            }
+            ::std::result::Result::Ok(())
+        }
+
+        // Compute sizes of nested messages
+        #[allow(unused_variables)]
+        fn compute_size(&self) -> u64 {
+            let mut my_size = 0;
+            if let Some(v) = self.all {
+                my_size += 1 + 1;
+            }
+            for value in &self.paper {
+                my_size += ::protobuf::rt::string_size(2, &value);
+            };
+            for value in &self.parchment {
+                my_size += ::protobuf::rt::string_size(3, &value);
+            };
+            my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
+            self.special_fields.cached_size().set(my_size as u32);
+            my_size
+        }
+
+        fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+            if let Some(v) = self.all {
+                os.write_bool(1, v)?;
+            }
+            for v in &self.paper {
+                os.write_string(2, &v)?;
+            };
+            for v in &self.parchment {
+                os.write_string(3, &v)?;
+            };
+            os.write_unknown_fields(self.special_fields.unknown_fields())?;
+            ::std::result::Result::Ok(())
+        }
+
+        fn special_fields(&self) -> &::protobuf::SpecialFields {
+            &self.special_fields
+        }
+
+        fn mut_special_fields(&mut self) -> &mut ::protobuf::SpecialFields {
+            &mut self.special_fields
+        }
+
+        fn new() -> SheetSet {
+            SheetSet::new()
+        }
+
+        fn clear(&mut self) {
+            self.all = ::std::option::Option::None;
+            self.paper.clear();
+            self.parchment.clear();
+            self.special_fields.clear();
+        }
+
+        fn default_instance() -> &'static SheetSet {
+            static instance: SheetSet = SheetSet {
+                all: ::std::option::Option::None,
+                paper: ::std::vec::Vec::new(),
+                parchment: ::std::vec::Vec::new(),
+                special_fields: ::protobuf::SpecialFields::new(),
+            };
+            &instance
+        }
+    }
+
+    impl ::protobuf::MessageFull for SheetSet {
+        fn descriptor() -> ::protobuf::reflect::MessageDescriptor {
+            static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::Lazy::new();
+            descriptor.get(|| super::file_descriptor().message_by_package_relative_name("StockpileSettings.SheetSet").unwrap()).clone()
+        }
+    }
+
+    impl ::std::fmt::Display for SheetSet {
+        fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+            ::protobuf::text_format::fmt(self, f)
+        }
+    }
+
+    impl ::protobuf::reflect::ProtobufValue for SheetSet {
+        type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
+    }
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x10stockpiles.proto\x12\x0cdfstockpiles\"\xee\x20\n\x11StockpileSetti\
-    ngs\x12D\n\x07animals\x18\x01\x20\x01(\x0b2*.dfstockpiles.StockpileSetti\
-    ngs.AnimalsSetR\x07animals\x12;\n\x04food\x18\x02\x20\x01(\x0b2'.dfstock\
-    piles.StockpileSettings.FoodSetR\x04food\x12J\n\tfurniture\x18\x03\x20\
-    \x01(\x0b2,.dfstockpiles.StockpileSettings.FurnitureSetR\tfurniture\x12\
-    \x1a\n\x08unknown1\x18\x04\x20\x01(\x05R\x08unknown1\x12A\n\x06refuse\
-    \x18\x05\x20\x01(\x0b2).dfstockpiles.StockpileSettings.RefuseSetR\x06ref\
-    use\x12>\n\x05stone\x18\x06\x20\x01(\x0b2(.dfstockpiles.StockpileSetting\
-    s.StoneSetR\x05stone\x128\n\x03ore\x18\x07\x20\x01(\x0b2&.dfstockpiles.S\
-    tockpileSettings.OreSetR\x03ore\x12;\n\x04ammo\x18\x08\x20\x01(\x0b2'.df\
-    stockpiles.StockpileSettings.AmmoSetR\x04ammo\x12;\n\x04coin\x18\t\x20\
-    \x01(\x0b2'.dfstockpiles.StockpileSettings.CoinSetR\x04coin\x12M\n\nbars\
-    blocks\x18\n\x20\x01(\x0b2-.dfstockpiles.StockpileSettings.BarsBlocksSet\
-    R\nbarsblocks\x12;\n\x04gems\x18\x0b\x20\x01(\x0b2'.dfstockpiles.Stockpi\
-    leSettings.GemsSetR\x04gems\x12W\n\x0efinished_goods\x18\x0c\x20\x01(\
-    \x0b20.dfstockpiles.StockpileSettings.FinishedGoodsSetR\rfinishedGoods\
-    \x12D\n\x07leather\x18\r\x20\x01(\x0b2*.dfstockpiles.StockpileSettings.L\
-    eatherSetR\x07leather\x12>\n\x05cloth\x18\x0e\x20\x01(\x0b2(.dfstockpile\
-    s.StockpileSettings.ClothSetR\x05cloth\x12;\n\x04wood\x18\x0f\x20\x01(\
-    \x0b2'.dfstockpiles.StockpileSettings.WoodSetR\x04wood\x12D\n\x07weapons\
-    \x18\x10\x20\x01(\x0b2*.dfstockpiles.StockpileSettings.WeaponsSetR\x07we\
-    apons\x12>\n\x05armor\x18\x11\x20\x01(\x0b2(.dfstockpiles.StockpileSetti\
-    ngs.ArmorSetR\x05armor\x12#\n\rallow_organic\x18\x12\x20\x01(\x08R\x0cal\
-    lowOrganic\x12'\n\x0fallow_inorganic\x18\x13\x20\x01(\x08R\x0eallowInorg\
-    anic\x12\x18\n\x07corpses\x18\x18\x20\x01(\x08R\x07corpses\x12\x1f\n\x0b\
-    max_barrels\x18\x14\x20\x01(\x05R\nmaxBarrels\x12\x19\n\x08max_bins\x18\
-    \x15\x20\x01(\x05R\x07maxBins\x12)\n\x10max_wheelbarrows\x18\x16\x20\x01\
-    (\x05R\x0fmaxWheelbarrows\x12$\n\x0euse_links_only\x18\x17\x20\x01(\x08R\
-    \x0cuseLinksOnly\x1ah\n\nAnimalsSet\x12\x1f\n\x0bempty_cages\x18\x01\x20\
-    \x01(\x08R\nemptyCages\x12\x1f\n\x0bempty_traps\x18\x02\x20\x01(\x08R\ne\
-    mptyTraps\x12\x18\n\x07enabled\x18\x03\x20\x03(\tR\x07enabled\x1a\xf0\
-    \x04\n\x07FoodSet\x12\x12\n\x04meat\x18\x01\x20\x03(\tR\x04meat\x12\x12\
-    \n\x04fish\x18\x02\x20\x03(\tR\x04fish\x12'\n\x0funprepared_fish\x18\x14\
-    \x20\x03(\tR\x0eunpreparedFish\x12\x10\n\x03egg\x18\x03\x20\x03(\tR\x03e\
-    gg\x12\x16\n\x06plants\x18\x04\x20\x03(\tR\x06plants\x12\x1f\n\x0bdrink_\
-    plant\x18\x05\x20\x03(\tR\ndrinkPlant\x12!\n\x0cdrink_animal\x18\x06\x20\
-    \x03(\tR\x0bdrinkAnimal\x12!\n\x0ccheese_plant\x18\x07\x20\x03(\tR\x0bch\
-    eesePlant\x12#\n\rcheese_animal\x18\x08\x20\x03(\tR\x0ccheeseAnimal\x12\
-    \x14\n\x05seeds\x18\t\x20\x03(\tR\x05seeds\x12\x16\n\x06leaves\x18\n\x20\
-    \x03(\tR\x06leaves\x12!\n\x0cpowder_plant\x18\x0b\x20\x03(\tR\x0bpowderP\
-    lant\x12'\n\x0fpowder_creature\x18\x0c\x20\x03(\tR\x0epowderCreature\x12\
-    \x12\n\x04glob\x18\r\x20\x03(\tR\x04glob\x12\x1d\n\nglob_paste\x18\x0e\
-    \x20\x03(\tR\tglobPaste\x12!\n\x0cglob_pressed\x18\x0f\x20\x03(\tR\x0bgl\
-    obPressed\x12!\n\x0cliquid_plant\x18\x10\x20\x03(\tR\x0bliquidPlant\x12#\
-    \n\rliquid_animal\x18\x11\x20\x03(\tR\x0cliquidAnimal\x12\x1f\n\x0bliqui\
-    d_misc\x18\x12\x20\x03(\tR\nliquidMisc\x12%\n\x0eprepared_meals\x18\x13\
-    \x20\x01(\x08R\rpreparedMeals\x1a\x9d\x01\n\x0cFurnitureSet\x12\x12\n\
-    \x04type\x18\x01\x20\x03(\tR\x04type\x12\x1d\n\nother_mats\x18\x02\x20\
-    \x03(\tR\totherMats\x12\x12\n\x04mats\x18\x03\x20\x03(\tR\x04mats\x12!\n\
-    \x0cquality_core\x18\x04\x20\x03(\tR\x0bqualityCore\x12#\n\rquality_tota\
-    l\x18\x05\x20\x03(\tR\x0cqualityTotal\x1a\xac\x02\n\tRefuseSet\x12\x12\n\
-    \x04type\x18\x01\x20\x03(\tR\x04type\x12\x18\n\x07corpses\x18\x02\x20\
-    \x03(\tR\x07corpses\x12\x1d\n\nbody_parts\x18\x03\x20\x03(\tR\tbodyParts\
-    \x12\x16\n\x06skulls\x18\x04\x20\x03(\tR\x06skulls\x12\x14\n\x05bones\
-    \x18\x05\x20\x03(\tR\x05bones\x12\x12\n\x04hair\x18\x06\x20\x03(\tR\x04h\
-    air\x12\x16\n\x06shells\x18\x07\x20\x03(\tR\x06shells\x12\x14\n\x05teeth\
-    \x18\x08\x20\x03(\tR\x05teeth\x12\x14\n\x05horns\x18\t\x20\x03(\tR\x05ho\
-    rns\x12$\n\x0efresh_raw_hide\x18\n\x20\x01(\x08R\x0cfreshRawHide\x12&\n\
-    \x0frotten_raw_hide\x18\x0b\x20\x01(\x08R\rrottenRawHide\x1a\x1e\n\x08St\
-    oneSet\x12\x12\n\x04mats\x18\x01\x20\x03(\tR\x04mats\x1a\x1c\n\x06OreSet\
-    \x12\x12\n\x04mats\x18\x01\x20\x03(\tR\x04mats\x1a\x98\x01\n\x07AmmoSet\
+    \n\x10stockpiles.proto\x12\x0cdfstockpiles\"\xa5'\n\x11StockpileSettings\
+    \x12\x1f\n\x0bmax_barrels\x18\x14\x20\x01(\x05R\nmaxBarrels\x12\x19\n\
+    \x08max_bins\x18\x15\x20\x01(\x05R\x07maxBins\x12)\n\x10max_wheelbarrows\
+    \x18\x16\x20\x01(\x05R\x0fmaxWheelbarrows\x12$\n\x0euse_links_only\x18\
+    \x17\x20\x01(\x08R\x0cuseLinksOnly\x12#\n\rallow_organic\x18\x12\x20\x01\
+    (\x08R\x0callowOrganic\x12'\n\x0fallow_inorganic\x18\x13\x20\x01(\x08R\
+    \x0eallowInorganic\x12;\n\x04ammo\x18\x08\x20\x01(\x0b2'.dfstockpiles.St\
+    ockpileSettings.AmmoSetR\x04ammo\x12D\n\x07animals\x18\x01\x20\x01(\x0b2\
+    *.dfstockpiles.StockpileSettings.AnimalsSetR\x07animals\x12>\n\x05armor\
+    \x18\x11\x20\x01(\x0b2(.dfstockpiles.StockpileSettings.ArmorSetR\x05armo\
+    r\x12M\n\nbarsblocks\x18\n\x20\x01(\x0b2-.dfstockpiles.StockpileSettings\
+    .BarsBlocksSetR\nbarsblocks\x12>\n\x05cloth\x18\x0e\x20\x01(\x0b2(.dfsto\
+    ckpiles.StockpileSettings.ClothSetR\x05cloth\x12;\n\x04coin\x18\t\x20\
+    \x01(\x0b2'.dfstockpiles.StockpileSettings.CoinSetR\x04coin\x12W\n\x0efi\
+    nished_goods\x18\x0c\x20\x01(\x0b20.dfstockpiles.StockpileSettings.Finis\
+    hedGoodsSetR\rfinishedGoods\x12;\n\x04food\x18\x02\x20\x01(\x0b2'.dfstoc\
+    kpiles.StockpileSettings.FoodSetR\x04food\x12J\n\tfurniture\x18\x03\x20\
+    \x01(\x0b2,.dfstockpiles.StockpileSettings.FurnitureSetR\tfurniture\x12;\
+    \n\x04gems\x18\x0b\x20\x01(\x0b2'.dfstockpiles.StockpileSettings.GemsSet\
+    R\x04gems\x12D\n\x07leather\x18\r\x20\x01(\x0b2*.dfstockpiles.StockpileS\
+    ettings.LeatherSetR\x07leather\x12K\n\x0bcorpses_v50\x18\x19\x20\x01(\
+    \x0b2*.dfstockpiles.StockpileSettings.CorpsesSetR\ncorpsesV50\x12A\n\x06\
+    refuse\x18\x05\x20\x01(\x0b2).dfstockpiles.StockpileSettings.RefuseSetR\
+    \x06refuse\x12>\n\x05sheet\x18\x1a\x20\x01(\x0b2(.dfstockpiles.Stockpile\
+    Settings.SheetSetR\x05sheet\x12>\n\x05stone\x18\x06\x20\x01(\x0b2(.dfsto\
+    ckpiles.StockpileSettings.StoneSetR\x05stone\x12D\n\x07weapons\x18\x10\
+    \x20\x01(\x0b2*.dfstockpiles.StockpileSettings.WeaponsSetR\x07weapons\
+    \x12;\n\x04wood\x18\x0f\x20\x01(\x0b2'.dfstockpiles.StockpileSettings.Wo\
+    odSetR\x04wood\x12\x18\n\x07corpses\x18\x18\x20\x01(\x08R\x07corpses\x12\
+    <\n\x03ore\x18\x07\x20\x01(\x0b2&.dfstockpiles.StockpileSettings.OreSetR\
+    \x03oreB\x02\x18\x01\x12\x1e\n\x08unknown1\x18\x04\x20\x01(\x05R\x08unkn\
+    own1B\x02\x18\x01\x1az\n\nAnimalsSet\x12\x10\n\x03all\x18\x04\x20\x01(\
+    \x08R\x03all\x12\x1f\n\x0bempty_cages\x18\x01\x20\x01(\x08R\nemptyCages\
+    \x12\x1f\n\x0bempty_traps\x18\x02\x20\x01(\x08R\nemptyTraps\x12\x18\n\
+    \x07enabled\x18\x03\x20\x03(\tR\x07enabled\x1a\x82\x05\n\x07FoodSet\x12\
+    \x10\n\x03all\x18\x15\x20\x01(\x08R\x03all\x12\x12\n\x04meat\x18\x01\x20\
+    \x03(\tR\x04meat\x12\x12\n\x04fish\x18\x02\x20\x03(\tR\x04fish\x12'\n\
+    \x0funprepared_fish\x18\x14\x20\x03(\tR\x0eunpreparedFish\x12\x10\n\x03e\
+    gg\x18\x03\x20\x03(\tR\x03egg\x12\x16\n\x06plants\x18\x04\x20\x03(\tR\
+    \x06plants\x12\x1f\n\x0bdrink_plant\x18\x05\x20\x03(\tR\ndrinkPlant\x12!\
+    \n\x0cdrink_animal\x18\x06\x20\x03(\tR\x0bdrinkAnimal\x12!\n\x0ccheese_p\
+    lant\x18\x07\x20\x03(\tR\x0bcheesePlant\x12#\n\rcheese_animal\x18\x08\
+    \x20\x03(\tR\x0ccheeseAnimal\x12\x14\n\x05seeds\x18\t\x20\x03(\tR\x05see\
+    ds\x12\x16\n\x06leaves\x18\n\x20\x03(\tR\x06leaves\x12!\n\x0cpowder_plan\
+    t\x18\x0b\x20\x03(\tR\x0bpowderPlant\x12'\n\x0fpowder_creature\x18\x0c\
+    \x20\x03(\tR\x0epowderCreature\x12\x12\n\x04glob\x18\r\x20\x03(\tR\x04gl\
+    ob\x12\x1d\n\nglob_paste\x18\x0e\x20\x03(\tR\tglobPaste\x12!\n\x0cglob_p\
+    ressed\x18\x0f\x20\x03(\tR\x0bglobPressed\x12!\n\x0cliquid_plant\x18\x10\
+    \x20\x03(\tR\x0bliquidPlant\x12#\n\rliquid_animal\x18\x11\x20\x03(\tR\
+    \x0cliquidAnimal\x12\x1f\n\x0bliquid_misc\x18\x12\x20\x03(\tR\nliquidMis\
+    c\x12%\n\x0eprepared_meals\x18\x13\x20\x01(\x08R\rpreparedMeals\x1a\xaf\
+    \x01\n\x0cFurnitureSet\x12\x10\n\x03all\x18\x07\x20\x01(\x08R\x03all\x12\
+    \x12\n\x04type\x18\x01\x20\x03(\tR\x04type\x12\x1d\n\nother_mats\x18\x02\
+    \x20\x03(\tR\totherMats\x12\x12\n\x04mats\x18\x03\x20\x03(\tR\x04mats\
+    \x12!\n\x0cquality_core\x18\x04\x20\x03(\tR\x0bqualityCore\x12#\n\rquali\
+    ty_total\x18\x05\x20\x03(\tR\x0cqualityTotal\x1a\xbe\x02\n\tRefuseSet\
+    \x12\x10\n\x03all\x18\x0c\x20\x01(\x08R\x03all\x12\x12\n\x04type\x18\x01\
+    \x20\x03(\tR\x04type\x12\x18\n\x07corpses\x18\x02\x20\x03(\tR\x07corpses\
+    \x12\x1d\n\nbody_parts\x18\x03\x20\x03(\tR\tbodyParts\x12\x16\n\x06skull\
+    s\x18\x04\x20\x03(\tR\x06skulls\x12\x14\n\x05bones\x18\x05\x20\x03(\tR\
+    \x05bones\x12\x12\n\x04hair\x18\x06\x20\x03(\tR\x04hair\x12\x16\n\x06she\
+    lls\x18\x07\x20\x03(\tR\x06shells\x12\x14\n\x05teeth\x18\x08\x20\x03(\tR\
+    \x05teeth\x12\x14\n\x05horns\x18\t\x20\x03(\tR\x05horns\x12$\n\x0efresh_\
+    raw_hide\x18\n\x20\x01(\x08R\x0cfreshRawHide\x12&\n\x0frotten_raw_hide\
+    \x18\x0b\x20\x01(\x08R\rrottenRawHide\x1a0\n\x08StoneSet\x12\x10\n\x03al\
+    l\x18\x02\x20\x01(\x08R\x03all\x12\x12\n\x04mats\x18\x01\x20\x03(\tR\x04\
+    mats\x1a\x1c\n\x06OreSet\x12\x12\n\x04mats\x18\x01\x20\x03(\tR\x04mats\
+    \x1a\xaa\x01\n\x07AmmoSet\x12\x10\n\x03all\x18\x06\x20\x01(\x08R\x03all\
     \x12\x12\n\x04type\x18\x01\x20\x03(\tR\x04type\x12\x1d\n\nother_mats\x18\
     \x02\x20\x03(\tR\totherMats\x12\x12\n\x04mats\x18\x03\x20\x03(\tR\x04mat\
     s\x12!\n\x0cquality_core\x18\x04\x20\x03(\tR\x0bqualityCore\x12#\n\rqual\
-    ity_total\x18\x05\x20\x03(\tR\x0cqualityTotal\x1a\x1d\n\x07CoinSet\x12\
-    \x12\n\x04mats\x18\x01\x20\x03(\tR\x04mats\x1a\xa1\x01\n\rBarsBlocksSet\
-    \x12&\n\x0fbars_other_mats\x18\x01\x20\x03(\tR\rbarsOtherMats\x12*\n\x11\
-    blocks_other_mats\x18\x02\x20\x03(\tR\x0fblocksOtherMats\x12\x1b\n\tbars\
-    _mats\x18\x03\x20\x03(\tR\x08barsMats\x12\x1f\n\x0bblocks_mats\x18\x04\
-    \x20\x03(\tR\nblocksMats\x1a\x93\x01\n\x07GemsSet\x12(\n\x10rough_other_\
-    mats\x18\x01\x20\x03(\tR\x0eroughOtherMats\x12$\n\x0ecut_other_mats\x18\
-    \x02\x20\x03(\tR\x0ccutOtherMats\x12\x1d\n\nrough_mats\x18\x03\x20\x03(\
-    \tR\troughMats\x12\x19\n\x08cut_mats\x18\x04\x20\x03(\tR\x07cutMats\x1a\
-    \xa1\x01\n\x10FinishedGoodsSet\x12\x12\n\x04type\x18\x01\x20\x03(\tR\x04\
-    type\x12\x1d\n\nother_mats\x18\x02\x20\x03(\tR\totherMats\x12\x12\n\x04m\
-    ats\x18\x03\x20\x03(\tR\x04mats\x12!\n\x0cquality_core\x18\x04\x20\x03(\
-    \tR\x0bqualityCore\x12#\n\rquality_total\x18\x05\x20\x03(\tR\x0cqualityT\
-    otal\x1a\x20\n\nLeatherSet\x12\x12\n\x04mats\x18\x01\x20\x03(\tR\x04mats\
-    \x1a\x92\x02\n\x08ClothSet\x12\x1f\n\x0bthread_silk\x18\x01\x20\x03(\tR\
-    \nthreadSilk\x12!\n\x0cthread_plant\x18\x02\x20\x03(\tR\x0bthreadPlant\
-    \x12\x1f\n\x0bthread_yarn\x18\x03\x20\x03(\tR\nthreadYarn\x12!\n\x0cthre\
-    ad_metal\x18\x04\x20\x03(\tR\x0bthreadMetal\x12\x1d\n\ncloth_silk\x18\
-    \x05\x20\x03(\tR\tclothSilk\x12\x1f\n\x0bcloth_plant\x18\x06\x20\x03(\tR\
-    \nclothPlant\x12\x1d\n\ncloth_yarn\x18\x07\x20\x03(\tR\tclothYarn\x12\
-    \x1f\n\x0bcloth_metal\x18\x08\x20\x03(\tR\nclothMetal\x1a\x1d\n\x07WoodS\
-    et\x12\x12\n\x04mats\x18\x01\x20\x03(\tR\x04mats\x1a\x81\x02\n\nWeaponsS\
-    et\x12\x1f\n\x0bweapon_type\x18\x01\x20\x03(\tR\nweaponType\x12#\n\rtrap\
-    comp_type\x18\x02\x20\x03(\tR\x0ctrapcompType\x12\x1d\n\nother_mats\x18\
-    \x03\x20\x03(\tR\totherMats\x12\x12\n\x04mats\x18\x04\x20\x03(\tR\x04mat\
-    s\x12!\n\x0cquality_core\x18\x05\x20\x03(\tR\x0bqualityCore\x12#\n\rqual\
-    ity_total\x18\x06\x20\x03(\tR\x0cqualityTotal\x12\x16\n\x06usable\x18\
-    \x07\x20\x01(\x08R\x06usable\x12\x1a\n\x08unusable\x18\x08\x20\x01(\x08R\
-    \x08unusable\x1a\xb7\x02\n\x08ArmorSet\x12\x12\n\x04body\x18\x01\x20\x03\
-    (\tR\x04body\x12\x12\n\x04head\x18\x02\x20\x03(\tR\x04head\x12\x12\n\x04\
-    feet\x18\x03\x20\x03(\tR\x04feet\x12\x14\n\x05hands\x18\x04\x20\x03(\tR\
-    \x05hands\x12\x12\n\x04legs\x18\x05\x20\x03(\tR\x04legs\x12\x16\n\x06shi\
-    eld\x18\x06\x20\x03(\tR\x06shield\x12\x1d\n\nother_mats\x18\x07\x20\x03(\
-    \tR\totherMats\x12\x12\n\x04mats\x18\x08\x20\x03(\tR\x04mats\x12!\n\x0cq\
-    uality_core\x18\t\x20\x03(\tR\x0bqualityCore\x12#\n\rquality_total\x18\n\
-    \x20\x03(\tR\x0cqualityTotal\x12\x16\n\x06usable\x18\x0b\x20\x01(\x08R\
-    \x06usable\x12\x1a\n\x08unusable\x18\x0c\x20\x01(\x08R\x08unusableB\x02H\
+    ity_total\x18\x05\x20\x03(\tR\x0cqualityTotal\x1a/\n\x07CoinSet\x12\x10\
+    \n\x03all\x18\x02\x20\x01(\x08R\x03all\x12\x12\n\x04mats\x18\x01\x20\x03\
+    (\tR\x04mats\x1a\xb3\x01\n\rBarsBlocksSet\x12\x10\n\x03all\x18\x05\x20\
+    \x01(\x08R\x03all\x12&\n\x0fbars_other_mats\x18\x01\x20\x03(\tR\rbarsOth\
+    erMats\x12*\n\x11blocks_other_mats\x18\x02\x20\x03(\tR\x0fblocksOtherMat\
+    s\x12\x1b\n\tbars_mats\x18\x03\x20\x03(\tR\x08barsMats\x12\x1f\n\x0bbloc\
+    ks_mats\x18\x04\x20\x03(\tR\nblocksMats\x1a\xa5\x01\n\x07GemsSet\x12\x10\
+    \n\x03all\x18\x05\x20\x01(\x08R\x03all\x12(\n\x10rough_other_mats\x18\
+    \x01\x20\x03(\tR\x0eroughOtherMats\x12$\n\x0ecut_other_mats\x18\x02\x20\
+    \x03(\tR\x0ccutOtherMats\x12\x1d\n\nrough_mats\x18\x03\x20\x03(\tR\troug\
+    hMats\x12\x19\n\x08cut_mats\x18\x04\x20\x03(\tR\x07cutMats\x1a\xf5\x01\n\
+    \x10FinishedGoodsSet\x12\x10\n\x03all\x18\x06\x20\x01(\x08R\x03all\x12\
+    \x12\n\x04type\x18\x01\x20\x03(\tR\x04type\x12\x1d\n\nother_mats\x18\x02\
+    \x20\x03(\tR\totherMats\x12\x12\n\x04mats\x18\x03\x20\x03(\tR\x04mats\
+    \x12!\n\x0cquality_core\x18\x04\x20\x03(\tR\x0bqualityCore\x12#\n\rquali\
+    ty_total\x18\x05\x20\x03(\tR\x0cqualityTotal\x12\x12\n\x04dyed\x18\x07\
+    \x20\x01(\x08R\x04dyed\x12\x16\n\x06undyed\x18\x08\x20\x01(\x08R\x06undy\
+    ed\x12\x14\n\x05color\x18\t\x20\x03(\tR\x05color\x1at\n\nLeatherSet\x12\
+    \x10\n\x03all\x18\x02\x20\x01(\x08R\x03all\x12\x12\n\x04mats\x18\x01\x20\
+    \x03(\tR\x04mats\x12\x12\n\x04dyed\x18\x03\x20\x01(\x08R\x04dyed\x12\x16\
+    \n\x06undyed\x18\x04\x20\x01(\x08R\x06undyed\x12\x14\n\x05color\x18\x05\
+    \x20\x03(\tR\x05color\x1a\xe6\x02\n\x08ClothSet\x12\x10\n\x03all\x18\t\
+    \x20\x01(\x08R\x03all\x12\x1f\n\x0bthread_silk\x18\x01\x20\x03(\tR\nthre\
+    adSilk\x12!\n\x0cthread_plant\x18\x02\x20\x03(\tR\x0bthreadPlant\x12\x1f\
+    \n\x0bthread_yarn\x18\x03\x20\x03(\tR\nthreadYarn\x12!\n\x0cthread_metal\
+    \x18\x04\x20\x03(\tR\x0bthreadMetal\x12\x1d\n\ncloth_silk\x18\x05\x20\
+    \x03(\tR\tclothSilk\x12\x1f\n\x0bcloth_plant\x18\x06\x20\x03(\tR\nclothP\
+    lant\x12\x1d\n\ncloth_yarn\x18\x07\x20\x03(\tR\tclothYarn\x12\x1f\n\x0bc\
+    loth_metal\x18\x08\x20\x03(\tR\nclothMetal\x12\x12\n\x04dyed\x18\n\x20\
+    \x01(\x08R\x04dyed\x12\x16\n\x06undyed\x18\x0b\x20\x01(\x08R\x06undyed\
+    \x12\x14\n\x05color\x18\x0c\x20\x03(\tR\x05color\x1a/\n\x07WoodSet\x12\
+    \x10\n\x03all\x18\x02\x20\x01(\x08R\x03all\x12\x12\n\x04mats\x18\x01\x20\
+    \x03(\tR\x04mats\x1a\x93\x02\n\nWeaponsSet\x12\x10\n\x03all\x18\t\x20\
+    \x01(\x08R\x03all\x12\x1f\n\x0bweapon_type\x18\x01\x20\x03(\tR\nweaponTy\
+    pe\x12#\n\rtrapcomp_type\x18\x02\x20\x03(\tR\x0ctrapcompType\x12\x1d\n\n\
+    other_mats\x18\x03\x20\x03(\tR\totherMats\x12\x12\n\x04mats\x18\x04\x20\
+    \x03(\tR\x04mats\x12!\n\x0cquality_core\x18\x05\x20\x03(\tR\x0bqualityCo\
+    re\x12#\n\rquality_total\x18\x06\x20\x03(\tR\x0cqualityTotal\x12\x16\n\
+    \x06usable\x18\x07\x20\x01(\x08R\x06usable\x12\x1a\n\x08unusable\x18\x08\
+    \x20\x01(\x08R\x08unusable\x1a\x8b\x03\n\x08ArmorSet\x12\x10\n\x03all\
+    \x18\r\x20\x01(\x08R\x03all\x12\x12\n\x04body\x18\x01\x20\x03(\tR\x04bod\
+    y\x12\x12\n\x04head\x18\x02\x20\x03(\tR\x04head\x12\x12\n\x04feet\x18\
+    \x03\x20\x03(\tR\x04feet\x12\x14\n\x05hands\x18\x04\x20\x03(\tR\x05hands\
+    \x12\x12\n\x04legs\x18\x05\x20\x03(\tR\x04legs\x12\x16\n\x06shield\x18\
+    \x06\x20\x03(\tR\x06shield\x12\x1d\n\nother_mats\x18\x07\x20\x03(\tR\tot\
+    herMats\x12\x12\n\x04mats\x18\x08\x20\x03(\tR\x04mats\x12!\n\x0cquality_\
+    core\x18\t\x20\x03(\tR\x0bqualityCore\x12#\n\rquality_total\x18\n\x20\
+    \x03(\tR\x0cqualityTotal\x12\x16\n\x06usable\x18\x0b\x20\x01(\x08R\x06us\
+    able\x12\x1a\n\x08unusable\x18\x0c\x20\x01(\x08R\x08unusable\x12\x12\n\
+    \x04dyed\x18\x0e\x20\x01(\x08R\x04dyed\x12\x16\n\x06undyed\x18\x0f\x20\
+    \x01(\x08R\x06undyed\x12\x14\n\x05color\x18\x10\x20\x03(\tR\x05color\x1a\
+    8\n\nCorpsesSet\x12\x10\n\x03all\x18\x01\x20\x01(\x08R\x03all\x12\x18\n\
+    \x07corpses\x18\x02\x20\x03(\tR\x07corpses\x1aP\n\x08SheetSet\x12\x10\n\
+    \x03all\x18\x01\x20\x01(\x08R\x03all\x12\x14\n\x05paper\x18\x02\x20\x03(\
+    \tR\x05paper\x12\x1c\n\tparchment\x18\x03\x20\x03(\tR\tparchmentB\x02H\
     \x03b\x06proto2\
 ";
 
@@ -4306,7 +5628,7 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
     file_descriptor.get(|| {
         let generated_file_descriptor = generated_file_descriptor_lazy.get(|| {
             let mut deps = ::std::vec::Vec::with_capacity(0);
-            let mut messages = ::std::vec::Vec::with_capacity(17);
+            let mut messages = ::std::vec::Vec::with_capacity(19);
             messages.push(StockpileSettings::generated_message_descriptor_data());
             messages.push(stockpile_settings::AnimalsSet::generated_message_descriptor_data());
             messages.push(stockpile_settings::FoodSet::generated_message_descriptor_data());
@@ -4324,6 +5646,8 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
             messages.push(stockpile_settings::WoodSet::generated_message_descriptor_data());
             messages.push(stockpile_settings::WeaponsSet::generated_message_descriptor_data());
             messages.push(stockpile_settings::ArmorSet::generated_message_descriptor_data());
+            messages.push(stockpile_settings::CorpsesSet::generated_message_descriptor_data());
+            messages.push(stockpile_settings::SheetSet::generated_message_descriptor_data());
             let mut enums = ::std::vec::Vec::with_capacity(0);
             ::protobuf::reflect::GeneratedFileDescriptor::new_generated(
                 file_descriptor_proto(),
