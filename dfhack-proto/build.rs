@@ -12,12 +12,14 @@ use quote::ToTokens;
 use regex::Regex;
 use syn::Ident;
 
+#[derive(Debug)]
 struct Rpc {
     pub name: String,
     pub input: String,
     pub output: String,
 }
 
+#[derive(Debug)]
 struct Plugin {
     pub plugin_name: String,
 
@@ -87,7 +89,7 @@ fn get_protoc() -> PathBuf {
 
 fn generate_messages_rs(
     protoc: &PathBuf,
-    protos: &Vec<PathBuf>,
+    protos: &[PathBuf],
     include_dir: &str,
     out_path: &Path,
 ) -> FileDescriptorSet {
@@ -101,7 +103,7 @@ fn generate_messages_rs(
 // Call the protoc code generation
 fn messages_protoc_codegen(
     protoc: &PathBuf,
-    protos: &Vec<PathBuf>,
+    protos: &[PathBuf],
     include_dir: &str,
     out_path: &Path,
 ) -> FileDescriptorSet {
@@ -115,43 +117,6 @@ fn messages_protoc_codegen(
 
     let fd = std::fs::read(fd).unwrap();
     prost_types::FileDescriptorSet::decode(fd.as_slice()).unwrap()
-
-    /*protobuf_codegen::Codegen::new()
-    .customize(Customize::default().lite_runtime(false))
-    .customize_callback(AddHash)
-    .pure()
-    .include(include_dir)
-    .inputs(protos)
-    .out_dir(out_path)
-    .run_from_script();*/
-}
-
-fn messages_generate_mod_rs(protos: &Vec<PathBuf>, out_path: &Path) {
-    let mut file = quote!();
-
-    for proto in protos {
-        let mod_name = proto
-            .with_extension("")
-            .file_name()
-            .unwrap()
-            .to_str()
-            .unwrap()
-            .to_string();
-
-        let mod_name: Ident = format_ident!("{}", mod_name);
-
-        file.extend(quote! {
-            mod #mod_name;
-            pub use self::#mod_name::*;
-        });
-    }
-    // Write mod.rs
-    let mut mod_rs_path = out_path.to_path_buf();
-    mod_rs_path.push("mod.rs");
-    let tree = syn::parse2(file).unwrap();
-    let formatted = prettyplease::unparse(&tree);
-
-    std::fs::write(mod_rs_path, formatted).unwrap();
 }
 
 fn generate_stubs_rs(fd: &FileDescriptorSet, protos: &Vec<PathBuf>, out_path: &Path) {
@@ -197,7 +162,7 @@ fn generate_stubs_mod_rs(plugins: &Vec<Plugin>, file: &mut TokenStream) {
         let member_ident = plugin.member_ident.clone();
         plugins_impl.extend(quote! {
             #[doc = #doc]
-            pub fn #member_ident(&mut self) -> crate::stubs::#struct_ident<TChannel> {
+            pub fn #member_ident(&'a mut self) -> crate::stubs::#struct_ident<'a, TChannel> {
                 crate::stubs::#struct_ident::new(&mut self.channel)
             }
         });
@@ -215,7 +180,7 @@ fn generate_stubs_mod_rs(plugins: &Vec<Plugin>, file: &mut TokenStream) {
             }
         }
 
-        impl<TChannel: crate::Channel> Stubs<TChannel> {
+        impl<'a, TChannel: crate::Channel> Stubs<TChannel> {
             #plugins_impl
         }
 
@@ -311,8 +276,7 @@ fn generate_stub_rs(fd: &FileDescriptorSet, plugin: &Plugin, file: &mut TokenStr
                 value: i32,
             };
             prep = quote! {
-                let mut request = IntMessage::default();
-                request.value = value;
+                let request = IntMessage { value };
             }
         }
 
@@ -331,8 +295,7 @@ fn generate_stub_rs(fd: &FileDescriptorSet, plugin: &Plugin, file: &mut TokenStr
                 value: bool,
             };
             prep = quote! {
-                let mut request = SingleBool::default();
-                request.value = Some(value);
+                let request = SingleBool { value: Some(value) };
             }
         }
 
@@ -415,6 +378,9 @@ fn read_protos_rpcs(protos: &Vec<PathBuf>) -> Vec<Plugin> {
     }
 
     plugins.sort_by(|a, b| a.plugin_name.cmp(&b.plugin_name));
+
+    dbg!(plugins);
+    panic!();
 
     plugins
 }

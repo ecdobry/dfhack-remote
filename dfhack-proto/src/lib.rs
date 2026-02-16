@@ -4,6 +4,7 @@
 use std::{fmt::Display, ops::Deref};
 
 #[allow(clippy::let_unit_value)]
+#[allow(missing_docs)]
 pub(crate) mod generated {
     pub(crate) mod stubs;
 
