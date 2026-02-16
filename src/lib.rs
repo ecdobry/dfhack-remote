@@ -10,6 +10,7 @@ pub use channel::Channel;
 #[doc(no_inline)]
 pub use dfhack_proto::messages::*;
 pub use dfhack_proto::stubs::*;
+pub use dfhack_proto::Message;
 pub use dfhack_proto::Reply;
 use message::CommandResult;
 
@@ -76,12 +77,12 @@ pub enum Error {
     #[error("protocol error: {0}.")]
     ProtocolError(String),
 
-    /// Protobuf serialization or deserialization error
+    /// Protobuf deserialization error
     ///
     /// This can indicate that updating the generated code
     /// is necessary
     #[error("protobuf serialization error: {0}.")]
-    ProtobufError(#[from] protobuf::Error),
+    ProtobufError(#[from] prost::DecodeError),
 
     /// Failed to bind the method
     ///
@@ -131,7 +132,7 @@ mod tests {
 
         #[ctor::ctor]
         fn init() {
-            let port = rand::thread_rng().gen_range(49152..65535).to_string();
+            let port = rand::rng().random_range(49152..65535).to_string();
             std::env::set_var("DFHACK_PORT", port);
 
             use std::{path::PathBuf, process::Command};

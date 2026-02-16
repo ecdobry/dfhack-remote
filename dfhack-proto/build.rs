@@ -4,8 +4,6 @@ use std::{collections::HashMap, io::BufRead, path::PathBuf};
 
 use heck::{ToPascalCase, ToSnakeCase};
 use proc_macro2::TokenStream;
-use prost::Message;
-use prost_types::FileDescriptorSet;
 use quote::format_ident;
 use quote::quote;
 use quote::ToTokens;
@@ -75,10 +73,10 @@ fn main() {
     };
 
     // Generate the protobuf message files
-    let fd = generate_messages_rs(&protoc, &protos, proto_include_dir, &out_path);
+    generate_messages_rs(&protoc, &protos, proto_include_dir, &out_path);
 
     // Generate the plugin stubs
-    generate_stubs_rs(&fd, &protos, &out_path)
+    generate_stubs_rs(&protos, &out_path)
 }
 
 fn get_protoc() -> PathBuf {
@@ -87,17 +85,11 @@ fn get_protoc() -> PathBuf {
     protoc_fetcher::protoc(protoc_version, Path::new(&out_dir)).unwrap()
 }
 
-fn generate_messages_rs(
-    protoc: &PathBuf,
-    protos: &[PathBuf],
-    include_dir: &str,
-    out_path: &Path,
-) -> FileDescriptorSet {
+fn generate_messages_rs(protoc: &PathBuf, protos: &[PathBuf], include_dir: &str, out_path: &Path) {
     let mut out_path = out_path.to_path_buf();
     out_path.push("messages");
     std::fs::create_dir_all(&out_path).unwrap();
-    messages_protoc_codegen(protoc, protos, include_dir, &out_path)
-    //messages_generate_mod_rs(protos, &out_path);
+    messages_protoc_codegen(protoc, protos, include_dir, &out_path);
 }
 
 // Call the protoc code generation
@@ -106,20 +98,16 @@ fn messages_protoc_codegen(
     protos: &[PathBuf],
     include_dir: &str,
     out_path: &Path,
-) -> FileDescriptorSet {
-    let mut prost = prost_build::Config::new();
-    let fd = PathBuf::from(env::var("OUT_DIR").expect("OUT_DIR environment variable not set"))
-        .join("file_descriptor_set.bin");
-    prost.protoc_executable(protoc);
-    prost.file_descriptor_set_path(&fd);
-    prost.out_dir(out_path);
-    prost.compile_protos(protos, &[include_dir]).unwrap();
-
-    let fd = std::fs::read(fd).unwrap();
-    prost_types::FileDescriptorSet::decode(fd.as_slice()).unwrap()
+) {
+    prost_build::Config::new()
+        .enable_type_names()
+        .protoc_executable(protoc)
+        .out_dir(out_path)
+        .compile_protos(protos, &[include_dir])
+        .unwrap();
 }
 
-fn generate_stubs_rs(fd: &FileDescriptorSet, protos: &Vec<PathBuf>, out_path: &Path) {
+fn generate_stubs_rs(protos: &Vec<PathBuf>, out_path: &Path) {
     let plugins = read_protos_rpcs(protos);
     let mut out_path = out_path.to_path_buf();
     out_path.push("stubs");
@@ -129,7 +117,7 @@ fn generate_stubs_rs(fd: &FileDescriptorSet, protos: &Vec<PathBuf>, out_path: &P
     generate_stubs_mod_rs(&plugins, &mut file);
 
     for plugin in &plugins {
-        generate_stub_rs(fd, plugin, &mut file);
+        generate_stub_rs(plugin, &mut file);
     }
 
     let mut mod_rs_path = out_path.clone();
@@ -145,6 +133,7 @@ fn generate_stubs_mod_rs(plugins: &Vec<Plugin>, file: &mut TokenStream) {
 
     file.extend(quote! {
         use crate::messages::*;
+        use prost::Name;
     });
 
     let mut reflection_vec_building = quote!();
@@ -195,18 +184,7 @@ fn generate_stubs_mod_rs(plugins: &Vec<Plugin>, file: &mut TokenStream) {
     });
 }
 
-fn get_full_name(fd: &FileDescriptorSet, message_name: &str) -> String {
-    for file in &fd.file {
-        for message_type in &file.message_type {
-            if message_type.name() == message_name {
-                return format!("{}.{}", file.package(), message_type.name());
-            }
-        }
-    }
-    panic!("Could not find {}", message_name);
-}
-
-fn generate_stub_rs(fd: &FileDescriptorSet, plugin: &Plugin, file: &mut TokenStream) {
+fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
     let plugin_name = &plugin.plugin_name;
     let plugin_doc = format!("RPC for the \"{}\" plugin.", plugin_name);
     let struct_ident = plugin.struct_ident.clone();
@@ -237,9 +215,6 @@ fn generate_stub_rs(fd: &FileDescriptorSet, plugin: &Plugin, file: &mut TokenStr
         let function_ident = format_ident!("{}", rpc.name.to_snake_case());
         let input_ident = format_ident!("{}", rpc.input);
         let output_ident = format_ident!("{}", rpc.output);
-
-        let input_full_name = get_full_name(fd, &rpc.input);
-        let output_full_name = get_full_name(fd, &rpc.output);
 
         let mut return_token = output_ident.to_token_stream();
 
@@ -337,8 +312,8 @@ fn generate_stub_rs(fd: &FileDescriptorSet, plugin: &Plugin, file: &mut TokenStr
             crate::reflection::RemoteProcedureDescriptor {
                 name: #function_name,
                 plugin_name: #plugin_name,
-                input_type: #input_full_name,
-                output_type: #output_full_name,
+                input_type: #input_ident::full_name(),
+                output_type: #output_ident::full_name(),
             },
         });
     }
@@ -378,9 +353,6 @@ fn read_protos_rpcs(protos: &Vec<PathBuf>) -> Vec<Plugin> {
     }
 
     plugins.sort_by(|a, b| a.plugin_name.cmp(&b.plugin_name));
-
-    dbg!(plugins);
-    panic!();
 
     plugins
 }

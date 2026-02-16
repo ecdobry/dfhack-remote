@@ -13,12 +13,12 @@ use crate::{
 
 #[derive(PartialEq, Eq, Hash, Clone)]
 struct Method {
-    pub plugin: String,
-    pub name: String,
+    pub plugin: &'static str,
+    pub name: &'static str,
 }
 
 impl Method {
-    fn new(plugin: String, name: String) -> Self {
+    fn new(plugin: &'static str, name: &'static str) -> Self {
         Method { plugin, name }
     }
 }
@@ -43,13 +43,13 @@ impl dfhack_proto::Channel for Channel {
 
     fn request<TRequest, TReply>(
         &mut self,
-        plugin: std::string::String,
-        name: std::string::String,
+        plugin: &'static str,
+        name: &'static str,
         request: TRequest,
     ) -> crate::Result<crate::Reply<TReply>>
     where
-        TRequest: protobuf::MessageFull,
-        TReply: protobuf::MessageFull,
+        TRequest: crate::Message,
+        TReply: crate::Message,
     {
         let method = Method::new(plugin, name);
 
@@ -85,14 +85,12 @@ impl Channel {
             bindings: HashMap::new(),
         };
 
-        client.bindings.insert(
-            Method::new("".to_string(), "BindMethod".to_string()),
-            BIND_METHOD_ID,
-        );
-        client.bindings.insert(
-            Method::new("".to_string(), "RunCommand".to_string()),
-            RUN_COMMAND_ID,
-        );
+        client
+            .bindings
+            .insert(Method::new("", "BindMethod"), BIND_METHOD_ID);
+        client
+            .bindings
+            .insert(Method::new("", "RunCommand"), RUN_COMMAND_ID);
 
         let handshake_request = message::Handshake::new(MAGIC_QUERY.to_string(), VERSION);
         handshake_request.send(&mut client.stream)?;
@@ -115,7 +113,7 @@ impl Channel {
         Ok(client)
     }
 
-    fn request_raw<TIN: protobuf::MessageFull, TOUT: protobuf::MessageFull>(
+    fn request_raw<TIN: crate::Message, TOUT: crate::Message>(
         &mut self,
         id: i16,
         message: TIN,
@@ -129,7 +127,7 @@ impl Channel {
             match reply {
                 message::Reply::Text(text) => {
                     for fragment in &text.fragments {
-                        log::info!("{}", fragment.text());
+                        log::info!("{}", fragment.text);
                     }
                     fragments.extend(text.fragments);
                 }
@@ -149,15 +147,13 @@ impl Channel {
         }
     }
 
-    fn bind_method<TIN: protobuf::MessageFull, TOUT: protobuf::MessageFull>(
+    fn bind_method<TIN: crate::Message, TOUT: crate::Message>(
         &mut self,
         method: &Method,
     ) -> crate::Result<i16> {
-        let input_descriptor = TIN::descriptor();
-        let output_descriptor = TOUT::descriptor();
-        let input_msg = input_descriptor.full_name();
-        let output_msg = output_descriptor.full_name();
-        self.bind_method_by_name(&method.plugin, &method.name, input_msg, output_msg)
+        let input_msg = TIN::full_name();
+        let output_msg = TOUT::full_name();
+        self.bind_method_by_name(method.plugin, method.name, &input_msg, &output_msg)
     }
 
     fn bind_method_by_name(
@@ -168,11 +164,12 @@ impl Channel {
         output_msg: &str,
     ) -> crate::Result<i16> {
         log::debug!("Binding the method {}:{}", plugin, method);
-        let mut request = crate::CoreBindRequest::new();
-        request.set_method(method.to_owned());
-        request.set_input_msg(input_msg.to_string());
-        request.set_output_msg(output_msg.to_string());
-        request.set_plugin(plugin.to_owned());
+        let request = crate::CoreBindRequest {
+            method: method.to_string(),
+            input_msg: input_msg.to_string(),
+            output_msg: output_msg.to_string(),
+            plugin: Some(plugin.to_string()),
+        };
         let reply: crate::CoreBindReply = match self.request_raw(BIND_METHOD_ID, request) {
             Ok(reply) => reply.reply,
             Err(_) => {
@@ -183,7 +180,7 @@ impl Channel {
                 )));
             }
         };
-        let id = reply.assigned_id() as i16;
+        let id = reply.assigned_id as i16;
         log::debug!("{}:{} bound to {}", plugin, method, id);
         Ok(id)
     }

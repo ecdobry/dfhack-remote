@@ -12,16 +12,34 @@ pub struct SidebarState {
     #[prost(message, optional, tag = "3")]
     pub build_selector: ::core::option::Option<BuildSelector>,
 }
+impl ::prost::Name for SidebarState {
+    const NAME: &'static str = "SidebarState";
+    const PACKAGE: &'static str = "DwarfControl";
+    fn full_name() -> ::prost::alloc::string::String {
+        "DwarfControl.SidebarState".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/DwarfControl.SidebarState".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct MenuItem {
     #[prost(message, optional, tag = "1")]
-    pub building_type: ::core::option::Option<
-        super::remote_fortress_reader::BuildingType,
-    >,
+    pub building_type: ::core::option::Option<super::remote_fortress_reader::BuildingType>,
     #[prost(int32, optional, tag = "2")]
     pub existing_count: ::core::option::Option<i32>,
     #[prost(enumeration = "BuildCategory", optional, tag = "3")]
     pub build_category: ::core::option::Option<i32>,
+}
+impl ::prost::Name for MenuItem {
+    const NAME: &'static str = "MenuItem";
+    const PACKAGE: &'static str = "DwarfControl";
+    fn full_name() -> ::prost::alloc::string::String {
+        "DwarfControl.MenuItem".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/DwarfControl.MenuItem".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct SidebarCommand {
@@ -38,6 +56,16 @@ pub struct SidebarCommand {
     #[prost(message, optional, tag = "4")]
     pub selection_coord: ::core::option::Option<super::remote_fortress_reader::Coord>,
 }
+impl ::prost::Name for SidebarCommand {
+    const NAME: &'static str = "SidebarCommand";
+    const PACKAGE: &'static str = "DwarfControl";
+    fn full_name() -> ::prost::alloc::string::String {
+        "DwarfControl.SidebarCommand".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/DwarfControl.SidebarCommand".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BuiildReqChoice {
     #[prost(int32, optional, tag = "1")]
@@ -49,6 +77,16 @@ pub struct BuiildReqChoice {
     #[prost(int32, optional, tag = "4")]
     pub used_count: ::core::option::Option<i32>,
 }
+impl ::prost::Name for BuiildReqChoice {
+    const NAME: &'static str = "BuiildReqChoice";
+    const PACKAGE: &'static str = "DwarfControl";
+    fn full_name() -> ::prost::alloc::string::String {
+        "DwarfControl.BuiildReqChoice".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/DwarfControl.BuiildReqChoice".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BuildItemReq {
     /// Put filter here = 1
@@ -59,12 +97,20 @@ pub struct BuildItemReq {
     #[prost(int32, optional, tag = "4")]
     pub count_provided: ::core::option::Option<i32>,
 }
+impl ::prost::Name for BuildItemReq {
+    const NAME: &'static str = "BuildItemReq";
+    const PACKAGE: &'static str = "DwarfControl";
+    fn full_name() -> ::prost::alloc::string::String {
+        "DwarfControl.BuildItemReq".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/DwarfControl.BuildItemReq".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BuildSelector {
     #[prost(message, optional, tag = "1")]
-    pub building_type: ::core::option::Option<
-        super::remote_fortress_reader::BuildingType,
-    >,
+    pub building_type: ::core::option::Option<super::remote_fortress_reader::BuildingType>,
     #[prost(enumeration = "BuildSelectorStage", optional, tag = "2")]
     pub stage: ::core::option::Option<i32>,
     #[prost(message, repeated, tag = "3")]
@@ -89,6 +135,16 @@ pub struct BuildSelector {
     pub cursor: ::core::option::Option<super::remote_fortress_reader::Coord>,
     #[prost(int32, repeated, packed = "false", tag = "13")]
     pub tiles: ::prost::alloc::vec::Vec<i32>,
+}
+impl ::prost::Name for BuildSelector {
+    const NAME: &'static str = "BuildSelector";
+    const PACKAGE: &'static str = "DwarfControl";
+    fn full_name() -> ::prost::alloc::string::String {
+        "DwarfControl.BuildSelector".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/DwarfControl.BuildSelector".into()
+    }
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]

@@ -62,6 +62,10 @@ pub mod stubs {
     pub use crate::generated::stubs::*;
 }
 
+/// Message exchanged by dfhack-remote
+pub trait Message: prost::Message + prost::Name + Default {}
+impl<T: prost::Message + prost::Name + Default> Message for T {}
+
 /// The `Channel` is the low-level exchange implementation.
 ///
 /// It is in charge to serialize/deserialize messages, and exchange
@@ -89,7 +93,7 @@ pub trait Channel {
     ///
     /// A protobuf result type.
     ///
-    fn request<TRequest: prost::Message, TReply: prost::Message>(
+    fn request<TRequest: Message, TReply: Message>(
         &mut self,
         plugin: &'static str,
         name: &'static str,
@@ -138,12 +142,12 @@ pub mod reflection {
         /// Input type
         ///
         /// This is the full name of the protobuf message
-        pub input_type: &'static str,
+        pub input_type: String,
 
         /// Output type
         ///
         /// This is the full name of the protobuf message
-        pub output_type: &'static str,
+        pub output_type: String,
     }
 
     /// Ability for a stub to list its supported methods

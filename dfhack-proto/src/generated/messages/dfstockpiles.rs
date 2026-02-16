@@ -74,6 +74,16 @@ pub mod stockpile_settings {
         #[prost(string, repeated, tag = "3")]
         pub enabled: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
+    impl ::prost::Name for AnimalsSet {
+        const NAME: &'static str = "AnimalsSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.AnimalsSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.AnimalsSet".into()
+        }
+    }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct FoodSet {
         #[prost(bool, optional, tag = "21")]
@@ -119,6 +129,16 @@ pub mod stockpile_settings {
         #[prost(bool, optional, tag = "19")]
         pub prepared_meals: ::core::option::Option<bool>,
     }
+    impl ::prost::Name for FoodSet {
+        const NAME: &'static str = "FoodSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.FoodSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.FoodSet".into()
+        }
+    }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct FurnitureSet {
         #[prost(bool, optional, tag = "7")]
@@ -134,6 +154,16 @@ pub mod stockpile_settings {
         /// UNUSED: optional bool sand_bags = 6;
         #[prost(string, repeated, tag = "5")]
         pub quality_total: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    impl ::prost::Name for FurnitureSet {
+        const NAME: &'static str = "FurnitureSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.FurnitureSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.FurnitureSet".into()
+        }
     }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct RefuseSet {
@@ -162,6 +192,16 @@ pub mod stockpile_settings {
         #[prost(bool, optional, tag = "11")]
         pub rotten_raw_hide: ::core::option::Option<bool>,
     }
+    impl ::prost::Name for RefuseSet {
+        const NAME: &'static str = "RefuseSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.RefuseSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.RefuseSet".into()
+        }
+    }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct StoneSet {
         #[prost(bool, optional, tag = "2")]
@@ -169,10 +209,30 @@ pub mod stockpile_settings {
         #[prost(string, repeated, tag = "1")]
         pub mats: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
+    impl ::prost::Name for StoneSet {
+        const NAME: &'static str = "StoneSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.StoneSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.StoneSet".into()
+        }
+    }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct OreSet {
         #[prost(string, repeated, tag = "1")]
         pub mats: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    impl ::prost::Name for OreSet {
+        const NAME: &'static str = "OreSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.OreSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.OreSet".into()
+        }
     }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct AmmoSet {
@@ -189,12 +249,32 @@ pub mod stockpile_settings {
         #[prost(string, repeated, tag = "5")]
         pub quality_total: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
+    impl ::prost::Name for AmmoSet {
+        const NAME: &'static str = "AmmoSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.AmmoSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.AmmoSet".into()
+        }
+    }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct CoinSet {
         #[prost(bool, optional, tag = "2")]
         pub all: ::core::option::Option<bool>,
         #[prost(string, repeated, tag = "1")]
         pub mats: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    impl ::prost::Name for CoinSet {
+        const NAME: &'static str = "CoinSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.CoinSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.CoinSet".into()
+        }
     }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct BarsBlocksSet {
@@ -209,6 +289,16 @@ pub mod stockpile_settings {
         #[prost(string, repeated, tag = "4")]
         pub blocks_mats: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
+    impl ::prost::Name for BarsBlocksSet {
+        const NAME: &'static str = "BarsBlocksSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.BarsBlocksSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.BarsBlocksSet".into()
+        }
+    }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct GemsSet {
         #[prost(bool, optional, tag = "5")]
@@ -221,6 +311,16 @@ pub mod stockpile_settings {
         pub rough_mats: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
         #[prost(string, repeated, tag = "4")]
         pub cut_mats: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    impl ::prost::Name for GemsSet {
+        const NAME: &'static str = "GemsSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.GemsSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.GemsSet".into()
+        }
     }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct FinishedGoodsSet {
@@ -243,6 +343,16 @@ pub mod stockpile_settings {
         #[prost(string, repeated, tag = "9")]
         pub color: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
+    impl ::prost::Name for FinishedGoodsSet {
+        const NAME: &'static str = "FinishedGoodsSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.FinishedGoodsSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.FinishedGoodsSet".into()
+        }
+    }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct LeatherSet {
         #[prost(bool, optional, tag = "2")]
@@ -255,6 +365,16 @@ pub mod stockpile_settings {
         pub undyed: ::core::option::Option<bool>,
         #[prost(string, repeated, tag = "5")]
         pub color: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    impl ::prost::Name for LeatherSet {
+        const NAME: &'static str = "LeatherSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.LeatherSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.LeatherSet".into()
+        }
     }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct ClothSet {
@@ -283,12 +403,32 @@ pub mod stockpile_settings {
         #[prost(string, repeated, tag = "12")]
         pub color: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
+    impl ::prost::Name for ClothSet {
+        const NAME: &'static str = "ClothSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.ClothSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.ClothSet".into()
+        }
+    }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct WoodSet {
         #[prost(bool, optional, tag = "2")]
         pub all: ::core::option::Option<bool>,
         #[prost(string, repeated, tag = "1")]
         pub mats: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    impl ::prost::Name for WoodSet {
+        const NAME: &'static str = "WoodSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.WoodSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.WoodSet".into()
+        }
     }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct WeaponsSet {
@@ -310,6 +450,16 @@ pub mod stockpile_settings {
         pub usable: ::core::option::Option<bool>,
         #[prost(bool, optional, tag = "8")]
         pub unusable: ::core::option::Option<bool>,
+    }
+    impl ::prost::Name for WeaponsSet {
+        const NAME: &'static str = "WeaponsSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.WeaponsSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.WeaponsSet".into()
+        }
     }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct ArmorSet {
@@ -346,12 +496,32 @@ pub mod stockpile_settings {
         #[prost(string, repeated, tag = "16")]
         pub color: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
+    impl ::prost::Name for ArmorSet {
+        const NAME: &'static str = "ArmorSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.ArmorSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.ArmorSet".into()
+        }
+    }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct CorpsesSet {
         #[prost(bool, optional, tag = "1")]
         pub all: ::core::option::Option<bool>,
         #[prost(string, repeated, tag = "2")]
         pub corpses: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    impl ::prost::Name for CorpsesSet {
+        const NAME: &'static str = "CorpsesSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.CorpsesSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.CorpsesSet".into()
+        }
     }
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
     pub struct SheetSet {
@@ -361,5 +531,25 @@ pub mod stockpile_settings {
         pub paper: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
         #[prost(string, repeated, tag = "3")]
         pub parchment: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    impl ::prost::Name for SheetSet {
+        const NAME: &'static str = "SheetSet";
+        const PACKAGE: &'static str = "dfstockpiles";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfstockpiles.StockpileSettings.SheetSet".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfstockpiles.StockpileSettings.SheetSet".into()
+        }
+    }
+}
+impl ::prost::Name for StockpileSettings {
+    const NAME: &'static str = "StockpileSettings";
+    const PACKAGE: &'static str = "dfstockpiles";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfstockpiles.StockpileSettings".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfstockpiles.StockpileSettings".into()
     }
 }

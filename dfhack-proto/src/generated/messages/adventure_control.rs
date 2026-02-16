@@ -4,6 +4,16 @@ pub struct MoveCommandParams {
     #[prost(message, optional, tag = "1")]
     pub direction: ::core::option::Option<super::remote_fortress_reader::Coord>,
 }
+impl ::prost::Name for MoveCommandParams {
+    const NAME: &'static str = "MoveCommandParams";
+    const PACKAGE: &'static str = "AdventureControl";
+    fn full_name() -> ::prost::alloc::string::String {
+        "AdventureControl.MoveCommandParams".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/AdventureControl.MoveCommandParams".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct MovementOption {
     #[prost(message, optional, tag = "1")]
@@ -15,6 +25,16 @@ pub struct MovementOption {
     #[prost(enumeration = "CarefulMovementType", optional, tag = "4")]
     pub movement_type: ::core::option::Option<i32>,
 }
+impl ::prost::Name for MovementOption {
+    const NAME: &'static str = "MovementOption";
+    const PACKAGE: &'static str = "AdventureControl";
+    fn full_name() -> ::prost::alloc::string::String {
+        "AdventureControl.MovementOption".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/AdventureControl.MovementOption".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MenuContents {
     #[prost(enumeration = "AdvmodeMenu", optional, tag = "1")]
@@ -22,10 +42,30 @@ pub struct MenuContents {
     #[prost(message, repeated, tag = "2")]
     pub movements: ::prost::alloc::vec::Vec<MovementOption>,
 }
+impl ::prost::Name for MenuContents {
+    const NAME: &'static str = "MenuContents";
+    const PACKAGE: &'static str = "AdventureControl";
+    fn full_name() -> ::prost::alloc::string::String {
+        "AdventureControl.MenuContents".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/AdventureControl.MenuContents".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct MiscMoveParams {
     #[prost(enumeration = "MiscMoveType", optional, tag = "1")]
     pub r#type: ::core::option::Option<i32>,
+}
+impl ::prost::Name for MiscMoveParams {
+    const NAME: &'static str = "MiscMoveParams";
+    const PACKAGE: &'static str = "AdventureControl";
+    fn full_name() -> ::prost::alloc::string::String {
+        "AdventureControl.MiscMoveParams".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/AdventureControl.MiscMoveParams".into()
+    }
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]

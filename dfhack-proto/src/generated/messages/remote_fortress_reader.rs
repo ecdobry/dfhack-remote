@@ -8,6 +8,16 @@ pub struct Coord {
     #[prost(int32, optional, tag = "3")]
     pub z: ::core::option::Option<i32>,
 }
+impl ::prost::Name for Coord {
+    const NAME: &'static str = "Coord";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Coord".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Coord".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Tiletype {
     #[prost(int32, required, tag = "1")]
@@ -27,10 +37,30 @@ pub struct Tiletype {
     #[prost(string, optional, tag = "8")]
     pub direction: ::core::option::Option<::prost::alloc::string::String>,
 }
+impl ::prost::Name for Tiletype {
+    const NAME: &'static str = "Tiletype";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Tiletype".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Tiletype".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TiletypeList {
     #[prost(message, repeated, tag = "1")]
     pub tiletype_list: ::prost::alloc::vec::Vec<Tiletype>,
+}
+impl ::prost::Name for TiletypeList {
+    const NAME: &'static str = "TiletypeList";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.TiletypeList".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.TiletypeList".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BuildingExtents {
@@ -45,12 +75,32 @@ pub struct BuildingExtents {
     #[prost(int32, repeated, packed = "false", tag = "5")]
     pub extents: ::prost::alloc::vec::Vec<i32>,
 }
+impl ::prost::Name for BuildingExtents {
+    const NAME: &'static str = "BuildingExtents";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BuildingExtents".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BuildingExtents".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BuildingItem {
     #[prost(message, optional, tag = "1")]
     pub item: ::core::option::Option<Item>,
     #[prost(int32, optional, tag = "2")]
     pub mode: ::core::option::Option<i32>,
+}
+impl ::prost::Name for BuildingItem {
+    const NAME: &'static str = "BuildingItem";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BuildingItem".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BuildingItem".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BuildingInstance {
@@ -86,6 +136,16 @@ pub struct BuildingInstance {
     #[prost(int32, optional, tag = "15")]
     pub active: ::core::option::Option<i32>,
 }
+impl ::prost::Name for BuildingInstance {
+    const NAME: &'static str = "BuildingInstance";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BuildingInstance".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BuildingInstance".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct RiverEdge {
     #[prost(int32, optional, tag = "1")]
@@ -96,6 +156,16 @@ pub struct RiverEdge {
     pub active: ::core::option::Option<i32>,
     #[prost(int32, optional, tag = "4")]
     pub elevation: ::core::option::Option<i32>,
+}
+impl ::prost::Name for RiverEdge {
+    const NAME: &'static str = "RiverEdge";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.RiverEdge".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.RiverEdge".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct RiverTile {
@@ -108,6 +178,16 @@ pub struct RiverTile {
     #[prost(message, optional, tag = "4")]
     pub west: ::core::option::Option<RiverEdge>,
 }
+impl ::prost::Name for RiverTile {
+    const NAME: &'static str = "RiverTile";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.RiverTile".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.RiverTile".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Spatter {
     #[prost(message, optional, tag = "1")]
@@ -119,10 +199,30 @@ pub struct Spatter {
     #[prost(message, optional, tag = "4")]
     pub item: ::core::option::Option<MatPair>,
 }
+impl ::prost::Name for Spatter {
+    const NAME: &'static str = "Spatter";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Spatter".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Spatter".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SpatterPile {
     #[prost(message, repeated, tag = "1")]
     pub spatters: ::prost::alloc::vec::Vec<Spatter>,
+}
+impl ::prost::Name for SpatterPile {
+    const NAME: &'static str = "SpatterPile";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.SpatterPile".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.SpatterPile".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Item {
@@ -163,6 +263,16 @@ pub struct Item {
     #[prost(message, optional, tag = "18")]
     pub image: ::core::option::Option<ArtImage>,
 }
+impl ::prost::Name for Item {
+    const NAME: &'static str = "Item";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Item".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Item".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct PlantTile {
     #[prost(bool, optional, tag = "1")]
@@ -182,12 +292,32 @@ pub struct PlantTile {
     #[prost(enumeration = "TiletypeSpecial", optional, tag = "8")]
     pub tile_type: ::core::option::Option<i32>,
 }
+impl ::prost::Name for PlantTile {
+    const NAME: &'static str = "PlantTile";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.PlantTile".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.PlantTile".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TreeInfo {
     #[prost(message, optional, tag = "1")]
     pub size: ::core::option::Option<Coord>,
     #[prost(message, repeated, tag = "2")]
     pub tiles: ::prost::alloc::vec::Vec<PlantTile>,
+}
+impl ::prost::Name for TreeInfo {
+    const NAME: &'static str = "TreeInfo";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.TreeInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.TreeInfo".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PlantInstance {
@@ -197,6 +327,16 @@ pub struct PlantInstance {
     pub pos: ::core::option::Option<Coord>,
     #[prost(message, optional, tag = "3")]
     pub tree_info: ::core::option::Option<TreeInfo>,
+}
+impl ::prost::Name for PlantInstance {
+    const NAME: &'static str = "PlantInstance";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.PlantInstance".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.PlantInstance".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MapBlock {
@@ -246,7 +386,12 @@ pub struct MapBlock {
     pub tree_y: ::prost::alloc::vec::Vec<i32>,
     #[prost(int32, repeated, packed = "false", tag = "23")]
     pub tree_z: ::prost::alloc::vec::Vec<i32>,
-    #[prost(enumeration = "TileDigDesignation", repeated, packed = "false", tag = "24")]
+    #[prost(
+        enumeration = "TileDigDesignation",
+        repeated,
+        packed = "false",
+        tag = "24"
+    )]
     pub tile_dig_designation: ::prost::alloc::vec::Vec<i32>,
     #[prost(message, repeated, tag = "25")]
     pub spatter_pile: ::prost::alloc::vec::Vec<SpatterPile>,
@@ -261,12 +406,32 @@ pub struct MapBlock {
     #[prost(message, repeated, tag = "30")]
     pub flows: ::prost::alloc::vec::Vec<FlowInfo>,
 }
+impl ::prost::Name for MapBlock {
+    const NAME: &'static str = "MapBlock";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.MapBlock".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.MapBlock".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct MatPair {
     #[prost(int32, required, tag = "1")]
     pub mat_type: i32,
     #[prost(int32, required, tag = "2")]
     pub mat_index: i32,
+}
+impl ::prost::Name for MatPair {
+    const NAME: &'static str = "MatPair";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.MatPair".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.MatPair".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct ColorDefinition {
@@ -276,6 +441,16 @@ pub struct ColorDefinition {
     pub green: i32,
     #[prost(int32, required, tag = "3")]
     pub blue: i32,
+}
+impl ::prost::Name for ColorDefinition {
+    const NAME: &'static str = "ColorDefinition";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ColorDefinition".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ColorDefinition".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MaterialDefinition {
@@ -297,6 +472,16 @@ pub struct MaterialDefinition {
     #[prost(enumeration = "ArmorLayer", optional, tag = "8")]
     pub layer: ::core::option::Option<i32>,
 }
+impl ::prost::Name for MaterialDefinition {
+    const NAME: &'static str = "MaterialDefinition";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.MaterialDefinition".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.MaterialDefinition".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BuildingType {
     #[prost(int32, required, tag = "1")]
@@ -305,6 +490,16 @@ pub struct BuildingType {
     pub building_subtype: i32,
     #[prost(int32, required, tag = "3")]
     pub building_custom: i32,
+}
+impl ::prost::Name for BuildingType {
+    const NAME: &'static str = "BuildingType";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BuildingType".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BuildingType".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BuildingDefinition {
@@ -315,15 +510,45 @@ pub struct BuildingDefinition {
     #[prost(string, optional, tag = "3")]
     pub name: ::core::option::Option<::prost::alloc::string::String>,
 }
+impl ::prost::Name for BuildingDefinition {
+    const NAME: &'static str = "BuildingDefinition";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BuildingDefinition".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BuildingDefinition".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BuildingList {
     #[prost(message, repeated, tag = "1")]
     pub building_list: ::prost::alloc::vec::Vec<BuildingDefinition>,
 }
+impl ::prost::Name for BuildingList {
+    const NAME: &'static str = "BuildingList";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BuildingList".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BuildingList".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MaterialList {
     #[prost(message, repeated, tag = "1")]
     pub material_list: ::prost::alloc::vec::Vec<MaterialDefinition>,
+}
+impl ::prost::Name for MaterialList {
+    const NAME: &'static str = "MaterialList";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.MaterialList".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.MaterialList".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Hair {
@@ -331,6 +556,16 @@ pub struct Hair {
     pub length: ::core::option::Option<i32>,
     #[prost(enumeration = "HairStyle", optional, tag = "2")]
     pub style: ::core::option::Option<i32>,
+}
+impl ::prost::Name for Hair {
+    const NAME: &'static str = "Hair";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Hair".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Hair".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BodySizeInfo {
@@ -350,6 +585,16 @@ pub struct BodySizeInfo {
     /// !< (size_base*10000)^0.333
     #[prost(int32, optional, tag = "6")]
     pub length_base: ::core::option::Option<i32>,
+}
+impl ::prost::Name for BodySizeInfo {
+    const NAME: &'static str = "BodySizeInfo";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BodySizeInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BodySizeInfo".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct UnitAppearance {
@@ -372,6 +617,16 @@ pub struct UnitAppearance {
     #[prost(string, optional, tag = "9")]
     pub physical_description: ::core::option::Option<::prost::alloc::string::String>,
 }
+impl ::prost::Name for UnitAppearance {
+    const NAME: &'static str = "UnitAppearance";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.UnitAppearance".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.UnitAppearance".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct InventoryItem {
     #[prost(enumeration = "InventoryMode", optional, tag = "1")]
@@ -380,6 +635,16 @@ pub struct InventoryItem {
     pub item: ::core::option::Option<Item>,
     #[prost(int32, optional, tag = "3")]
     pub body_part_id: ::core::option::Option<i32>,
+}
+impl ::prost::Name for InventoryItem {
+    const NAME: &'static str = "InventoryItem";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.InventoryItem".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.InventoryItem".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct WoundPart {
@@ -390,12 +655,32 @@ pub struct WoundPart {
     #[prost(int32, optional, tag = "3")]
     pub layer_idx: ::core::option::Option<i32>,
 }
+impl ::prost::Name for WoundPart {
+    const NAME: &'static str = "WoundPart";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.WoundPart".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.WoundPart".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UnitWound {
     #[prost(message, repeated, tag = "1")]
     pub parts: ::prost::alloc::vec::Vec<WoundPart>,
     #[prost(bool, optional, tag = "2")]
     pub severed_part: ::core::option::Option<bool>,
+}
+impl ::prost::Name for UnitWound {
+    const NAME: &'static str = "UnitWound";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.UnitWound".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.UnitWound".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UnitDefinition {
@@ -452,10 +737,30 @@ pub struct UnitDefinition {
     #[prost(message, repeated, tag = "26")]
     pub wounds: ::prost::alloc::vec::Vec<UnitWound>,
 }
+impl ::prost::Name for UnitDefinition {
+    const NAME: &'static str = "UnitDefinition";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.UnitDefinition".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.UnitDefinition".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UnitList {
     #[prost(message, repeated, tag = "1")]
     pub creature_list: ::prost::alloc::vec::Vec<UnitDefinition>,
+}
+impl ::prost::Name for UnitList {
+    const NAME: &'static str = "UnitList";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.UnitList".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.UnitList".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BlockRequest {
@@ -476,6 +781,16 @@ pub struct BlockRequest {
     #[prost(bool, optional, tag = "8")]
     pub force_reload: ::core::option::Option<bool>,
 }
+impl ::prost::Name for BlockRequest {
+    const NAME: &'static str = "BlockRequest";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BlockRequest".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BlockRequest".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BlockList {
     #[prost(message, repeated, tag = "1")]
@@ -489,6 +804,16 @@ pub struct BlockList {
     #[prost(message, repeated, tag = "5")]
     pub ocean_waves: ::prost::alloc::vec::Vec<Wave>,
 }
+impl ::prost::Name for BlockList {
+    const NAME: &'static str = "BlockList";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BlockList".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BlockList".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct PlantDef {
     #[prost(int32, required, tag = "1")]
@@ -500,10 +825,30 @@ pub struct PlantDef {
     #[prost(int32, required, tag = "4")]
     pub index: i32,
 }
+impl ::prost::Name for PlantDef {
+    const NAME: &'static str = "PlantDef";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.PlantDef".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.PlantDef".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PlantList {
     #[prost(message, repeated, tag = "1")]
     pub plant_list: ::prost::alloc::vec::Vec<PlantDef>,
+}
+impl ::prost::Name for PlantList {
+    const NAME: &'static str = "PlantList";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.PlantList".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.PlantList".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct ViewInfo {
@@ -528,6 +873,16 @@ pub struct ViewInfo {
     #[prost(int32, optional, tag = "10", default = "-1")]
     pub follow_item_id: ::core::option::Option<i32>,
 }
+impl ::prost::Name for ViewInfo {
+    const NAME: &'static str = "ViewInfo";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ViewInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ViewInfo".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct MapInfo {
     #[prost(int32, optional, tag = "1")]
@@ -549,6 +904,16 @@ pub struct MapInfo {
     #[prost(string, optional, tag = "9")]
     pub save_name: ::core::option::Option<::prost::alloc::string::String>,
 }
+impl ::prost::Name for MapInfo {
+    const NAME: &'static str = "MapInfo";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.MapInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.MapInfo".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Cloud {
     #[prost(enumeration = "FrontType", optional, tag = "1")]
@@ -561,6 +926,16 @@ pub struct Cloud {
     pub stratus: ::core::option::Option<i32>,
     #[prost(enumeration = "FogType", optional, tag = "5")]
     pub fog: ::core::option::Option<i32>,
+}
+impl ::prost::Name for Cloud {
+    const NAME: &'static str = "Cloud";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Cloud".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Cloud".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct WorldMap {
@@ -615,6 +990,16 @@ pub struct WorldMap {
     #[prost(message, repeated, tag = "25")]
     pub region_tiles: ::prost::alloc::vec::Vec<RegionTile>,
 }
+impl ::prost::Name for WorldMap {
+    const NAME: &'static str = "WorldMap";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.WorldMap".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.WorldMap".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct SiteRealizationBuildingWall {
     #[prost(int32, optional, tag = "1")]
@@ -630,6 +1015,16 @@ pub struct SiteRealizationBuildingWall {
     #[prost(int32, optional, tag = "6")]
     pub end_z: ::core::option::Option<i32>,
 }
+impl ::prost::Name for SiteRealizationBuildingWall {
+    const NAME: &'static str = "SiteRealizationBuildingWall";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.SiteRealizationBuildingWall".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.SiteRealizationBuildingWall".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct SiteRealizationBuildingTower {
     #[prost(int32, optional, tag = "1")]
@@ -638,6 +1033,16 @@ pub struct SiteRealizationBuildingTower {
     pub round: ::core::option::Option<bool>,
     #[prost(bool, optional, tag = "3")]
     pub goblin: ::core::option::Option<bool>,
+}
+impl ::prost::Name for SiteRealizationBuildingTower {
+    const NAME: &'static str = "SiteRealizationBuildingTower";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.SiteRealizationBuildingTower".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.SiteRealizationBuildingTower".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct TrenchSpoke {
@@ -650,10 +1055,30 @@ pub struct TrenchSpoke {
     #[prost(int32, optional, tag = "4")]
     pub mound_end: ::core::option::Option<i32>,
 }
+impl ::prost::Name for TrenchSpoke {
+    const NAME: &'static str = "TrenchSpoke";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.TrenchSpoke".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.TrenchSpoke".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SiteRealizationBuildingTrenches {
     #[prost(message, repeated, tag = "1")]
     pub spokes: ::prost::alloc::vec::Vec<TrenchSpoke>,
+}
+impl ::prost::Name for SiteRealizationBuildingTrenches {
+    const NAME: &'static str = "SiteRealizationBuildingTrenches";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.SiteRealizationBuildingTrenches".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.SiteRealizationBuildingTrenches".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SiteRealizationBuilding {
@@ -677,6 +1102,16 @@ pub struct SiteRealizationBuilding {
     pub trench_info: ::core::option::Option<SiteRealizationBuildingTrenches>,
     #[prost(int32, optional, tag = "11")]
     pub r#type: ::core::option::Option<i32>,
+}
+impl ::prost::Name for SiteRealizationBuilding {
+    const NAME: &'static str = "SiteRealizationBuilding";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.SiteRealizationBuilding".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.SiteRealizationBuilding".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RegionTile {
@@ -715,6 +1150,16 @@ pub struct RegionTile {
     #[prost(int32, optional, tag = "17")]
     pub snow: ::core::option::Option<i32>,
 }
+impl ::prost::Name for RegionTile {
+    const NAME: &'static str = "RegionTile";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.RegionTile".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.RegionTile".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RegionMap {
     #[prost(int32, optional, tag = "1")]
@@ -728,12 +1173,32 @@ pub struct RegionMap {
     #[prost(message, repeated, tag = "5")]
     pub tiles: ::prost::alloc::vec::Vec<RegionTile>,
 }
+impl ::prost::Name for RegionMap {
+    const NAME: &'static str = "RegionMap";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.RegionMap".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.RegionMap".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RegionMaps {
     #[prost(message, repeated, tag = "1")]
     pub world_maps: ::prost::alloc::vec::Vec<WorldMap>,
     #[prost(message, repeated, tag = "2")]
     pub region_maps: ::prost::alloc::vec::Vec<RegionMap>,
+}
+impl ::prost::Name for RegionMaps {
+    const NAME: &'static str = "RegionMaps";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.RegionMaps".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.RegionMaps".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PatternDescriptor {
@@ -743,6 +1208,16 @@ pub struct PatternDescriptor {
     pub colors: ::prost::alloc::vec::Vec<ColorDefinition>,
     #[prost(enumeration = "PatternType", optional, tag = "3")]
     pub pattern: ::core::option::Option<i32>,
+}
+impl ::prost::Name for PatternDescriptor {
+    const NAME: &'static str = "PatternDescriptor";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.PatternDescriptor".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.PatternDescriptor".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ColorModifierRaw {
@@ -759,6 +1234,16 @@ pub struct ColorModifierRaw {
     #[prost(string, optional, tag = "6")]
     pub part: ::core::option::Option<::prost::alloc::string::String>,
 }
+impl ::prost::Name for ColorModifierRaw {
+    const NAME: &'static str = "ColorModifierRaw";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ColorModifierRaw".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ColorModifierRaw".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BodyPartLayerRaw {
     #[prost(string, optional, tag = "1")]
@@ -769,6 +1254,16 @@ pub struct BodyPartLayerRaw {
     pub layer_depth: ::core::option::Option<i32>,
     #[prost(int32, repeated, packed = "false", tag = "4")]
     pub bp_modifiers: ::prost::alloc::vec::Vec<i32>,
+}
+impl ::prost::Name for BodyPartLayerRaw {
+    const NAME: &'static str = "BodyPartLayerRaw";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BodyPartLayerRaw".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BodyPartLayerRaw".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BodyPartRaw {
@@ -785,6 +1280,16 @@ pub struct BodyPartRaw {
     #[prost(int32, optional, tag = "6")]
     pub relsize: ::core::option::Option<i32>,
 }
+impl ::prost::Name for BodyPartRaw {
+    const NAME: &'static str = "BodyPartRaw";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BodyPartRaw".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BodyPartRaw".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BpAppearanceModifier {
     #[prost(string, optional, tag = "1")]
@@ -793,6 +1298,16 @@ pub struct BpAppearanceModifier {
     pub mod_min: ::core::option::Option<i32>,
     #[prost(int32, optional, tag = "3")]
     pub mod_max: ::core::option::Option<i32>,
+}
+impl ::prost::Name for BpAppearanceModifier {
+    const NAME: &'static str = "BpAppearanceModifier";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.BpAppearanceModifier".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.BpAppearanceModifier".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct TissueRaw {
@@ -804,6 +1319,16 @@ pub struct TissueRaw {
     pub material: ::core::option::Option<MatPair>,
     #[prost(string, optional, tag = "4")]
     pub subordinate_to_tissue: ::core::option::Option<::prost::alloc::string::String>,
+}
+impl ::prost::Name for TissueRaw {
+    const NAME: &'static str = "TissueRaw";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.TissueRaw".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.TissueRaw".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CasteRaw {
@@ -840,6 +1365,16 @@ pub struct CasteRaw {
     #[prost(int32, optional, tag = "16")]
     pub adult_size: ::core::option::Option<i32>,
 }
+impl ::prost::Name for CasteRaw {
+    const NAME: &'static str = "CasteRaw";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.CasteRaw".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.CasteRaw".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreatureRaw {
     #[prost(int32, optional, tag = "1")]
@@ -867,10 +1402,30 @@ pub struct CreatureRaw {
     #[prost(bool, repeated, packed = "false", tag = "12")]
     pub flags: ::prost::alloc::vec::Vec<bool>,
 }
+impl ::prost::Name for CreatureRaw {
+    const NAME: &'static str = "CreatureRaw";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.CreatureRaw".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.CreatureRaw".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreatureRawList {
     #[prost(message, repeated, tag = "1")]
     pub creature_raws: ::prost::alloc::vec::Vec<CreatureRaw>,
+}
+impl ::prost::Name for CreatureRawList {
+    const NAME: &'static str = "CreatureRawList";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.CreatureRawList".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.CreatureRawList".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Army {
@@ -889,10 +1444,30 @@ pub struct Army {
     #[prost(uint32, optional, tag = "7")]
     pub flags: ::core::option::Option<u32>,
 }
+impl ::prost::Name for Army {
+    const NAME: &'static str = "Army";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Army".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Army".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ArmyList {
     #[prost(message, repeated, tag = "1")]
     pub armies: ::prost::alloc::vec::Vec<Army>,
+}
+impl ::prost::Name for ArmyList {
+    const NAME: &'static str = "ArmyList";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ArmyList".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ArmyList".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct GrowthPrint {
@@ -906,6 +1481,16 @@ pub struct GrowthPrint {
     pub timing_end: ::core::option::Option<i32>,
     #[prost(int32, optional, tag = "5")]
     pub tile: ::core::option::Option<i32>,
+}
+impl ::prost::Name for GrowthPrint {
+    const NAME: &'static str = "GrowthPrint";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.GrowthPrint".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.GrowthPrint".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TreeGrowth {
@@ -942,6 +1527,16 @@ pub struct TreeGrowth {
     #[prost(int32, optional, tag = "16")]
     pub trunk_height_end: ::core::option::Option<i32>,
 }
+impl ::prost::Name for TreeGrowth {
+    const NAME: &'static str = "TreeGrowth";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.TreeGrowth".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.TreeGrowth".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PlantRaw {
     #[prost(int32, optional, tag = "1")]
@@ -955,10 +1550,30 @@ pub struct PlantRaw {
     #[prost(int32, optional, tag = "5")]
     pub tile: ::core::option::Option<i32>,
 }
+impl ::prost::Name for PlantRaw {
+    const NAME: &'static str = "PlantRaw";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.PlantRaw".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.PlantRaw".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PlantRawList {
     #[prost(message, repeated, tag = "1")]
     pub plant_raws: ::prost::alloc::vec::Vec<PlantRaw>,
+}
+impl ::prost::Name for PlantRawList {
+    const NAME: &'static str = "PlantRawList";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.PlantRawList".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.PlantRawList".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct ScreenTile {
@@ -969,6 +1584,16 @@ pub struct ScreenTile {
     #[prost(uint32, optional, tag = "3")]
     pub background: ::core::option::Option<u32>,
 }
+impl ::prost::Name for ScreenTile {
+    const NAME: &'static str = "ScreenTile";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ScreenTile".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ScreenTile".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ScreenCapture {
     #[prost(uint32, optional, tag = "1")]
@@ -977,6 +1602,16 @@ pub struct ScreenCapture {
     pub height: ::core::option::Option<u32>,
     #[prost(message, repeated, tag = "3")]
     pub tiles: ::prost::alloc::vec::Vec<ScreenTile>,
+}
+impl ::prost::Name for ScreenCapture {
+    const NAME: &'static str = "ScreenCapture";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ScreenCapture".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ScreenCapture".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct KeyboardEvent {
@@ -995,6 +1630,16 @@ pub struct KeyboardEvent {
     #[prost(uint32, optional, tag = "7")]
     pub unicode: ::core::option::Option<u32>,
 }
+impl ::prost::Name for KeyboardEvent {
+    const NAME: &'static str = "KeyboardEvent";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.KeyboardEvent".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.KeyboardEvent".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DigCommand {
     #[prost(enumeration = "TileDigDesignation", optional, tag = "1")]
@@ -1002,10 +1647,30 @@ pub struct DigCommand {
     #[prost(message, repeated, tag = "2")]
     pub locations: ::prost::alloc::vec::Vec<Coord>,
 }
+impl ::prost::Name for DigCommand {
+    const NAME: &'static str = "DigCommand";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.DigCommand".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.DigCommand".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct SingleBool {
     #[prost(bool, optional, tag = "1")]
     pub value: ::core::option::Option<bool>,
+}
+impl ::prost::Name for SingleBool {
+    const NAME: &'static str = "SingleBool";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.SingleBool".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.SingleBool".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct VersionInfo {
@@ -1014,9 +1679,17 @@ pub struct VersionInfo {
     #[prost(string, optional, tag = "2")]
     pub dfhack_version: ::core::option::Option<::prost::alloc::string::String>,
     #[prost(string, optional, tag = "3")]
-    pub remote_fortress_reader_version: ::core::option::Option<
-        ::prost::alloc::string::String,
-    >,
+    pub remote_fortress_reader_version: ::core::option::Option<::prost::alloc::string::String>,
+}
+impl ::prost::Name for VersionInfo {
+    const NAME: &'static str = "VersionInfo";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.VersionInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.VersionInfo".into()
+    }
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct ListRequest {
@@ -1024,6 +1697,16 @@ pub struct ListRequest {
     pub list_start: ::core::option::Option<i32>,
     #[prost(int32, optional, tag = "2")]
     pub list_end: ::core::option::Option<i32>,
+}
+impl ::prost::Name for ListRequest {
+    const NAME: &'static str = "ListRequest";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ListRequest".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ListRequest".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Report {
@@ -1052,10 +1735,30 @@ pub struct Report {
     #[prost(int32, optional, tag = "12")]
     pub time: ::core::option::Option<i32>,
 }
+impl ::prost::Name for Report {
+    const NAME: &'static str = "Report";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Report".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Report".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Status {
     #[prost(message, repeated, tag = "1")]
     pub reports: ::prost::alloc::vec::Vec<Report>,
+}
+impl ::prost::Name for Status {
+    const NAME: &'static str = "Status";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Status".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Status".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct ShapeDescriptior {
@@ -1064,10 +1767,30 @@ pub struct ShapeDescriptior {
     #[prost(int32, optional, tag = "2")]
     pub tile: ::core::option::Option<i32>,
 }
+impl ::prost::Name for ShapeDescriptior {
+    const NAME: &'static str = "ShapeDescriptior";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ShapeDescriptior".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ShapeDescriptior".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Language {
     #[prost(message, repeated, tag = "1")]
     pub shapes: ::prost::alloc::vec::Vec<ShapeDescriptior>,
+}
+impl ::prost::Name for Language {
+    const NAME: &'static str = "Language";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Language".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Language".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ItemImprovement {
@@ -1082,6 +1805,16 @@ pub struct ItemImprovement {
     #[prost(int32, optional, tag = "6")]
     pub r#type: ::core::option::Option<i32>,
 }
+impl ::prost::Name for ItemImprovement {
+    const NAME: &'static str = "ItemImprovement";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ItemImprovement".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ItemImprovement".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct ArtImageElement {
     #[prost(int32, optional, tag = "1")]
@@ -1095,6 +1828,16 @@ pub struct ArtImageElement {
     #[prost(int32, optional, tag = "6")]
     pub id: ::core::option::Option<i32>,
 }
+impl ::prost::Name for ArtImageElement {
+    const NAME: &'static str = "ArtImageElement";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ArtImageElement".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ArtImageElement".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct ArtImageProperty {
     #[prost(int32, optional, tag = "1")]
@@ -1106,6 +1849,16 @@ pub struct ArtImageProperty {
     #[prost(enumeration = "ArtImagePropertyType", optional, tag = "4")]
     pub r#type: ::core::option::Option<i32>,
 }
+impl ::prost::Name for ArtImageProperty {
+    const NAME: &'static str = "ArtImageProperty";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ArtImageProperty".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ArtImageProperty".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ArtImage {
     #[prost(message, repeated, tag = "1")]
@@ -1114,6 +1867,16 @@ pub struct ArtImage {
     pub id: ::core::option::Option<MatPair>,
     #[prost(message, repeated, tag = "3")]
     pub properties: ::prost::alloc::vec::Vec<ArtImageProperty>,
+}
+impl ::prost::Name for ArtImage {
+    const NAME: &'static str = "ArtImage";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.ArtImage".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.ArtImage".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Engraving {
@@ -1146,6 +1909,16 @@ pub struct Engraving {
     #[prost(bool, optional, tag = "14")]
     pub southeast: ::core::option::Option<bool>,
 }
+impl ::prost::Name for Engraving {
+    const NAME: &'static str = "Engraving";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Engraving".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Engraving".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct FlowInfo {
     #[prost(int32, optional, tag = "1")]
@@ -1176,12 +1949,32 @@ pub struct FlowInfo {
     #[prost(bool, optional, tag = "13")]
     pub creeping: ::core::option::Option<bool>,
 }
+impl ::prost::Name for FlowInfo {
+    const NAME: &'static str = "FlowInfo";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.FlowInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.FlowInfo".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Wave {
     #[prost(message, optional, tag = "1")]
     pub dest: ::core::option::Option<Coord>,
     #[prost(message, optional, tag = "2")]
     pub pos: ::core::option::Option<Coord>,
+}
+impl ::prost::Name for Wave {
+    const NAME: &'static str = "Wave";
+    const PACKAGE: &'static str = "RemoteFortressReader";
+    fn full_name() -> ::prost::alloc::string::String {
+        "RemoteFortressReader.Wave".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/RemoteFortressReader.Wave".into()
+    }
 }
 /// We use shapes, etc, because the actual tiletypes may differ between DF versions.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]

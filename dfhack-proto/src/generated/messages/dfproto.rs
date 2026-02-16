@@ -9,12 +9,32 @@ pub struct EnumItemName {
     #[prost(int32, optional, tag = "3", default = "1")]
     pub bit_size: ::core::option::Option<i32>,
 }
+impl ::prost::Name for EnumItemName {
+    const NAME: &'static str = "EnumItemName";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.EnumItemName".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.EnumItemName".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BasicMaterialId {
     #[prost(int32, required, tag = "1")]
     pub r#type: i32,
     #[prost(sint32, required, tag = "2")]
     pub index: i32,
+}
+impl ::prost::Name for BasicMaterialId {
+    const NAME: &'static str = "BasicMaterialId";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.BasicMaterialId".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.BasicMaterialId".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BasicMaterialInfo {
@@ -68,6 +88,26 @@ pub mod basic_material_info {
         #[prost(sint32, required, tag = "3")]
         pub index: i32,
     }
+    impl ::prost::Name for Product {
+        const NAME: &'static str = "Product";
+        const PACKAGE: &'static str = "dfproto";
+        fn full_name() -> ::prost::alloc::string::String {
+            "dfproto.BasicMaterialInfo.Product".into()
+        }
+        fn type_url() -> ::prost::alloc::string::String {
+            "/dfproto.BasicMaterialInfo.Product".into()
+        }
+    }
+}
+impl ::prost::Name for BasicMaterialInfo {
+    const NAME: &'static str = "BasicMaterialInfo";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.BasicMaterialInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.BasicMaterialInfo".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BasicMaterialInfoMask {
@@ -87,17 +127,7 @@ pub struct BasicMaterialInfoMask {
 }
 /// Nested message and enum types in `BasicMaterialInfoMask`.
 pub mod basic_material_info_mask {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
     #[repr(i32)]
     pub enum StateType {
         Solid = 0,
@@ -136,6 +166,16 @@ pub mod basic_material_info_mask {
         }
     }
 }
+impl ::prost::Name for BasicMaterialInfoMask {
+    const NAME: &'static str = "BasicMaterialInfoMask";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.BasicMaterialInfoMask".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.BasicMaterialInfoMask".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct JobSkillAttr {
     #[prost(int32, required, tag = "1")]
@@ -153,6 +193,16 @@ pub struct JobSkillAttr {
     #[prost(string, optional, tag = "7")]
     pub r#type: ::core::option::Option<::prost::alloc::string::String>,
 }
+impl ::prost::Name for JobSkillAttr {
+    const NAME: &'static str = "JobSkillAttr";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.JobSkillAttr".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.JobSkillAttr".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct ProfessionAttr {
     #[prost(int32, required, tag = "1")]
@@ -168,6 +218,16 @@ pub struct ProfessionAttr {
     #[prost(int32, optional, tag = "6")]
     pub parent: ::core::option::Option<i32>,
 }
+impl ::prost::Name for ProfessionAttr {
+    const NAME: &'static str = "ProfessionAttr";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.ProfessionAttr".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.ProfessionAttr".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct UnitLaborAttr {
     #[prost(int32, required, tag = "1")]
@@ -176,6 +236,16 @@ pub struct UnitLaborAttr {
     pub key: ::prost::alloc::string::String,
     #[prost(string, optional, tag = "3")]
     pub caption: ::core::option::Option<::prost::alloc::string::String>,
+}
+impl ::prost::Name for UnitLaborAttr {
+    const NAME: &'static str = "UnitLaborAttr";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.UnitLaborAttr".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.UnitLaborAttr".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct NameInfo {
@@ -190,6 +260,16 @@ pub struct NameInfo {
     #[prost(string, optional, tag = "5")]
     pub english_name: ::core::option::Option<::prost::alloc::string::String>,
 }
+impl ::prost::Name for NameInfo {
+    const NAME: &'static str = "NameInfo";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.NameInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.NameInfo".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct NameTriple {
     #[prost(string, required, tag = "1")]
@@ -198,6 +278,16 @@ pub struct NameTriple {
     pub plural: ::core::option::Option<::prost::alloc::string::String>,
     #[prost(string, optional, tag = "3")]
     pub adjective: ::core::option::Option<::prost::alloc::string::String>,
+}
+impl ::prost::Name for NameTriple {
+    const NAME: &'static str = "NameTriple";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.NameTriple".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.NameTriple".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct UnitCurseInfo {
@@ -212,6 +302,16 @@ pub struct UnitCurseInfo {
     #[prost(message, optional, tag = "5")]
     pub name: ::core::option::Option<NameTriple>,
 }
+impl ::prost::Name for UnitCurseInfo {
+    const NAME: &'static str = "UnitCurseInfo";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.UnitCurseInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.UnitCurseInfo".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct SkillInfo {
     #[prost(int32, required, tag = "1")]
@@ -221,12 +321,32 @@ pub struct SkillInfo {
     #[prost(int32, required, tag = "3")]
     pub experience: i32,
 }
+impl ::prost::Name for SkillInfo {
+    const NAME: &'static str = "SkillInfo";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.SkillInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.SkillInfo".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct UnitMiscTrait {
     #[prost(int32, required, tag = "1")]
     pub id: i32,
     #[prost(int32, required, tag = "2")]
     pub value: i32,
+}
+impl ::prost::Name for UnitMiscTrait {
+    const NAME: &'static str = "UnitMiscTrait";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.UnitMiscTrait".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.UnitMiscTrait".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BasicUnitInfo {
@@ -283,6 +403,16 @@ pub struct BasicUnitInfo {
     #[prost(int32, repeated, packed = "false", tag = "21")]
     pub burrows: ::prost::alloc::vec::Vec<i32>,
 }
+impl ::prost::Name for BasicUnitInfo {
+    const NAME: &'static str = "BasicUnitInfo";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.BasicUnitInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.BasicUnitInfo".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BasicUnitInfoMask {
     #[prost(bool, optional, tag = "1", default = "false")]
@@ -293,6 +423,16 @@ pub struct BasicUnitInfoMask {
     pub profession: ::core::option::Option<bool>,
     #[prost(bool, optional, tag = "4", default = "false")]
     pub misc_traits: ::core::option::Option<bool>,
+}
+impl ::prost::Name for BasicUnitInfoMask {
+    const NAME: &'static str = "BasicUnitInfoMask";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.BasicUnitInfoMask".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.BasicUnitInfoMask".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BasicSquadInfo {
@@ -307,6 +447,16 @@ pub struct BasicSquadInfo {
     #[prost(sint32, repeated, packed = "false", tag = "4")]
     pub members: ::prost::alloc::vec::Vec<i32>,
 }
+impl ::prost::Name for BasicSquadInfo {
+    const NAME: &'static str = "BasicSquadInfo";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.BasicSquadInfo".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.BasicSquadInfo".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct UnitLaborState {
     #[prost(int32, required, tag = "1")]
@@ -315,6 +465,16 @@ pub struct UnitLaborState {
     pub labor: i32,
     #[prost(bool, required, tag = "3")]
     pub value: bool,
+}
+impl ::prost::Name for UnitLaborState {
+    const NAME: &'static str = "UnitLaborState";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.UnitLaborState".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.UnitLaborState".into()
+    }
 }
 /// RPC GetWorldInfo : EmptyMessage -> GetWorldInfoOut
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
@@ -344,17 +504,7 @@ pub struct GetWorldInfoOut {
 }
 /// Nested message and enum types in `GetWorldInfoOut`.
 pub mod get_world_info_out {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
     #[repr(i32)]
     pub enum Mode {
         Dwarf = 1,
@@ -384,6 +534,16 @@ pub mod get_world_info_out {
         }
     }
 }
+impl ::prost::Name for GetWorldInfoOut {
+    const NAME: &'static str = "GetWorldInfoOut";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.GetWorldInfoOut".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.GetWorldInfoOut".into()
+    }
+}
 /// RPC ListEnums : EmptyMessage -> ListEnumsOut
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListEnumsOut {
@@ -410,6 +570,16 @@ pub struct ListEnumsOut {
     #[prost(message, repeated, tag = "11")]
     pub profession: ::prost::alloc::vec::Vec<EnumItemName>,
 }
+impl ::prost::Name for ListEnumsOut {
+    const NAME: &'static str = "ListEnumsOut";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.ListEnumsOut".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.ListEnumsOut".into()
+    }
+}
 /// RPC ListJobSkills : EmptyMessage -> ListJobSkillsOut
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListJobSkillsOut {
@@ -419,6 +589,16 @@ pub struct ListJobSkillsOut {
     pub profession: ::prost::alloc::vec::Vec<ProfessionAttr>,
     #[prost(message, repeated, tag = "3")]
     pub labor: ::prost::alloc::vec::Vec<UnitLaborAttr>,
+}
+impl ::prost::Name for ListJobSkillsOut {
+    const NAME: &'static str = "ListJobSkillsOut";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.ListJobSkillsOut".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.ListJobSkillsOut".into()
+    }
 }
 /// RPC ListMaterials : ListMaterialsIn -> ListMaterialsOut
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -438,10 +618,30 @@ pub struct ListMaterialsIn {
     #[prost(bool, optional, tag = "6")]
     pub plants: ::core::option::Option<bool>,
 }
+impl ::prost::Name for ListMaterialsIn {
+    const NAME: &'static str = "ListMaterialsIn";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.ListMaterialsIn".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.ListMaterialsIn".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListMaterialsOut {
     #[prost(message, repeated, tag = "1")]
     pub value: ::prost::alloc::vec::Vec<BasicMaterialInfo>,
+}
+impl ::prost::Name for ListMaterialsOut {
+    const NAME: &'static str = "ListMaterialsOut";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.ListMaterialsOut".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.ListMaterialsOut".into()
+    }
 }
 /// RPC ListUnits : ListUnitsIn -> ListUnitsOut
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
@@ -468,24 +668,74 @@ pub struct ListUnitsIn {
     #[prost(bool, optional, tag = "8")]
     pub sane: ::core::option::Option<bool>,
 }
+impl ::prost::Name for ListUnitsIn {
+    const NAME: &'static str = "ListUnitsIn";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.ListUnitsIn".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.ListUnitsIn".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListUnitsOut {
     #[prost(message, repeated, tag = "1")]
     pub value: ::prost::alloc::vec::Vec<BasicUnitInfo>,
 }
+impl ::prost::Name for ListUnitsOut {
+    const NAME: &'static str = "ListUnitsOut";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.ListUnitsOut".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.ListUnitsOut".into()
+    }
+}
 /// RPC ListSquads : ListSquadsIn -> ListSquadsOut
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct ListSquadsIn {}
+impl ::prost::Name for ListSquadsIn {
+    const NAME: &'static str = "ListSquadsIn";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.ListSquadsIn".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.ListSquadsIn".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListSquadsOut {
     #[prost(message, repeated, tag = "1")]
     pub value: ::prost::alloc::vec::Vec<BasicSquadInfo>,
+}
+impl ::prost::Name for ListSquadsOut {
+    const NAME: &'static str = "ListSquadsOut";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.ListSquadsOut".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.ListSquadsOut".into()
+    }
 }
 /// RPC SetUnitLabors : SetUnitLaborsIn -> EmptyMessage
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SetUnitLaborsIn {
     #[prost(message, repeated, tag = "1")]
     pub change: ::prost::alloc::vec::Vec<UnitLaborState>,
+}
+impl ::prost::Name for SetUnitLaborsIn {
+    const NAME: &'static str = "SetUnitLaborsIn";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.SetUnitLaborsIn".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.SetUnitLaborsIn".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct CoreTextFragment {
@@ -496,17 +746,7 @@ pub struct CoreTextFragment {
 }
 /// Nested message and enum types in `CoreTextFragment`.
 pub mod core_text_fragment {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
     #[repr(i32)]
     pub enum Color {
         Black = 0,
@@ -575,29 +815,43 @@ pub mod core_text_fragment {
         }
     }
 }
+impl ::prost::Name for CoreTextFragment {
+    const NAME: &'static str = "CoreTextFragment";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.CoreTextFragment".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.CoreTextFragment".into()
+    }
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CoreTextNotification {
     #[prost(message, repeated, tag = "1")]
     pub fragments: ::prost::alloc::vec::Vec<CoreTextFragment>,
 }
+impl ::prost::Name for CoreTextNotification {
+    const NAME: &'static str = "CoreTextNotification";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.CoreTextNotification".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.CoreTextNotification".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct CoreErrorNotification {
-    #[prost(enumeration = "core_error_notification::ErrorCode", required, tag = "1")]
+    #[prost(
+        enumeration = "core_error_notification::ErrorCode",
+        required,
+        tag = "1"
+    )]
     pub code: i32,
 }
 /// Nested message and enum types in `CoreErrorNotification`.
 pub mod core_error_notification {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
     #[repr(i32)]
     pub enum ErrorCode {
         CrLinkFailure = -3,
@@ -639,27 +893,87 @@ pub mod core_error_notification {
         }
     }
 }
+impl ::prost::Name for CoreErrorNotification {
+    const NAME: &'static str = "CoreErrorNotification";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.CoreErrorNotification".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.CoreErrorNotification".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct EmptyMessage {}
+impl ::prost::Name for EmptyMessage {
+    const NAME: &'static str = "EmptyMessage";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.EmptyMessage".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.EmptyMessage".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct IntMessage {
     #[prost(int32, required, tag = "1")]
     pub value: i32,
+}
+impl ::prost::Name for IntMessage {
+    const NAME: &'static str = "IntMessage";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.IntMessage".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.IntMessage".into()
+    }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct IntListMessage {
     #[prost(int32, repeated, packed = "false", tag = "1")]
     pub value: ::prost::alloc::vec::Vec<i32>,
 }
+impl ::prost::Name for IntListMessage {
+    const NAME: &'static str = "IntListMessage";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.IntListMessage".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.IntListMessage".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct StringMessage {
     #[prost(string, required, tag = "1")]
     pub value: ::prost::alloc::string::String,
 }
+impl ::prost::Name for StringMessage {
+    const NAME: &'static str = "StringMessage";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.StringMessage".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.StringMessage".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct StringListMessage {
     #[prost(string, repeated, tag = "1")]
     pub value: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+impl ::prost::Name for StringListMessage {
+    const NAME: &'static str = "StringListMessage";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.StringListMessage".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.StringListMessage".into()
+    }
 }
 /// RPC BindMethod : CoreBindRequest -> CoreBindReply
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
@@ -673,10 +987,30 @@ pub struct CoreBindRequest {
     #[prost(string, optional, tag = "4")]
     pub plugin: ::core::option::Option<::prost::alloc::string::String>,
 }
+impl ::prost::Name for CoreBindRequest {
+    const NAME: &'static str = "CoreBindRequest";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.CoreBindRequest".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.CoreBindRequest".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct CoreBindReply {
     #[prost(int32, required, tag = "1")]
     pub assigned_id: i32,
+}
+impl ::prost::Name for CoreBindReply {
+    const NAME: &'static str = "CoreBindReply";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.CoreBindReply".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.CoreBindReply".into()
+    }
 }
 /// RPC RunCommand : CoreRunCommandRequest -> EmptyMessage
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
@@ -685,6 +1019,16 @@ pub struct CoreRunCommandRequest {
     pub command: ::prost::alloc::string::String,
     #[prost(string, repeated, tag = "2")]
     pub arguments: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+impl ::prost::Name for CoreRunCommandRequest {
+    const NAME: &'static str = "CoreRunCommandRequest";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.CoreRunCommandRequest".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.CoreRunCommandRequest".into()
+    }
 }
 /// RPC RunLua : CoreRunLuaRequest -> StringListMessage
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
@@ -696,6 +1040,16 @@ pub struct CoreRunLuaRequest {
     #[prost(string, repeated, tag = "3")]
     pub arguments: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
+impl ::prost::Name for CoreRunLuaRequest {
+    const NAME: &'static str = "CoreRunLuaRequest";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.CoreRunLuaRequest".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.CoreRunLuaRequest".into()
+    }
+}
 /// RPC RenameSquad : RenameSquadIn -> EmptyMessage
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct RenameSquadIn {
@@ -705,6 +1059,16 @@ pub struct RenameSquadIn {
     pub nickname: ::core::option::Option<::prost::alloc::string::String>,
     #[prost(string, optional, tag = "3")]
     pub alias: ::core::option::Option<::prost::alloc::string::String>,
+}
+impl ::prost::Name for RenameSquadIn {
+    const NAME: &'static str = "RenameSquadIn";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.RenameSquadIn".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.RenameSquadIn".into()
+    }
 }
 /// RPC RenameUnit : RenameUnitIn -> EmptyMessage
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
@@ -716,6 +1080,16 @@ pub struct RenameUnitIn {
     #[prost(string, optional, tag = "3")]
     pub profession: ::core::option::Option<::prost::alloc::string::String>,
 }
+impl ::prost::Name for RenameUnitIn {
+    const NAME: &'static str = "RenameUnitIn";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.RenameUnitIn".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.RenameUnitIn".into()
+    }
+}
 /// RPC RenameBuilding : RenameBuildingIn -> EmptyMessage
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct RenameBuildingIn {
@@ -723,4 +1097,14 @@ pub struct RenameBuildingIn {
     pub building_id: i32,
     #[prost(string, optional, tag = "2")]
     pub name: ::core::option::Option<::prost::alloc::string::String>,
+}
+impl ::prost::Name for RenameBuildingIn {
+    const NAME: &'static str = "RenameBuildingIn";
+    const PACKAGE: &'static str = "dfproto";
+    fn full_name() -> ::prost::alloc::string::String {
+        "dfproto.RenameBuildingIn".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/dfproto.RenameBuildingIn".into()
+    }
 }

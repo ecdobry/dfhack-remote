@@ -20,6 +20,16 @@ pub struct InstrumentFlags {
     #[prost(bool, optional, tag = "9")]
     pub bone_mat: ::core::option::Option<bool>,
 }
+impl ::prost::Name for InstrumentFlags {
+    const NAME: &'static str = "InstrumentFlags";
+    const PACKAGE: &'static str = "ItemdefInstrument";
+    fn full_name() -> ::prost::alloc::string::String {
+        "ItemdefInstrument.InstrumentFlags".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/ItemdefInstrument.InstrumentFlags".into()
+    }
+}
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct InstrumentPiece {
     #[prost(string, optional, tag = "1")]
@@ -31,12 +41,32 @@ pub struct InstrumentPiece {
     #[prost(string, optional, tag = "4")]
     pub name_plural: ::core::option::Option<::prost::alloc::string::String>,
 }
+impl ::prost::Name for InstrumentPiece {
+    const NAME: &'static str = "InstrumentPiece";
+    const PACKAGE: &'static str = "ItemdefInstrument";
+    fn full_name() -> ::prost::alloc::string::String {
+        "ItemdefInstrument.InstrumentPiece".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/ItemdefInstrument.InstrumentPiece".into()
+    }
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct InstrumentRegister {
     #[prost(int32, optional, tag = "1")]
     pub pitch_range_min: ::core::option::Option<i32>,
     #[prost(int32, optional, tag = "2")]
     pub pitch_range_max: ::core::option::Option<i32>,
+}
+impl ::prost::Name for InstrumentRegister {
+    const NAME: &'static str = "InstrumentRegister";
+    const PACKAGE: &'static str = "ItemdefInstrument";
+    fn full_name() -> ::prost::alloc::string::String {
+        "ItemdefInstrument.InstrumentRegister".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/ItemdefInstrument.InstrumentRegister".into()
+    }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct InstrumentDef {
@@ -58,13 +88,23 @@ pub struct InstrumentDef {
     pub volume_mb_min: ::core::option::Option<i32>,
     #[prost(int32, optional, tag = "9")]
     pub volume_mb_max: ::core::option::Option<i32>,
-    #[prost(enumeration = "SoundProductionType", repeated, packed = "false", tag = "10")]
+    #[prost(
+        enumeration = "SoundProductionType",
+        repeated,
+        packed = "false",
+        tag = "10"
+    )]
     pub sound_production: ::prost::alloc::vec::Vec<i32>,
     #[prost(string, repeated, tag = "11")]
     pub sound_production_parm1: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     #[prost(string, repeated, tag = "12")]
     pub sound_production_parm2: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    #[prost(enumeration = "PitchChoiceType", repeated, packed = "false", tag = "13")]
+    #[prost(
+        enumeration = "PitchChoiceType",
+        repeated,
+        packed = "false",
+        tag = "13"
+    )]
     pub pitch_choice: ::prost::alloc::vec::Vec<i32>,
     #[prost(string, repeated, tag = "14")]
     pub pitch_choice_parm1: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -78,6 +118,16 @@ pub struct InstrumentDef {
     pub registers: ::prost::alloc::vec::Vec<InstrumentRegister>,
     #[prost(string, optional, tag = "19")]
     pub description: ::core::option::Option<::prost::alloc::string::String>,
+}
+impl ::prost::Name for InstrumentDef {
+    const NAME: &'static str = "InstrumentDef";
+    const PACKAGE: &'static str = "ItemdefInstrument";
+    fn full_name() -> ::prost::alloc::string::String {
+        "ItemdefInstrument.InstrumentDef".into()
+    }
+    fn type_url() -> ::prost::alloc::string::String {
+        "/ItemdefInstrument.InstrumentDef".into()
+    }
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
