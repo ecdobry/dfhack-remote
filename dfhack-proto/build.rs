@@ -1,10 +1,11 @@
+use std::env;
 use std::path::Path;
 use std::{collections::HashMap, io::BufRead, path::PathBuf};
 
 use heck::{ToPascalCase, ToSnakeCase};
 use proc_macro2::TokenStream;
-use protobuf::reflect::MessageDescriptor;
-use protobuf_codegen::{Customize, CustomizeCallback};
+use prost::Message;
+use prost_types::FileDescriptorSet;
 use quote::format_ident;
 use quote::quote;
 use quote::ToTokens;
@@ -45,21 +46,11 @@ impl Plugin {
     }
 }
 
-struct AddHash;
-
-impl CustomizeCallback for AddHash {
-    fn message(&self, message: &MessageDescriptor) -> Customize {
-        let mut customize = Customize::default();
-        if message.name() == "MatPair" || message.name() == "Coord" {
-            customize = customize.before("#[derive(Hash, Eq)]");
-        }
-        customize
-    }
-}
-
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
     println!("cargo:rerun-if-env-changed=DFHACK_REGEN");
+
+    let protoc = get_protoc();
 
     let proto_include_dir = dfhack_proto_srcs::include_dir();
     let protos = dfhack_proto_srcs::protos();
@@ -82,30 +73,57 @@ fn main() {
     };
 
     // Generate the protobuf message files
-    generate_messages_rs(&protos, proto_include_dir, &out_path);
+    let fd = generate_messages_rs(&protoc, &protos, proto_include_dir, &out_path);
 
     // Generate the plugin stubs
-    generate_stubs_rs(&protos, &out_path)
+    generate_stubs_rs(&fd, &protos, &out_path)
 }
 
-fn generate_messages_rs(protos: &Vec<PathBuf>, include_dir: &str, out_path: &Path) {
+fn get_protoc() -> PathBuf {
+    let protoc_version = "33.5";
+    let out_dir = env::var("OUT_DIR").unwrap();
+    protoc_fetcher::protoc(protoc_version, Path::new(&out_dir)).unwrap()
+}
+
+fn generate_messages_rs(
+    protoc: &PathBuf,
+    protos: &Vec<PathBuf>,
+    include_dir: &str,
+    out_path: &Path,
+) -> FileDescriptorSet {
     let mut out_path = out_path.to_path_buf();
     out_path.push("messages");
     std::fs::create_dir_all(&out_path).unwrap();
-    messages_protoc_codegen(protos, include_dir, &out_path);
-    messages_generate_mod_rs(protos, &out_path);
+    messages_protoc_codegen(protoc, protos, include_dir, &out_path)
+    //messages_generate_mod_rs(protos, &out_path);
 }
 
 // Call the protoc code generation
-fn messages_protoc_codegen(protos: &Vec<PathBuf>, include_dir: &str, out_path: &Path) {
-    protobuf_codegen::Codegen::new()
-        .customize(Customize::default().lite_runtime(false))
-        .customize_callback(AddHash)
-        .pure()
-        .include(include_dir)
-        .inputs(protos)
-        .out_dir(out_path)
-        .run_from_script();
+fn messages_protoc_codegen(
+    protoc: &PathBuf,
+    protos: &Vec<PathBuf>,
+    include_dir: &str,
+    out_path: &Path,
+) -> FileDescriptorSet {
+    let mut prost = prost_build::Config::new();
+    let fd = PathBuf::from(env::var("OUT_DIR").expect("OUT_DIR environment variable not set"))
+        .join("file_descriptor_set.bin");
+    prost.protoc_executable(protoc);
+    prost.file_descriptor_set_path(&fd);
+    prost.out_dir(out_path);
+    prost.compile_protos(protos, &[include_dir]).unwrap();
+
+    let fd = std::fs::read(fd).unwrap();
+    prost_types::FileDescriptorSet::decode(fd.as_slice()).unwrap()
+
+    /*protobuf_codegen::Codegen::new()
+    .customize(Customize::default().lite_runtime(false))
+    .customize_callback(AddHash)
+    .pure()
+    .include(include_dir)
+    .inputs(protos)
+    .out_dir(out_path)
+    .run_from_script();*/
 }
 
 fn messages_generate_mod_rs(protos: &Vec<PathBuf>, out_path: &Path) {
@@ -136,7 +154,7 @@ fn messages_generate_mod_rs(protos: &Vec<PathBuf>, out_path: &Path) {
     std::fs::write(mod_rs_path, formatted).unwrap();
 }
 
-fn generate_stubs_rs(protos: &Vec<PathBuf>, out_path: &Path) {
+fn generate_stubs_rs(fd: &FileDescriptorSet, protos: &Vec<PathBuf>, out_path: &Path) {
     let plugins = read_protos_rpcs(protos);
     let mut out_path = out_path.to_path_buf();
     out_path.push("stubs");
@@ -146,7 +164,7 @@ fn generate_stubs_rs(protos: &Vec<PathBuf>, out_path: &Path) {
     generate_stubs_mod_rs(&plugins, &mut file);
 
     for plugin in &plugins {
-        generate_stub_rs(plugin, &mut file);
+        generate_stub_rs(fd, plugin, &mut file);
     }
 
     let mut mod_rs_path = out_path.clone();
@@ -162,8 +180,6 @@ fn generate_stubs_mod_rs(plugins: &Vec<Plugin>, file: &mut TokenStream) {
 
     file.extend(quote! {
         use crate::messages::*;
-        #[cfg(feature = "reflection")]
-        use protobuf::MessageFull;
     });
 
     let mut reflection_vec_building = quote!();
@@ -214,7 +230,18 @@ fn generate_stubs_mod_rs(plugins: &Vec<Plugin>, file: &mut TokenStream) {
     });
 }
 
-fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
+fn get_full_name(fd: &FileDescriptorSet, message_name: &str) -> String {
+    for file in &fd.file {
+        for message_type in &file.message_type {
+            if message_type.name() == message_name {
+                return format!("{}.{}", file.package(), message_type.name());
+            }
+        }
+    }
+    panic!("Could not find {}", message_name);
+}
+
+fn generate_stub_rs(fd: &FileDescriptorSet, plugin: &Plugin, file: &mut TokenStream) {
     let plugin_name = &plugin.plugin_name;
     let plugin_doc = format!("RPC for the \"{}\" plugin.", plugin_name);
     let struct_ident = plugin.struct_ident.clone();
@@ -246,6 +273,9 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
         let input_ident = format_ident!("{}", rpc.input);
         let output_ident = format_ident!("{}", rpc.output);
 
+        let input_full_name = get_full_name(fd, &rpc.input);
+        let output_full_name = get_full_name(fd, &rpc.output);
+
         let mut return_token = output_ident.to_token_stream();
 
         let mut parameters = quote! {
@@ -262,7 +292,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 &mut self,
             };
             prep = quote! {
-                let request = EmptyMessage::new();
+                let request = EmptyMessage::default();
             }
         }
 
@@ -281,8 +311,8 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 value: i32,
             };
             prep = quote! {
-                let mut request = IntMessage::new();
-                request.set_value(value);
+                let mut request = IntMessage::default();
+                request.value = value;
             }
         }
 
@@ -291,7 +321,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 i32
             };
             post = quote! {
-                let _response = crate::Reply { reply:  _response.value(), fragments: _response.fragments };
+                let _response = crate::Reply { reply:  _response.value, fragments: _response.fragments };
             }
         }
 
@@ -301,8 +331,8 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 value: bool,
             };
             prep = quote! {
-                let mut request = SingleBool::new();
-                request.set_Value(value);
+                let mut request = SingleBool::default();
+                request.value = Some(value);
             }
         }
 
@@ -311,7 +341,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 bool
             };
             post = quote! {
-                let _response = crate::Reply { reply:  _response.Value(), fragments: _response.fragments };
+                let _response = crate::Reply { reply:  _response.value(), fragments: _response.fragments };
             }
         }
 
@@ -320,7 +350,7 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
                 String
             };
             post = quote! {
-                let _response = crate::Reply { reply:  _response.value().to_string(), fragments: _response.fragments };
+                let _response = crate::Reply { reply:  _response.value.clone(), fragments: _response.fragments };
             }
         }
 
@@ -331,8 +361,8 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
             ) -> Result<crate::Reply<#return_token>, TChannel::TError> {
                 #prep
                 let _response: crate::Reply<#output_ident> = self.channel.request(
-                    #plugin_name.to_string(),
-                    #function_name.to_string(),
+                    #plugin_name,
+                    #function_name,
                     request,
                 )?;
                 #post
@@ -342,14 +372,10 @@ fn generate_stub_rs(plugin: &Plugin, file: &mut TokenStream) {
 
         reflection_vec.extend(quote! {
             crate::reflection::RemoteProcedureDescriptor {
-                name: #function_name.to_string(),
-                plugin_name: #plugin_name.to_string(),
-                input_type: #input_ident::descriptor()
-                    .full_name()
-                    .to_string(),
-                output_type: #output_ident::descriptor()
-                    .full_name()
-                    .to_string(),
+                name: #function_name,
+                plugin_name: #plugin_name,
+                input_type: #input_full_name,
+                output_type: #output_full_name,
             },
         });
     }

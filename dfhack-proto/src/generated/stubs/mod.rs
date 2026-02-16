@@ -1,6 +1,4 @@
 use crate::messages::*;
-#[cfg(feature = "reflection")]
-use protobuf::MessageFull;
 ///Generated list of DFHack stubs. Each stub communicates with a plugin.
 pub struct Stubs<TChannel: crate::Channel> {
     channel: TChannel,
@@ -17,9 +15,7 @@ impl<TChannel: crate::Channel> Stubs<TChannel> {
         crate::stubs::Core::new(&mut self.channel)
     }
     ///RPCs of the RemoteFortressReader plugin
-    pub fn remote_fortress_reader(
-        &mut self,
-    ) -> crate::stubs::RemoteFortressReader<TChannel> {
+    pub fn remote_fortress_reader(&mut self) -> crate::stubs::RemoteFortressReader<TChannel> {
         crate::stubs::RemoteFortressReader::new(&mut self.channel)
     }
     ///RPCs of the mypluginname plugin
@@ -52,87 +48,73 @@ impl<'a, TChannel: crate::Channel> Core<'a, TChannel> {
         &mut self,
         request: CoreBindRequest,
     ) -> Result<crate::Reply<CoreBindReply>, TChannel::TError> {
-        let _response: crate::Reply<CoreBindReply> = self
-            .channel
-            .request("".to_string(), "BindMethod".to_string(), request)?;
+        let _response: crate::Reply<CoreBindReply> =
+            self.channel.request("", "BindMethod", request)?;
         Ok(_response)
     }
     ///Method `CoreResume` from the plugin ``
     pub fn core_resume(&mut self) -> Result<crate::Reply<i32>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<IntMessage> = self
-            .channel
-            .request("".to_string(), "CoreResume".to_string(), request)?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<IntMessage> =
+            self.channel.request("", "CoreResume", request)?;
         let _response = crate::Reply {
-            reply: _response.value(),
+            reply: _response.value,
             fragments: _response.fragments,
         };
         Ok(_response)
     }
     ///Method `CoreSuspend` from the plugin ``
     pub fn core_suspend(&mut self) -> Result<crate::Reply<i32>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<IntMessage> = self
-            .channel
-            .request("".to_string(), "CoreSuspend".to_string(), request)?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<IntMessage> =
+            self.channel.request("", "CoreSuspend", request)?;
         let _response = crate::Reply {
-            reply: _response.value(),
+            reply: _response.value,
             fragments: _response.fragments,
         };
         Ok(_response)
     }
     ///Method `GetDFVersion` from the plugin ``
     pub fn get_df_version(&mut self) -> Result<crate::Reply<String>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<StringMessage> = self
-            .channel
-            .request("".to_string(), "GetDFVersion".to_string(), request)?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<StringMessage> =
+            self.channel.request("", "GetDFVersion", request)?;
         let _response = crate::Reply {
-            reply: _response.value().to_string(),
+            reply: _response.value.clone(),
             fragments: _response.fragments,
         };
         Ok(_response)
     }
     ///Method `GetVersion` from the plugin ``
     pub fn get_version(&mut self) -> Result<crate::Reply<String>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<StringMessage> = self
-            .channel
-            .request("".to_string(), "GetVersion".to_string(), request)?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<StringMessage> =
+            self.channel.request("", "GetVersion", request)?;
         let _response = crate::Reply {
-            reply: _response.value().to_string(),
+            reply: _response.value.clone(),
             fragments: _response.fragments,
         };
         Ok(_response)
     }
     ///Method `GetWorldInfo` from the plugin ``
-    pub fn get_world_info(
-        &mut self,
-    ) -> Result<crate::Reply<GetWorldInfoOut>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<GetWorldInfoOut> = self
-            .channel
-            .request("".to_string(), "GetWorldInfo".to_string(), request)?;
+    pub fn get_world_info(&mut self) -> Result<crate::Reply<GetWorldInfoOut>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<GetWorldInfoOut> =
+            self.channel.request("", "GetWorldInfo", request)?;
         Ok(_response)
     }
     ///Method `ListEnums` from the plugin ``
-    pub fn list_enums(
-        &mut self,
-    ) -> Result<crate::Reply<ListEnumsOut>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<ListEnumsOut> = self
-            .channel
-            .request("".to_string(), "ListEnums".to_string(), request)?;
+    pub fn list_enums(&mut self) -> Result<crate::Reply<ListEnumsOut>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<ListEnumsOut> =
+            self.channel.request("", "ListEnums", request)?;
         Ok(_response)
     }
     ///Method `ListJobSkills` from the plugin ``
-    pub fn list_job_skills(
-        &mut self,
-    ) -> Result<crate::Reply<ListJobSkillsOut>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<ListJobSkillsOut> = self
-            .channel
-            .request("".to_string(), "ListJobSkills".to_string(), request)?;
+    pub fn list_job_skills(&mut self) -> Result<crate::Reply<ListJobSkillsOut>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<ListJobSkillsOut> =
+            self.channel.request("", "ListJobSkills", request)?;
         Ok(_response)
     }
     ///Method `ListMaterials` from the plugin ``
@@ -140,9 +122,8 @@ impl<'a, TChannel: crate::Channel> Core<'a, TChannel> {
         &mut self,
         request: ListMaterialsIn,
     ) -> Result<crate::Reply<ListMaterialsOut>, TChannel::TError> {
-        let _response: crate::Reply<ListMaterialsOut> = self
-            .channel
-            .request("".to_string(), "ListMaterials".to_string(), request)?;
+        let _response: crate::Reply<ListMaterialsOut> =
+            self.channel.request("", "ListMaterials", request)?;
         Ok(_response)
     }
     ///Method `ListSquads` from the plugin ``
@@ -150,9 +131,8 @@ impl<'a, TChannel: crate::Channel> Core<'a, TChannel> {
         &mut self,
         request: ListSquadsIn,
     ) -> Result<crate::Reply<ListSquadsOut>, TChannel::TError> {
-        let _response: crate::Reply<ListSquadsOut> = self
-            .channel
-            .request("".to_string(), "ListSquads".to_string(), request)?;
+        let _response: crate::Reply<ListSquadsOut> =
+            self.channel.request("", "ListSquads", request)?;
         Ok(_response)
     }
     ///Method `ListUnits` from the plugin ``
@@ -160,9 +140,8 @@ impl<'a, TChannel: crate::Channel> Core<'a, TChannel> {
         &mut self,
         request: ListUnitsIn,
     ) -> Result<crate::Reply<ListUnitsOut>, TChannel::TError> {
-        let _response: crate::Reply<ListUnitsOut> = self
-            .channel
-            .request("".to_string(), "ListUnits".to_string(), request)?;
+        let _response: crate::Reply<ListUnitsOut> =
+            self.channel.request("", "ListUnits", request)?;
         Ok(_response)
     }
     ///Method `RunCommand` from the plugin ``
@@ -170,9 +149,8 @@ impl<'a, TChannel: crate::Channel> Core<'a, TChannel> {
         &mut self,
         request: CoreRunCommandRequest,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request("".to_string(), "RunCommand".to_string(), request)?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel.request("", "RunCommand", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -184,9 +162,8 @@ impl<'a, TChannel: crate::Channel> Core<'a, TChannel> {
         &mut self,
         request: CoreRunLuaRequest,
     ) -> Result<crate::Reply<StringListMessage>, TChannel::TError> {
-        let _response: crate::Reply<StringListMessage> = self
-            .channel
-            .request("".to_string(), "RunLua".to_string(), request)?;
+        let _response: crate::Reply<StringListMessage> =
+            self.channel.request("", "RunLua", request)?;
         Ok(_response)
     }
     ///Method `SetUnitLabors` from the plugin ``
@@ -194,9 +171,8 @@ impl<'a, TChannel: crate::Channel> Core<'a, TChannel> {
         &mut self,
         request: SetUnitLaborsIn,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request("".to_string(), "SetUnitLabors".to_string(), request)?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel.request("", "SetUnitLabors", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -208,56 +184,90 @@ impl<'a, TChannel: crate::Channel> Core<'a, TChannel> {
 impl<TChannel: crate::Channel> crate::reflection::StubReflection for Core<'_, TChannel> {
     fn list_methods() -> Vec<crate::reflection::RemoteProcedureDescriptor> {
         vec![
-            crate ::reflection::RemoteProcedureDescriptor { name : "BindMethod"
-            .to_string(), plugin_name : "".to_string(), input_type :
-            CoreBindRequest::descriptor().full_name().to_string(), output_type :
-            CoreBindReply::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "CoreResume".to_string(),
-            plugin_name : "".to_string(), input_type : EmptyMessage::descriptor()
-            .full_name().to_string(), output_type : IntMessage::descriptor().full_name()
-            .to_string(), }, crate ::reflection::RemoteProcedureDescriptor { name :
-            "CoreSuspend".to_string(), plugin_name : "".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            IntMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetDFVersion".to_string(),
-            plugin_name : "".to_string(), input_type : EmptyMessage::descriptor()
-            .full_name().to_string(), output_type : StringMessage::descriptor()
-            .full_name().to_string(), }, crate ::reflection::RemoteProcedureDescriptor {
-            name : "GetVersion".to_string(), plugin_name : "".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            StringMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetWorldInfo".to_string(),
-            plugin_name : "".to_string(), input_type : EmptyMessage::descriptor()
-            .full_name().to_string(), output_type : GetWorldInfoOut::descriptor()
-            .full_name().to_string(), }, crate ::reflection::RemoteProcedureDescriptor {
-            name : "ListEnums".to_string(), plugin_name : "".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            ListEnumsOut::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "ListJobSkills".to_string(),
-            plugin_name : "".to_string(), input_type : EmptyMessage::descriptor()
-            .full_name().to_string(), output_type : ListJobSkillsOut::descriptor()
-            .full_name().to_string(), }, crate ::reflection::RemoteProcedureDescriptor {
-            name : "ListMaterials".to_string(), plugin_name : "".to_string(), input_type
-            : ListMaterialsIn::descriptor().full_name().to_string(), output_type :
-            ListMaterialsOut::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "ListSquads".to_string(),
-            plugin_name : "".to_string(), input_type : ListSquadsIn::descriptor()
-            .full_name().to_string(), output_type : ListSquadsOut::descriptor()
-            .full_name().to_string(), }, crate ::reflection::RemoteProcedureDescriptor {
-            name : "ListUnits".to_string(), plugin_name : "".to_string(), input_type :
-            ListUnitsIn::descriptor().full_name().to_string(), output_type :
-            ListUnitsOut::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "RunCommand".to_string(),
-            plugin_name : "".to_string(), input_type :
-            CoreRunCommandRequest::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "RunLua".to_string(),
-            plugin_name : "".to_string(), input_type : CoreRunLuaRequest::descriptor()
-            .full_name().to_string(), output_type : StringListMessage::descriptor()
-            .full_name().to_string(), }, crate ::reflection::RemoteProcedureDescriptor {
-            name : "SetUnitLabors".to_string(), plugin_name : "".to_string(), input_type
-            : SetUnitLaborsIn::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "BindMethod",
+                plugin_name: "",
+                input_type: "dfproto.CoreBindRequest",
+                output_type: "dfproto.CoreBindReply",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "CoreResume",
+                plugin_name: "",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "dfproto.IntMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "CoreSuspend",
+                plugin_name: "",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "dfproto.IntMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetDFVersion",
+                plugin_name: "",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "dfproto.StringMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetVersion",
+                plugin_name: "",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "dfproto.StringMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetWorldInfo",
+                plugin_name: "",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "dfproto.GetWorldInfoOut",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "ListEnums",
+                plugin_name: "",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "dfproto.ListEnumsOut",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "ListJobSkills",
+                plugin_name: "",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "dfproto.ListJobSkillsOut",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "ListMaterials",
+                plugin_name: "",
+                input_type: "dfproto.ListMaterialsIn",
+                output_type: "dfproto.ListMaterialsOut",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "ListSquads",
+                plugin_name: "",
+                input_type: "dfproto.ListSquadsIn",
+                output_type: "dfproto.ListSquadsOut",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "ListUnits",
+                plugin_name: "",
+                input_type: "dfproto.ListUnitsIn",
+                output_type: "dfproto.ListUnitsOut",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "RunCommand",
+                plugin_name: "",
+                input_type: "dfproto.CoreRunCommandRequest",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "RunLua",
+                plugin_name: "",
+                input_type: "dfproto.CoreRunLuaRequest",
+                output_type: "dfproto.StringListMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "SetUnitLabors",
+                plugin_name: "",
+                input_type: "dfproto.SetUnitLaborsIn",
+                output_type: "dfproto.EmptyMessage",
+            },
         ]
     }
 }
@@ -273,14 +283,10 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
     }
     ///Method `CheckHashes` from the plugin `RemoteFortressReader`
     pub fn check_hashes(&mut self) -> Result<crate::Reply<()>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "CheckHashes".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("RemoteFortressReader", "CheckHashes", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -288,17 +294,11 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         Ok(_response)
     }
     ///Method `CopyScreen` from the plugin `RemoteFortressReader`
-    pub fn copy_screen(
-        &mut self,
-    ) -> Result<crate::Reply<ScreenCapture>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<ScreenCapture> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "CopyScreen".to_string(),
-                request,
-            )?;
+    pub fn copy_screen(&mut self) -> Result<crate::Reply<ScreenCapture>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<ScreenCapture> =
+            self.channel
+                .request("RemoteFortressReader", "CopyScreen", request)?;
         Ok(_response)
     }
     ///Method `GetBlockList` from the plugin `RemoteFortressReader`
@@ -306,123 +306,79 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: BlockRequest,
     ) -> Result<crate::Reply<BlockList>, TChannel::TError> {
-        let _response: crate::Reply<BlockList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetBlockList".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<BlockList> =
+            self.channel
+                .request("RemoteFortressReader", "GetBlockList", request)?;
         Ok(_response)
     }
     ///Method `GetBuildingDefList` from the plugin `RemoteFortressReader`
     pub fn get_building_def_list(
         &mut self,
     ) -> Result<crate::Reply<BuildingList>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<BuildingList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetBuildingDefList".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<BuildingList> =
+            self.channel
+                .request("RemoteFortressReader", "GetBuildingDefList", request)?;
         Ok(_response)
     }
     ///Method `GetCreatureRaws` from the plugin `RemoteFortressReader`
-    pub fn get_creature_raws(
-        &mut self,
-    ) -> Result<crate::Reply<CreatureRawList>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<CreatureRawList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetCreatureRaws".to_string(),
-                request,
-            )?;
+    pub fn get_creature_raws(&mut self) -> Result<crate::Reply<CreatureRawList>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<CreatureRawList> =
+            self.channel
+                .request("RemoteFortressReader", "GetCreatureRaws", request)?;
         Ok(_response)
     }
     ///Method `GetGameValidity` from the plugin `RemoteFortressReader`
     pub fn get_game_validity(&mut self) -> Result<crate::Reply<bool>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<SingleBool> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetGameValidity".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<SingleBool> =
+            self.channel
+                .request("RemoteFortressReader", "GetGameValidity", request)?;
         let _response = crate::Reply {
-            reply: _response.Value(),
+            reply: _response.value(),
             fragments: _response.fragments,
         };
         Ok(_response)
     }
     ///Method `GetGrowthList` from the plugin `RemoteFortressReader`
-    pub fn get_growth_list(
-        &mut self,
-    ) -> Result<crate::Reply<MaterialList>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<MaterialList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetGrowthList".to_string(),
-                request,
-            )?;
+    pub fn get_growth_list(&mut self) -> Result<crate::Reply<MaterialList>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<MaterialList> =
+            self.channel
+                .request("RemoteFortressReader", "GetGrowthList", request)?;
         Ok(_response)
     }
     ///Method `GetItemList` from the plugin `RemoteFortressReader`
-    pub fn get_item_list(
-        &mut self,
-    ) -> Result<crate::Reply<MaterialList>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<MaterialList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetItemList".to_string(),
-                request,
-            )?;
+    pub fn get_item_list(&mut self) -> Result<crate::Reply<MaterialList>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<MaterialList> =
+            self.channel
+                .request("RemoteFortressReader", "GetItemList", request)?;
         Ok(_response)
     }
     ///Method `GetLanguage` from the plugin `RemoteFortressReader`
     pub fn get_language(&mut self) -> Result<crate::Reply<Language>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<Language> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetLanguage".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<Language> =
+            self.channel
+                .request("RemoteFortressReader", "GetLanguage", request)?;
         Ok(_response)
     }
     ///Method `GetMapInfo` from the plugin `RemoteFortressReader`
     pub fn get_map_info(&mut self) -> Result<crate::Reply<MapInfo>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<MapInfo> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetMapInfo".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<MapInfo> =
+            self.channel
+                .request("RemoteFortressReader", "GetMapInfo", request)?;
         Ok(_response)
     }
     ///Method `GetMaterialList` from the plugin `RemoteFortressReader`
-    pub fn get_material_list(
-        &mut self,
-    ) -> Result<crate::Reply<MaterialList>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<MaterialList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetMaterialList".to_string(),
-                request,
-            )?;
+    pub fn get_material_list(&mut self) -> Result<crate::Reply<MaterialList>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<MaterialList> =
+            self.channel
+                .request("RemoteFortressReader", "GetMaterialList", request)?;
         Ok(_response)
     }
     ///Method `GetPartialCreatureRaws` from the plugin `RemoteFortressReader`
@@ -430,13 +386,9 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: ListRequest,
     ) -> Result<crate::Reply<CreatureRawList>, TChannel::TError> {
-        let _response: crate::Reply<CreatureRawList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetPartialCreatureRaws".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<CreatureRawList> =
+            self.channel
+                .request("RemoteFortressReader", "GetPartialCreatureRaws", request)?;
         Ok(_response)
     }
     ///Method `GetPartialPlantRaws` from the plugin `RemoteFortressReader`
@@ -444,27 +396,19 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: ListRequest,
     ) -> Result<crate::Reply<PlantRawList>, TChannel::TError> {
-        let _response: crate::Reply<PlantRawList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetPartialPlantRaws".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<PlantRawList> =
+            self.channel
+                .request("RemoteFortressReader", "GetPartialPlantRaws", request)?;
         Ok(_response)
     }
     ///Method `GetPauseState` from the plugin `RemoteFortressReader`
     pub fn get_pause_state(&mut self) -> Result<crate::Reply<bool>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<SingleBool> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetPauseState".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<SingleBool> =
+            self.channel
+                .request("RemoteFortressReader", "GetPauseState", request)?;
         let _response = crate::Reply {
-            reply: _response.Value(),
+            reply: _response.value(),
             fragments: _response.fragments,
         };
         Ok(_response)
@@ -474,107 +418,65 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: BlockRequest,
     ) -> Result<crate::Reply<PlantList>, TChannel::TError> {
-        let _response: crate::Reply<PlantList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetPlantList".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<PlantList> =
+            self.channel
+                .request("RemoteFortressReader", "GetPlantList", request)?;
         Ok(_response)
     }
     ///Method `GetPlantRaws` from the plugin `RemoteFortressReader`
-    pub fn get_plant_raws(
-        &mut self,
-    ) -> Result<crate::Reply<PlantRawList>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<PlantRawList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetPlantRaws".to_string(),
-                request,
-            )?;
+    pub fn get_plant_raws(&mut self) -> Result<crate::Reply<PlantRawList>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<PlantRawList> =
+            self.channel
+                .request("RemoteFortressReader", "GetPlantRaws", request)?;
         Ok(_response)
     }
     ///Method `GetRegionMaps` from the plugin `RemoteFortressReader`
-    pub fn get_region_maps(
-        &mut self,
-    ) -> Result<crate::Reply<RegionMaps>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<RegionMaps> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetRegionMaps".to_string(),
-                request,
-            )?;
+    pub fn get_region_maps(&mut self) -> Result<crate::Reply<RegionMaps>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<RegionMaps> =
+            self.channel
+                .request("RemoteFortressReader", "GetRegionMaps", request)?;
         Ok(_response)
     }
     ///Method `GetRegionMapsNew` from the plugin `RemoteFortressReader`
-    pub fn get_region_maps_new(
-        &mut self,
-    ) -> Result<crate::Reply<RegionMaps>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<RegionMaps> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetRegionMapsNew".to_string(),
-                request,
-            )?;
+    pub fn get_region_maps_new(&mut self) -> Result<crate::Reply<RegionMaps>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<RegionMaps> =
+            self.channel
+                .request("RemoteFortressReader", "GetRegionMapsNew", request)?;
         Ok(_response)
     }
     ///Method `GetReports` from the plugin `RemoteFortressReader`
     pub fn get_reports(&mut self) -> Result<crate::Reply<Status>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<Status> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetReports".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<Status> =
+            self.channel
+                .request("RemoteFortressReader", "GetReports", request)?;
         Ok(_response)
     }
     ///Method `GetSideMenu` from the plugin `RemoteFortressReader`
-    pub fn get_side_menu(
-        &mut self,
-    ) -> Result<crate::Reply<SidebarState>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<SidebarState> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetSideMenu".to_string(),
-                request,
-            )?;
+    pub fn get_side_menu(&mut self) -> Result<crate::Reply<SidebarState>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<SidebarState> =
+            self.channel
+                .request("RemoteFortressReader", "GetSideMenu", request)?;
         Ok(_response)
     }
     ///Method `GetTiletypeList` from the plugin `RemoteFortressReader`
-    pub fn get_tiletype_list(
-        &mut self,
-    ) -> Result<crate::Reply<TiletypeList>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<TiletypeList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetTiletypeList".to_string(),
-                request,
-            )?;
+    pub fn get_tiletype_list(&mut self) -> Result<crate::Reply<TiletypeList>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<TiletypeList> =
+            self.channel
+                .request("RemoteFortressReader", "GetTiletypeList", request)?;
         Ok(_response)
     }
     ///Method `GetUnitList` from the plugin `RemoteFortressReader`
     pub fn get_unit_list(&mut self) -> Result<crate::Reply<UnitList>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<UnitList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetUnitList".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<UnitList> =
+            self.channel
+                .request("RemoteFortressReader", "GetUnitList", request)?;
         Ok(_response)
     }
     ///Method `GetUnitListInside` from the plugin `RemoteFortressReader`
@@ -582,79 +484,49 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: BlockRequest,
     ) -> Result<crate::Reply<UnitList>, TChannel::TError> {
-        let _response: crate::Reply<UnitList> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetUnitListInside".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<UnitList> =
+            self.channel
+                .request("RemoteFortressReader", "GetUnitListInside", request)?;
         Ok(_response)
     }
     ///Method `GetVersionInfo` from the plugin `RemoteFortressReader`
-    pub fn get_version_info(
-        &mut self,
-    ) -> Result<crate::Reply<VersionInfo>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<VersionInfo> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetVersionInfo".to_string(),
-                request,
-            )?;
+    pub fn get_version_info(&mut self) -> Result<crate::Reply<VersionInfo>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<VersionInfo> =
+            self.channel
+                .request("RemoteFortressReader", "GetVersionInfo", request)?;
         Ok(_response)
     }
     ///Method `GetViewInfo` from the plugin `RemoteFortressReader`
     pub fn get_view_info(&mut self) -> Result<crate::Reply<ViewInfo>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<ViewInfo> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetViewInfo".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<ViewInfo> =
+            self.channel
+                .request("RemoteFortressReader", "GetViewInfo", request)?;
         Ok(_response)
     }
     ///Method `GetWorldMap` from the plugin `RemoteFortressReader`
     pub fn get_world_map(&mut self) -> Result<crate::Reply<WorldMap>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<WorldMap> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetWorldMap".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<WorldMap> =
+            self.channel
+                .request("RemoteFortressReader", "GetWorldMap", request)?;
         Ok(_response)
     }
     ///Method `GetWorldMapCenter` from the plugin `RemoteFortressReader`
-    pub fn get_world_map_center(
-        &mut self,
-    ) -> Result<crate::Reply<WorldMap>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<WorldMap> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetWorldMapCenter".to_string(),
-                request,
-            )?;
+    pub fn get_world_map_center(&mut self) -> Result<crate::Reply<WorldMap>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<WorldMap> =
+            self.channel
+                .request("RemoteFortressReader", "GetWorldMapCenter", request)?;
         Ok(_response)
     }
     ///Method `GetWorldMapNew` from the plugin `RemoteFortressReader`
-    pub fn get_world_map_new(
-        &mut self,
-    ) -> Result<crate::Reply<WorldMap>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<WorldMap> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "GetWorldMapNew".to_string(),
-                request,
-            )?;
+    pub fn get_world_map_new(&mut self) -> Result<crate::Reply<WorldMap>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<WorldMap> =
+            self.channel
+                .request("RemoteFortressReader", "GetWorldMapNew", request)?;
         Ok(_response)
     }
     ///Method `JumpCommand` from the plugin `RemoteFortressReader`
@@ -662,13 +534,9 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: MoveCommandParams,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "JumpCommand".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("RemoteFortressReader", "JumpCommand", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -676,17 +544,11 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         Ok(_response)
     }
     ///Method `MenuQuery` from the plugin `RemoteFortressReader`
-    pub fn menu_query(
-        &mut self,
-    ) -> Result<crate::Reply<MenuContents>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<MenuContents> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "MenuQuery".to_string(),
-                request,
-            )?;
+    pub fn menu_query(&mut self) -> Result<crate::Reply<MenuContents>, TChannel::TError> {
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<MenuContents> =
+            self.channel
+                .request("RemoteFortressReader", "MenuQuery", request)?;
         Ok(_response)
     }
     ///Method `MiscMoveCommand` from the plugin `RemoteFortressReader`
@@ -694,13 +556,9 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: MiscMoveParams,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "MiscMoveCommand".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("RemoteFortressReader", "MiscMoveCommand", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -712,13 +570,9 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: MoveCommandParams,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "MoveCommand".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("RemoteFortressReader", "MoveCommand", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -730,15 +584,11 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         value: i32,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let mut request = IntMessage::new();
-        request.set_value(value);
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "MovementSelectCommand".to_string(),
-                request,
-            )?;
+        let mut request = IntMessage::default();
+        request.value = value;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("RemoteFortressReader", "MovementSelectCommand", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -750,13 +600,9 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: KeyboardEvent,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "PassKeyboardEvent".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("RemoteFortressReader", "PassKeyboardEvent", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -765,14 +611,10 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
     }
     ///Method `ResetMapHashes` from the plugin `RemoteFortressReader`
     pub fn reset_map_hashes(&mut self) -> Result<crate::Reply<()>, TChannel::TError> {
-        let request = EmptyMessage::new();
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "ResetMapHashes".to_string(),
-                request,
-            )?;
+        let request = EmptyMessage::default();
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("RemoteFortressReader", "ResetMapHashes", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -784,13 +626,9 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: DigCommand,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "SendDigCommand".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("RemoteFortressReader", "SendDigCommand", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -798,19 +636,12 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         Ok(_response)
     }
     ///Method `SetPauseState` from the plugin `RemoteFortressReader`
-    pub fn set_pause_state(
-        &mut self,
-        value: bool,
-    ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let mut request = SingleBool::new();
-        request.set_Value(value);
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "SetPauseState".to_string(),
-                request,
-            )?;
+    pub fn set_pause_state(&mut self, value: bool) -> Result<crate::Reply<()>, TChannel::TError> {
+        let mut request = SingleBool::default();
+        request.value = Some(value);
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("RemoteFortressReader", "SetPauseState", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -822,13 +653,9 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
         &mut self,
         request: SidebarCommand,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request(
-                "RemoteFortressReader".to_string(),
-                "SetSideMenu".to_string(),
-                request,
-            )?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("RemoteFortressReader", "SetSideMenu", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -838,161 +665,238 @@ impl<'a, TChannel: crate::Channel> RemoteFortressReader<'a, TChannel> {
 }
 #[cfg(feature = "reflection")]
 impl<TChannel: crate::Channel> crate::reflection::StubReflection
-for RemoteFortressReader<'_, TChannel> {
+    for RemoteFortressReader<'_, TChannel>
+{
     fn list_methods() -> Vec<crate::reflection::RemoteProcedureDescriptor> {
         vec![
-            crate ::reflection::RemoteProcedureDescriptor { name : "CheckHashes"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "CopyScreen".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            ScreenCapture::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetBlockList".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            BlockRequest::descriptor().full_name().to_string(), output_type :
-            BlockList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetBuildingDefList"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            BuildingList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetCreatureRaws"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            CreatureRawList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetGameValidity"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            SingleBool::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetGrowthList".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            MaterialList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetItemList".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            MaterialList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetLanguage".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            Language::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetMapInfo".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            MapInfo::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetMaterialList"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            MaterialList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetPartialCreatureRaws"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            ListRequest::descriptor().full_name().to_string(), output_type :
-            CreatureRawList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetPartialPlantRaws"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            ListRequest::descriptor().full_name().to_string(), output_type :
-            PlantRawList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetPauseState".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            SingleBool::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetPlantList".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            BlockRequest::descriptor().full_name().to_string(), output_type :
-            PlantList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetPlantRaws".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            PlantRawList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetRegionMaps".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            RegionMaps::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetRegionMapsNew"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            RegionMaps::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetReports".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            Status::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetSideMenu".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            SidebarState::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetTiletypeList"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            TiletypeList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetUnitList".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            UnitList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetUnitListInside"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            BlockRequest::descriptor().full_name().to_string(), output_type :
-            UnitList::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetVersionInfo"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            VersionInfo::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetViewInfo".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            ViewInfo::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetWorldMap".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            WorldMap::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetWorldMapCenter"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            WorldMap::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "GetWorldMapNew"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            WorldMap::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "JumpCommand".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            MoveCommandParams::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "MenuQuery".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            MenuContents::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "MiscMoveCommand"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            MiscMoveParams::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "MoveCommand".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            MoveCommandParams::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "MovementSelectCommand"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            IntMessage::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "PassKeyboardEvent"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            KeyboardEvent::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "ResetMapHashes"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            EmptyMessage::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "SendDigCommand"
-            .to_string(), plugin_name : "RemoteFortressReader".to_string(), input_type :
-            DigCommand::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "SetPauseState".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            SingleBool::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "SetSideMenu".to_string(),
-            plugin_name : "RemoteFortressReader".to_string(), input_type :
-            SidebarCommand::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "CheckHashes",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "CopyScreen",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.ScreenCapture",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetBlockList",
+                plugin_name: "RemoteFortressReader",
+                input_type: "RemoteFortressReader.BlockRequest",
+                output_type: "RemoteFortressReader.BlockList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetBuildingDefList",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.BuildingList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetCreatureRaws",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.CreatureRawList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetGameValidity",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.SingleBool",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetGrowthList",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.MaterialList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetItemList",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.MaterialList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetLanguage",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.Language",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetMapInfo",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.MapInfo",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetMaterialList",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.MaterialList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetPartialCreatureRaws",
+                plugin_name: "RemoteFortressReader",
+                input_type: "RemoteFortressReader.ListRequest",
+                output_type: "RemoteFortressReader.CreatureRawList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetPartialPlantRaws",
+                plugin_name: "RemoteFortressReader",
+                input_type: "RemoteFortressReader.ListRequest",
+                output_type: "RemoteFortressReader.PlantRawList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetPauseState",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.SingleBool",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetPlantList",
+                plugin_name: "RemoteFortressReader",
+                input_type: "RemoteFortressReader.BlockRequest",
+                output_type: "RemoteFortressReader.PlantList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetPlantRaws",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.PlantRawList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetRegionMaps",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.RegionMaps",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetRegionMapsNew",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.RegionMaps",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetReports",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.Status",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetSideMenu",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "DwarfControl.SidebarState",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetTiletypeList",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.TiletypeList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetUnitList",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.UnitList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetUnitListInside",
+                plugin_name: "RemoteFortressReader",
+                input_type: "RemoteFortressReader.BlockRequest",
+                output_type: "RemoteFortressReader.UnitList",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetVersionInfo",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.VersionInfo",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetViewInfo",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.ViewInfo",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetWorldMap",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.WorldMap",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetWorldMapCenter",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.WorldMap",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "GetWorldMapNew",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "RemoteFortressReader.WorldMap",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "JumpCommand",
+                plugin_name: "RemoteFortressReader",
+                input_type: "AdventureControl.MoveCommandParams",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "MenuQuery",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "AdventureControl.MenuContents",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "MiscMoveCommand",
+                plugin_name: "RemoteFortressReader",
+                input_type: "AdventureControl.MiscMoveParams",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "MoveCommand",
+                plugin_name: "RemoteFortressReader",
+                input_type: "AdventureControl.MoveCommandParams",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "MovementSelectCommand",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.IntMessage",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "PassKeyboardEvent",
+                plugin_name: "RemoteFortressReader",
+                input_type: "RemoteFortressReader.KeyboardEvent",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "ResetMapHashes",
+                plugin_name: "RemoteFortressReader",
+                input_type: "dfproto.EmptyMessage",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "SendDigCommand",
+                plugin_name: "RemoteFortressReader",
+                input_type: "RemoteFortressReader.DigCommand",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "SetPauseState",
+                plugin_name: "RemoteFortressReader",
+                input_type: "RemoteFortressReader.SingleBool",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "SetSideMenu",
+                plugin_name: "RemoteFortressReader",
+                input_type: "DwarfControl.SidebarCommand",
+                output_type: "dfproto.EmptyMessage",
+            },
         ]
     }
 }
@@ -1011,9 +915,9 @@ impl<'a, TChannel: crate::Channel> Mypluginname<'a, TChannel> {
         &mut self,
         request: RenameBuildingIn,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request("mypluginname".to_string(), "RenameBuilding".to_string(), request)?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("mypluginname", "RenameBuilding", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -1025,9 +929,9 @@ impl<'a, TChannel: crate::Channel> Mypluginname<'a, TChannel> {
         &mut self,
         request: RenameSquadIn,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request("mypluginname".to_string(), "RenameSquad".to_string(), request)?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("mypluginname", "RenameSquad", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -1039,9 +943,9 @@ impl<'a, TChannel: crate::Channel> Mypluginname<'a, TChannel> {
         &mut self,
         request: RenameUnitIn,
     ) -> Result<crate::Reply<()>, TChannel::TError> {
-        let _response: crate::Reply<EmptyMessage> = self
-            .channel
-            .request("mypluginname".to_string(), "RenameUnit".to_string(), request)?;
+        let _response: crate::Reply<EmptyMessage> =
+            self.channel
+                .request("mypluginname", "RenameUnit", request)?;
         let _response = crate::Reply {
             reply: (),
             fragments: _response.fragments,
@@ -1050,22 +954,27 @@ impl<'a, TChannel: crate::Channel> Mypluginname<'a, TChannel> {
     }
 }
 #[cfg(feature = "reflection")]
-impl<TChannel: crate::Channel> crate::reflection::StubReflection
-for Mypluginname<'_, TChannel> {
+impl<TChannel: crate::Channel> crate::reflection::StubReflection for Mypluginname<'_, TChannel> {
     fn list_methods() -> Vec<crate::reflection::RemoteProcedureDescriptor> {
         vec![
-            crate ::reflection::RemoteProcedureDescriptor { name : "RenameBuilding"
-            .to_string(), plugin_name : "mypluginname".to_string(), input_type :
-            RenameBuildingIn::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "RenameSquad".to_string(),
-            plugin_name : "mypluginname".to_string(), input_type :
-            RenameSquadIn::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), }, crate
-            ::reflection::RemoteProcedureDescriptor { name : "RenameUnit".to_string(),
-            plugin_name : "mypluginname".to_string(), input_type :
-            RenameUnitIn::descriptor().full_name().to_string(), output_type :
-            EmptyMessage::descriptor().full_name().to_string(), },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "RenameBuilding",
+                plugin_name: "mypluginname",
+                input_type: "dfproto.RenameBuildingIn",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "RenameSquad",
+                plugin_name: "mypluginname",
+                input_type: "dfproto.RenameSquadIn",
+                output_type: "dfproto.EmptyMessage",
+            },
+            crate::reflection::RemoteProcedureDescriptor {
+                name: "RenameUnit",
+                plugin_name: "mypluginname",
+                input_type: "dfproto.RenameUnitIn",
+                output_type: "dfproto.EmptyMessage",
+            },
         ]
     }
 }
