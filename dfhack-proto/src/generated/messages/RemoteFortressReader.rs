@@ -5320,7 +5320,7 @@ pub struct MaterialDefinition {
     // @@protoc_insertion_point(field:RemoteFortressReader.MaterialDefinition.id)
     pub id: ::std::option::Option<::std::string::String>,
     // @@protoc_insertion_point(field:RemoteFortressReader.MaterialDefinition.name)
-    pub name: ::std::option::Option<::std::string::String>,
+    pub name: ::std::option::Option<::std::vec::Vec<u8>>,
     // @@protoc_insertion_point(field:RemoteFortressReader.MaterialDefinition.state_color)
     pub state_color: ::protobuf::MessageField<ColorDefinition>,
     // @@protoc_insertion_point(field:RemoteFortressReader.MaterialDefinition.instrument)
@@ -5383,12 +5383,12 @@ impl MaterialDefinition {
         self.id.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    // optional string name = 3;
+    // optional bytes name = 3;
 
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &[u8] {
         match self.name.as_ref() {
             Some(v) => v,
-            None => "",
+            None => &[],
         }
     }
 
@@ -5401,22 +5401,22 @@ impl MaterialDefinition {
     }
 
     // Param is passed by value, moved
-    pub fn set_name(&mut self, v: ::std::string::String) {
+    pub fn set_name(&mut self, v: ::std::vec::Vec<u8>) {
         self.name = ::std::option::Option::Some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_name(&mut self) -> &mut ::std::string::String {
+    pub fn mut_name(&mut self) -> &mut ::std::vec::Vec<u8> {
         if self.name.is_none() {
-            self.name = ::std::option::Option::Some(::std::string::String::new());
+            self.name = ::std::option::Option::Some(::std::vec::Vec::new());
         }
         self.name.as_mut().unwrap()
     }
 
     // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
+    pub fn take_name(&mut self) -> ::std::vec::Vec<u8> {
+        self.name.take().unwrap_or_else(|| ::std::vec::Vec::new())
     }
 
     // optional int32 up_step = 6;
@@ -5565,7 +5565,7 @@ impl ::protobuf::Message for MaterialDefinition {
                     self.id = ::std::option::Option::Some(is.read_string()?);
                 },
                 26 => {
-                    self.name = ::std::option::Option::Some(is.read_string()?);
+                    self.name = ::std::option::Option::Some(is.read_bytes()?);
                 },
                 34 => {
                     ::protobuf::rt::read_singular_message_into_field(is, &mut self.state_color)?;
@@ -5602,7 +5602,7 @@ impl ::protobuf::Message for MaterialDefinition {
             my_size += ::protobuf::rt::string_size(2, &v);
         }
         if let Some(v) = self.name.as_ref() {
-            my_size += ::protobuf::rt::string_size(3, &v);
+            my_size += ::protobuf::rt::bytes_size(3, &v);
         }
         if let Some(v) = self.state_color.as_ref() {
             let len = v.compute_size();
@@ -5634,7 +5634,7 @@ impl ::protobuf::Message for MaterialDefinition {
             os.write_string(2, v)?;
         }
         if let Some(v) = self.name.as_ref() {
-            os.write_string(3, v)?;
+            os.write_bytes(3, v)?;
         }
         if let Some(v) = self.state_color.as_ref() {
             ::protobuf::rt::write_message_field_with_cached_size(4, v, os)?;
@@ -11270,7 +11270,7 @@ pub struct WorldMap {
     // @@protoc_insertion_point(field:RemoteFortressReader.WorldMap.world_height)
     pub world_height: ::std::option::Option<i32>,
     // @@protoc_insertion_point(field:RemoteFortressReader.WorldMap.name)
-    pub name: ::std::option::Option<::std::string::String>,
+    pub name: ::std::option::Option<::std::vec::Vec<u8>>,
     // @@protoc_insertion_point(field:RemoteFortressReader.WorldMap.name_english)
     pub name_english: ::std::option::Option<::std::string::String>,
     // @@protoc_insertion_point(field:RemoteFortressReader.WorldMap.elevation)
@@ -11369,12 +11369,12 @@ impl WorldMap {
         self.world_height = ::std::option::Option::Some(v);
     }
 
-    // optional string name = 3;
+    // optional bytes name = 3;
 
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &[u8] {
         match self.name.as_ref() {
             Some(v) => v,
-            None => "",
+            None => &[],
         }
     }
 
@@ -11387,22 +11387,22 @@ impl WorldMap {
     }
 
     // Param is passed by value, moved
-    pub fn set_name(&mut self, v: ::std::string::String) {
+    pub fn set_name(&mut self, v: ::std::vec::Vec<u8>) {
         self.name = ::std::option::Option::Some(v);
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_name(&mut self) -> &mut ::std::string::String {
+    pub fn mut_name(&mut self) -> &mut ::std::vec::Vec<u8> {
         if self.name.is_none() {
-            self.name = ::std::option::Option::Some(::std::string::String::new());
+            self.name = ::std::option::Option::Some(::std::vec::Vec::new());
         }
         self.name.as_mut().unwrap()
     }
 
     // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
+    pub fn take_name(&mut self) -> ::std::vec::Vec<u8> {
+        self.name.take().unwrap_or_else(|| ::std::vec::Vec::new())
     }
 
     // optional string name_english = 4;
@@ -11770,7 +11770,7 @@ impl ::protobuf::Message for WorldMap {
                     self.world_height = ::std::option::Option::Some(is.read_int32()?);
                 },
                 26 => {
-                    self.name = ::std::option::Option::Some(is.read_string()?);
+                    self.name = ::std::option::Option::Some(is.read_bytes()?);
                 },
                 34 => {
                     self.name_english = ::std::option::Option::Some(is.read_string()?);
@@ -11887,7 +11887,7 @@ impl ::protobuf::Message for WorldMap {
             my_size += ::protobuf::rt::int32_size(2, v);
         }
         if let Some(v) = self.name.as_ref() {
-            my_size += ::protobuf::rt::string_size(3, &v);
+            my_size += ::protobuf::rt::bytes_size(3, &v);
         }
         if let Some(v) = self.name_english.as_ref() {
             my_size += ::protobuf::rt::string_size(4, &v);
@@ -11971,7 +11971,7 @@ impl ::protobuf::Message for WorldMap {
             os.write_int32(2, v)?;
         }
         if let Some(v) = self.name.as_ref() {
-            os.write_string(3, v)?;
+            os.write_bytes(3, v)?;
         }
         if let Some(v) = self.name_english.as_ref() {
             os.write_string(4, v)?;
@@ -26278,11 +26278,11 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     lue\x18\x03\x20\x02(\x05R\x04blue\"\xea\x02\n\x12MaterialDefinition\x128\
     \n\x08mat_pair\x18\x01\x20\x02(\x0b2\x1d.RemoteFortressReader.MatPairR\
     \x07matPair\x12\x0e\n\x02id\x18\x02\x20\x01(\tR\x02id\x12\x12\n\x04name\
-    \x18\x03\x20\x01(\tR\x04name\x12F\n\x0bstate_color\x18\x04\x20\x01(\x0b2\
-    %.RemoteFortressReader.ColorDefinitionR\nstateColor\x12@\n\ninstrument\
-    \x18\x05\x20\x01(\x0b2\x20.ItemdefInstrument.InstrumentDefR\ninstrument\
-    \x12\x17\n\x07up_step\x18\x06\x20\x01(\x05R\x06upStep\x12\x1b\n\tdown_st\
-    ep\x18\x07\x20\x01(\x05R\x08downStep\x126\n\x05layer\x18\x08\x20\x01(\
+    \x18\x03\x20\x01(\x0cR\x04name\x12F\n\x0bstate_color\x18\x04\x20\x01(\
+    \x0b2%.RemoteFortressReader.ColorDefinitionR\nstateColor\x12@\n\ninstrum\
+    ent\x18\x05\x20\x01(\x0b2\x20.ItemdefInstrument.InstrumentDefR\ninstrume\
+    nt\x12\x17\n\x07up_step\x18\x06\x20\x01(\x05R\x06upStep\x12\x1b\n\tdown_\
+    step\x18\x07\x20\x01(\x05R\x08downStep\x126\n\x05layer\x18\x08\x20\x01(\
     \x0e2\x20.RemoteFortressReader.ArmorLayerR\x05layer\"\x87\x01\n\x0cBuild\
     ingType\x12#\n\rbuilding_type\x18\x01\x20\x02(\x05R\x0cbuildingType\x12)\
     \n\x10building_subtype\x18\x02\x20\x02(\x05R\x0fbuildingSubtype\x12'\n\
@@ -26383,9 +26383,9 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     tusTypeR\x07stratus\x12/\n\x03fog\x18\x05\x20\x01(\x0e2\x1d.RemoteFortre\
     ssReader.FogTypeR\x03fog\"\xf1\x06\n\x08WorldMap\x12\x1f\n\x0bworld_widt\
     h\x18\x01\x20\x02(\x05R\nworldWidth\x12!\n\x0cworld_height\x18\x02\x20\
-    \x02(\x05R\x0bworldHeight\x12\x12\n\x04name\x18\x03\x20\x01(\tR\x04name\
-    \x12!\n\x0cname_english\x18\x04\x20\x01(\tR\x0bnameEnglish\x12\x1c\n\tel\
-    evation\x18\x05\x20\x03(\x05R\televation\x12\x1a\n\x08rainfall\x18\x06\
+    \x02(\x05R\x0bworldHeight\x12\x12\n\x04name\x18\x03\x20\x01(\x0cR\x04nam\
+    e\x12!\n\x0cname_english\x18\x04\x20\x01(\tR\x0bnameEnglish\x12\x1c\n\te\
+    levation\x18\x05\x20\x03(\x05R\televation\x12\x1a\n\x08rainfall\x18\x06\
     \x20\x03(\x05R\x08rainfall\x12\x1e\n\nvegetation\x18\x07\x20\x03(\x05R\n\
     vegetation\x12\x20\n\x0btemperature\x18\x08\x20\x03(\x05R\x0btemperature\
     \x12\x1a\n\x08evilness\x18\t\x20\x03(\x05R\x08evilness\x12\x1a\n\x08drai\
