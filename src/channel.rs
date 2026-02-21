@@ -5,10 +5,11 @@
 //! before being able to use them.
 
 use std::collections::HashMap;
+use std::net::{SocketAddr, TcpStream, ToSocketAddrs};
 
 use crate::{
     message::{self, Receive, Send},
-    Error,
+    ConnectOptions, Error,
 };
 
 #[derive(PartialEq, Eq, Hash, Clone)]
@@ -70,18 +71,38 @@ impl dfhack_proto::Channel for Channel {
 }
 
 impl Channel {
-    pub(crate) fn connect() -> crate::Result<Self> {
-        let port = match std::env::var("DFHACK_PORT") {
-            Ok(p) => p,
-            Err(_) => "5000".to_string(),
-        };
-        Self::connect_to(&format!("127.0.0.1:{}", port))
-    }
+    pub(crate) fn connect_with(
+        opts: &ConnectOptions,
+    ) -> crate::Result<Channel> {
+        log::info!("Connecting to {}", opts.address);
 
-    pub(crate) fn connect_to(address: &str) -> crate::Result<Channel> {
-        log::info!("Connecting to {}", address);
+        let stream = match opts.connect_timeout {
+            Some(timeout) => {
+                let addr: SocketAddr = opts
+                    .address
+                    .to_socket_addrs()?
+                    .next()
+                    .ok_or_else(|| {
+                        Error::CommunicationFailure(
+                            std::io::Error::new(
+                                std::io::ErrorKind::InvalidInput,
+                                format!(
+                                    "could not resolve address: {}",
+                                    opts.address
+                                ),
+                            ),
+                        )
+                    })?;
+                TcpStream::connect_timeout(&addr, timeout)?
+            }
+            None => TcpStream::connect(&opts.address)?,
+        };
+
+        stream.set_read_timeout(opts.read_timeout)?;
+        stream.set_write_timeout(opts.write_timeout)?;
+
         let mut client = Channel {
-            stream: std::net::TcpStream::connect(address)?,
+            stream,
             bindings: HashMap::new(),
         };
 
@@ -203,12 +224,18 @@ impl Drop for Channel {
 mod tests {
     #[cfg(feature = "test-with-df")]
     mod withdf {
-        use crate::Error;
+        use crate::{ConnectOptions, Error};
+
+        fn connect_channel() -> crate::channel::Channel {
+            crate::channel::Channel::connect_with(
+                &ConnectOptions::default(),
+            )
+            .unwrap()
+        }
 
         #[test]
         fn bind() {
-            use crate::channel::Channel;
-            let mut channel = Channel::connect().unwrap();
+            let mut channel = connect_channel();
 
             channel
                 .bind_method_by_name(
@@ -222,8 +249,7 @@ mod tests {
 
         #[test]
         fn bad_bind() {
-            use crate::channel::Channel;
-            let mut channel = Channel::connect().unwrap();
+            let mut channel = connect_channel();
 
             let err = channel
                 .bind_method_by_name(
@@ -248,11 +274,13 @@ mod tests {
 
         #[test]
         fn bind_all() {
-            use dfhack_proto::{reflection::StubReflection, stubs::Stubs};
+            use dfhack_proto::{
+                reflection::StubReflection, stubs::Stubs,
+            };
 
-            use crate::channel::Channel;
-            let mut channel = Channel::connect().unwrap();
-            let methods = Stubs::<Channel>::list_methods();
+            let mut channel = connect_channel();
+            let methods =
+                Stubs::<crate::channel::Channel>::list_methods();
 
             for method in &methods {
                 channel

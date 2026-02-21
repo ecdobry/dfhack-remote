@@ -1,6 +1,8 @@
 #![warn(missing_docs)]
 #![doc = include_str!("../README.md")]
 
+use std::time::Duration;
+
 use num_enum::TryFromPrimitiveError;
 
 mod channel;
@@ -14,13 +16,82 @@ pub use dfhack_proto::Message;
 pub use dfhack_proto::Reply;
 use message::CommandResult;
 
-/// DFHack client, build it with [connect] or [connect_to]
+/// DFHack client, build it with [connect], [connect_to],
+/// or [ConnectOptions].
 pub type Client = Stubs<Channel>;
+
+/// Options for connecting to DFHack.
+///
+/// # Examples
+///
+/// ```no_run
+/// use std::time::Duration;
+///
+/// let mut client = dfhack_remote::ConnectOptions::default()
+///     .connect_timeout(Duration::from_secs(5))
+///     .read_timeout(Duration::from_secs(10))
+///     .write_timeout(Duration::from_secs(10))
+///     .connect()
+///     .unwrap();
+/// ```
+#[derive(Debug, Clone)]
+pub struct ConnectOptions {
+    pub(crate) address: String,
+    pub(crate) connect_timeout: Option<Duration>,
+    pub(crate) read_timeout: Option<Duration>,
+    pub(crate) write_timeout: Option<Duration>,
+}
+
+impl Default for ConnectOptions {
+    fn default() -> Self {
+        let port = std::env::var("DFHACK_PORT")
+            .unwrap_or_else(|_| "5000".to_string());
+        Self {
+            address: format!("127.0.0.1:{}", port),
+            connect_timeout: None,
+            read_timeout: None,
+            write_timeout: None,
+        }
+    }
+}
+
+impl ConnectOptions {
+    /// Set the address to connect to.
+    pub fn address(mut self, address: &str) -> Self {
+        self.address = address.to_string();
+        self
+    }
+
+    /// Set the connection timeout.
+    pub fn connect_timeout(mut self, timeout: Duration) -> Self {
+        self.connect_timeout = Some(timeout);
+        self
+    }
+
+    /// Set the read timeout on the TCP stream.
+    pub fn read_timeout(mut self, timeout: Duration) -> Self {
+        self.read_timeout = Some(timeout);
+        self
+    }
+
+    /// Set the write timeout on the TCP stream.
+    pub fn write_timeout(mut self, timeout: Duration) -> Self {
+        self.write_timeout = Some(timeout);
+        self
+    }
+
+    /// Connect to DFHack with these options.
+    pub fn connect(&self) -> Result<Client> {
+        let channel = Channel::connect_with(self)?;
+        Ok(Stubs::from(channel))
+    }
+}
 
 /// Connect to Dwarf Fortress using the default settings
 ///
 /// It will try to connect to `127.0.0.1:5000`, DFHack default address.
-/// The port can be overriden with `DFHACK_PORT`, which is also taken in account by DFHack.
+/// The port can be overriden with `DFHACK_PORT`, which is also
+/// taken in account by DFHack.
 ///
 /// For remote connexion, see [connect_to].
 ///
@@ -34,15 +105,15 @@ pub type Client = Stubs<Channel>;
 /// println!("DwarfFortress {}",  df_version);
 /// ```
 pub fn connect() -> Result<Client> {
-    let connexion = Channel::connect()?;
-    Ok(Stubs::from(connexion))
+    ConnectOptions::default().connect()
 }
 
 /// Connect to Dwarf Fortress with a given address
 ///
 /// # Arguments
 ///
-/// * `address` - Address of the DFHack server. By default, DFHack runs of `127.0.0.1:5000`
+/// * `address` - Address of the DFHack server. By default,
+///   DFHack runs on `127.0.0.1:5000`
 ///
 /// # Examples
 ///
@@ -52,10 +123,8 @@ pub fn connect() -> Result<Client> {
 /// let df_version = dfhack.core().get_df_version().unwrap();
 /// println!("DwarfFortress {}",  df_version);
 /// ```
-///
 pub fn connect_to(address: &str) -> Result<Client> {
-    let connexion = Channel::connect_to(address)?;
-    Ok(Stubs::from(connexion))
+    ConnectOptions::default().address(address).connect()
 }
 
 /// Result type emitted by DFHack API calls
