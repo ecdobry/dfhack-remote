@@ -48,28 +48,23 @@ impl Plugin {
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
-    println!("cargo:rerun-if-env-changed=DFHACK_REGEN");
 
-    if std::env::var("DFHACK_REGEN").is_ok() {
-        let protoc = get_protoc();
+    let protoc = get_protoc();
 
-        let proto_include_dir = dfhack_proto_srcs::include_dir();
-        let protos = dfhack_proto_srcs::protos();
+    let proto_include_dir = dfhack_proto_srcs::include_dir();
+    let protos = dfhack_proto_srcs::protos();
 
-        assert!(!protos.is_empty(), "No protobuf file for code generation.");
+    assert!(!protos.is_empty(), "No protobuf file for code generation.");
 
-        // Generate in the sources if DFHACK_REGEN is set
-        let out_path = PathBuf::from(format!("{}/src/generated", env!("CARGO_MANIFEST_DIR")));
-        if out_path.exists() {
-            std::fs::remove_dir_all(&out_path).unwrap();
-        }
-        std::fs::create_dir_all(&out_path).unwrap();
-        // Generate the protobuf message files
-        generate_messages_rs(&protoc, &protos, proto_include_dir, &out_path);
-
-        // Generate the plugin stubs
-        generate_stubs_rs(&protos, &out_path)
+    for proto in &protos {
+        println!("cargo:rerun-if-changed={}", proto.display());
     }
+
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+
+    generate_messages_rs(&protoc, &protos, proto_include_dir, &out_path);
+    generate_reexports_rs(&out_path);
+    generate_stubs_rs(&protos, &out_path);
 }
 
 fn get_protoc() -> PathBuf {
@@ -78,7 +73,12 @@ fn get_protoc() -> PathBuf {
     protoc_fetcher::protoc(protoc_version, Path::new(&out_dir)).unwrap()
 }
 
-fn generate_messages_rs(protoc: &PathBuf, protos: &[PathBuf], include_dir: &str, out_path: &Path) {
+fn generate_messages_rs(
+    protoc: &PathBuf,
+    protos: &[PathBuf],
+    include_dir: &str,
+    out_path: &Path,
+) {
     let mut out_path = out_path.to_path_buf();
     out_path.push("messages");
     std::fs::create_dir_all(&out_path).unwrap();
@@ -94,7 +94,6 @@ fn messages_protoc_codegen(
 ) {
     let mut mod_path = out_path.to_path_buf();
     mod_path.push("includes.rs");
-    println!("{}", mod_path.display());
     prost_build::Config::new()
         .enable_type_names()
         .type_attribute(".", "#[derive(serde::Serialize)]")
@@ -103,7 +102,27 @@ fn messages_protoc_codegen(
         .include_file(&mod_path)
         .compile_protos(protos, &[include_dir])
         .unwrap();
-    //panic!("{}", mod_path.display());
+}
+
+/// Generate `reexports.rs` with `pub use module::*;` for each
+/// top-level module defined in prost's `includes.rs`.
+fn generate_reexports_rs(out_path: &Path) {
+    let includes_path = out_path.join("messages").join("includes.rs");
+    let content = std::fs::read_to_string(&includes_path).unwrap();
+
+    let mod_regex = Regex::new(r"^pub mod (\w+) \{").unwrap();
+    let mut reexports = String::new();
+    for line in content.lines() {
+        if let Some(cap) = mod_regex.captures(line) {
+            let mod_name = &cap[1];
+            // Nested modules like `proto::enums::ui_sidebar_mode`
+            // need a wildcard re-export too
+            reexports.push_str(&format!("pub use {mod_name}::*;\n"));
+        }
+    }
+
+    let reexports_path = out_path.join("reexports.rs");
+    std::fs::write(reexports_path, reexports).unwrap();
 }
 
 fn generate_stubs_rs(protos: &[PathBuf], out_path: &Path) {

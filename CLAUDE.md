@@ -16,13 +16,13 @@ cargo test <test_name>               # Run a single test
 cargo clippy --workspace             # Lint
 ```
 
-### Proto Regeneration
+### Proto Sources
 
-Proto files and generated code are checked in. Regeneration requires special env vars:
+Proto files are checked in under `dfhack-proto-srcs`. Rust code is generated at build time into `$OUT_DIR`. To download fresh protos from a different DFHack version:
 
 ```bash
-DFHACK_DOWNLOAD=1 DFHACK_REGEN=1 cargo build   # Download protos and regenerate code
-DFHACK_ZIP_URL=<url> DFHACK_DOWNLOAD=1 DFHACK_REGEN=1 cargo build  # Target different DFHack version
+DFHACK_DOWNLOAD=1 cargo build                    # Download protos and rebuild
+DFHACK_ZIP_URL=<url> DFHACK_DOWNLOAD=1 cargo build  # Target different DFHack version
 ```
 
 ### Integration Tests
@@ -44,8 +44,7 @@ Three-crate workspace with a layered code generation pipeline:
 ### `dfhack-proto` (code generation)
 - **Message generation**: prost-build compiles `.proto` files into Rust types
 - **Stub generation**: Custom parser in `build.rs` reads RPC definitions from proto comments (`// Plugin: X`, `// RPC Method : Input -> Output`) and generates typed method stubs
-- Generated code lands in `src/generated/messages/` and `src/generated/stubs/`
-- Only regenerates when `DFHACK_REGEN=1` is set
+- Generated code is produced into `$OUT_DIR` at build time
 - Defines the `Channel` trait (transport abstraction) and `Message` trait
 
 ### `dfhack-remote` (main library)

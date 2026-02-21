@@ -12,12 +12,7 @@ It contains two main modules:
  - [messages] exposes the protobuf messages. This is the standard generated protobuf.
  - [stubs] exposes the plugins and their RPC. DFHack is not using gRPC and this is a custom implementation
 
-Internally these two modules are created under the `generated` module.
-
 The terminology is based on `gRPC`: The `stubs` expose the feature from the plugin. They are built from
 a `channel` implementing the data exchange.
 
-The code is regenerated under the condition that the environment variable `DFHACK_REGEN` is set.
-
-This crates generates all its code directly in a source subfolder. It would likely
-be cleaner to use the $OUT_DIR, or macro to do this job.
+Both modules are generated at build time from the proto files in `dfhack-proto-srcs`.

@@ -3,31 +3,18 @@
 
 use std::{fmt::Display, ops::Deref};
 
-#[allow(clippy::let_unit_value)]
-#[allow(missing_docs)]
-pub(crate) mod generated {
-    pub(crate) mod stubs;
-}
-
 /// Raw protobuf messages
 #[allow(missing_docs)]
 pub mod messages {
-    include!("generated/messages/includes.rs");
-    pub use adventure_control::*;
-    pub use dfproto::*;
-    pub use dfstockpiles::*;
-    pub use dwarf_control::*;
-    pub use itemdef_instrument::*;
-    pub use proto::enums::ui_sidebar_mode::*;
-    pub use remote_fortress_reader::*;
+    include!(concat!(env!("OUT_DIR"), "/messages/includes.rs"));
+    include!(concat!(env!("OUT_DIR"), "/reexports.rs"));
 }
 
 /// Stubs exposing the feature of the DFHack remote API.
-///
-/// Each stub is generated from a DFHack plugin.
-/// This module is auto-generated from DFHack sources.
+#[allow(clippy::let_unit_value)]
+#[allow(missing_docs)]
 pub mod stubs {
-    pub use crate::generated::stubs::*;
+    include!(concat!(env!("OUT_DIR"), "/stubs/mod.rs"));
 }
 
 /// Message exchanged by dfhack-remote
